@@ -17,7 +17,7 @@ const Navigate = () => (
     <Stack.Screen name="Preload" component={Preload} />
     <Stack.Screen name="Login" component={Login} />
     <Stack.Screen name="Register" component={Register} />
-    <Stack.Screen name="Home" component={DrawerNavigation} />
+    <Stack.Screen name="HomeScreen" component={DrawerNavigation} />
   </Stack.Navigator>
 );
 

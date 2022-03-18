@@ -46,7 +46,7 @@ const Login = ({navigation}) => {
           password={true}
         />
 
-        <Button text="ENTRAR" onPress={() => navigation.navigate('Home')}/>
+        <Button text="ENTRAR" onPress={() => navigation.navigate('HomeScreen')}/>
         <ViewRegister onPress={() => handleButtonClick()}>
           <Text> Ainda não possui uma conta ?</Text>
 
