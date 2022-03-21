@@ -2,11 +2,10 @@ import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import { StyleSheet, ScrollView } from "react-native";
 import {
-  Container,
-  ContainerBackground,
-  ImageBackground,
-  TextFromBackground,
+  Container
 } from "./styles";
+import ListVideos from "../../components/ListVideos";
+import HeaderPoster from "../../components/HeaderPoster";
 
 const HomeScreen = () => {
   return (
@@ -18,18 +17,10 @@ const HomeScreen = () => {
         colors={["#343746", "#303C76"]}
       >
         <ScrollView>
-          <ImageBackground
-            opacity={0.6}
-            source={require("../../assets/bannerSpiderMan.jpg")}
-          >
-            <ContainerBackground>
-              <TextFromBackground>
-                Homem-Aranha - Sem Volta Para Casa
-              </TextFromBackground>
-              <TextFromBackground>3 estralas</TextFromBackground>
-              <TextFromBackground>220 min</TextFromBackground>
-            </ContainerBackground>
-          </ImageBackground>
+          <HeaderPoster />
+
+          <ListVideos />
+          <ListVideos />
         </ScrollView>
       </LinearGradient>
     </Container>

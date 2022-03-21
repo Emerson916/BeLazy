@@ -4,6 +4,7 @@ import Preload from "../screens/Preload";
 import Login from "../screens/Login";
 import Register from "../screens/Register";
 import DrawerNavigation from "./DrawerNavigation";
+import CardDetails from "../screens/CardDetails";
 
 const Stack = createStackNavigator();
 
@@ -18,6 +19,7 @@ const Navigate = () => (
     <Stack.Screen name="Login" component={Login} />
     <Stack.Screen name="Register" component={Register} />
     <Stack.Screen name="HomeScreen" component={DrawerNavigation} />
+    <Stack.Screen name="CardDetails" component={CardDetails} />
   </Stack.Navigator>
 );
 
