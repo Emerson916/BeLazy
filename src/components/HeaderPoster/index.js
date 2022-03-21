@@ -4,13 +4,18 @@ import {
   ImageBackground,
   TextFromBackground,
 } from "./styles";
+import ImageCarousel from "../ImageCarousel";
 
 const HeaderPoster = () => {
   return (
-    <ImageBackground
-      opacity={0.6}
-      source={require("../../assets/bannerSpiderMan.jpg")}
-    >
+    // <ImageBackground
+    //   opacity={0.6}
+    //   source={require("../../assets/bannerSpiderMan.jpg")}
+    // >
+
+    <>
+      {/* <ImageCarousel data={FAKE_DATA.items} /> */}
+
       <ContainerBackground>
         <TextFromBackground>
           Homem-Aranha - Sem Volta Para Casa
@@ -18,7 +23,7 @@ const HeaderPoster = () => {
         <TextFromBackground>3 estralas</TextFromBackground>
         <TextFromBackground>220 min</TextFromBackground>
       </ContainerBackground>
-    </ImageBackground>
+    </>
   );
 };
 
