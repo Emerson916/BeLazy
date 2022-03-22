@@ -9,22 +9,34 @@ export const ImageBackground = styled.ImageBackground`
   width: 100%;
 `;
 
-export const ContainerVideoData = styled.View`
+export const ContainerTypeVideo = styled.View`
   width: 100%;
-  height: 120px;
-  flex-direction: row;
-`;
-
-export const ContainerTextData = styled.View`
-  width: 50%;
   flex-direction: row;
   padding: 20px;
+  align-items: center;
+`;
+
+export const TypeVideo = styled.Text`
+  color: #fff;
+  font-size: 16px;
+  padding-left: 10px;
+`;
+
+export const ContainerTitle = styled.View`
+  width: 100%;
+  padding-left: 20px;
 `;
 
 export const TitleText = styled.Text`
   color: #fff;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
+`;
+
+export const ContainerCategory = styled.View`
+  width: 100%;
+  padding-left: 10px;
+  flex-direction: row;
 `;
 
 export const LaunchText = styled.Text`
@@ -33,16 +45,25 @@ export const LaunchText = styled.Text`
   padding: 10px;
 `;
 
-export const ContainerButtons = styled.View`
-  width: 50%;
-`;
-
-export const ContainerTypeVideo = styled.View`
+export const ContainerSinopse = styled.View`
   width: 100%;
-  padding-left: 20px;
+  padding: 20px;
 `;
 
-export const TypeVideo = styled.Text`
+export const TitleSinopse = styled.Text`
   color: #fff;
-  font-size: 16px;
+  font-size: 20px;
+`;
+
+export const TextSinopse = styled.Text`
+  color: #fff;
+  font-size: 14px;
+  margin-top: 15px;
+`;
+
+export const ContainerButtons = styled.View`
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
 `;

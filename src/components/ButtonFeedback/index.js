@@ -1,11 +1,11 @@
-import { View, Text } from "react-native";
 import React from "react";
-import { Container } from "./styles";
+import { Container, Text } from "./styles";
 
-const ButtonFeedback = ({text}) => {
+const ButtonFeedback = ({IconSvg, title}) => {
   return (
     <Container>
-      <Text>{text}</Text>
+      <IconSvg width="16" height="16" fill="#303C76"/>
+      <Text>{title}</Text>
     </Container>
   );
 };

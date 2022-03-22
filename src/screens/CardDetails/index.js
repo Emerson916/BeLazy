@@ -4,17 +4,27 @@ import { StyleSheet } from "react-native";
 import {
   Container,
   ImageBackground,
-  ContainerVideoData,
-  ContainerTextData,
+  ContainerCategory,
+  ContainerSinopse,
   ContainerButtons,
   TitleText,
   LaunchText,
   ContainerTypeVideo,
-  TypeVideo
+  TypeVideo,
+  ContainerTitle,
+  TextSinopse,
+  TitleSinopse,
 } from "./styles";
 import ButtonFeedback from "../../components/ButtonFeedback";
+import CamIcon from "../../assets/camIcon.svg";
+import Bookmark from "../../assets/bookmark.svg";
+import ErrorIcon from "../../assets/error.svg";
+import CompartilharIcon from "../../assets/compartilhar.svg";
+import ButtonWatch from "../../components/ButtonWatch";
 
-const CardDetails = () => {
+const CardDetails = (props) => {
+  const { id, video, imageBanner } = props.route.params;
+
   return (
     <Container>
       <LinearGradient
@@ -23,27 +33,36 @@ const CardDetails = () => {
         end={{ x: 1, y: 1.3 }}
         colors={["#343746", "#303C76"]}
       >
-        <ImageBackground
-          opacity={0.6}
-          source={require("../../assets/bannerSpiderMan.jpg")}
-        />
-
-        <ContainerVideoData>
-          <ContainerTextData>
-            <TitleText>Venom</TitleText>
-            <LaunchText>lan. 2021</LaunchText>
-          </ContainerTextData>
-
-          <ContainerButtons>
-            <ButtonFeedback />
-            <ButtonFeedback />
-            <ButtonFeedback />
-          </ContainerButtons>
-        </ContainerVideoData>
+        <ImageBackground opacity={0.6} source={{ uri: imageBanner }} />
 
         <ContainerTypeVideo>
-          <TypeVideo>Filme</TypeVideo>
+          <CamIcon width="20" height="20" />
+          <TypeVideo>{video.type.replace("FILM", "Filme")}</TypeVideo>
         </ContainerTypeVideo>
+
+        <ContainerTitle>
+          <TitleText>{video.title_video}</TitleText>
+        </ContainerTitle>
+
+        <ContainerCategory>
+          <LaunchText>{video.releaseYear}</LaunchText>
+          <LaunchText>{video.category}</LaunchText>
+        </ContainerCategory>
+
+        <ContainerButtons>
+          <ButtonWatch text="Assistir"/>
+        </ContainerButtons>
+
+        <ContainerSinopse>
+          <TitleSinopse>Sinopse</TitleSinopse>
+          <TextSinopse>{video.sinopse}</TextSinopse>
+        </ContainerSinopse>
+
+        <ContainerButtons>
+          <ButtonFeedback IconSvg={Bookmark} title="Favoritar" />
+          <ButtonFeedback IconSvg={ErrorIcon} title="Relatar Erro" />
+          <ButtonFeedback IconSvg={CompartilharIcon} title="Compartilhar" />
+        </ContainerButtons>
       </LinearGradient>
     </Container>
   );
