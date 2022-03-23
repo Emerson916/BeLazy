@@ -33,53 +33,51 @@ const DrawerContent = ({ navigation }) => {
         end={{ x: 3, y: 2 }}
         colors={["#303C76", "#6C63FF"]}
       >
-        <ScrollView>
-          <HeaderDrawerLogo>
-            <Logo width="100" height="100" />
-          </HeaderDrawerLogo>
+        <HeaderDrawerLogo>
+          <Logo width="100" height="100" />
+        </HeaderDrawerLogo>
 
-          <ContainerDataUser>
-            <ContainerAvatar>
-              <Avatar.Image
-                source={{
-                  uri: "https://avatars.githubusercontent.com/u/77053593?v=4",
-                }}
-              />
-              <ButtonPremium IconSvg={PremiumIcon} title="Seja Premium" />
-            </ContainerAvatar>
+        <ContainerDataUser>
+          <ContainerAvatar>
+            <Avatar.Image
+              source={{
+                uri: "https://avatars.githubusercontent.com/u/77053593?v=4",
+              }}
+            />
+            <ButtonPremium IconSvg={PremiumIcon} title="Seja Premium" />
+          </ContainerAvatar>
 
-            <ContainerName>
-              <NameUser>Emerson Silva de Almeida</NameUser>
-              <EmailUser>@MrBaguela</EmailUser>
-            </ContainerName>
-          </ContainerDataUser>
+          <ContainerName>
+            <NameUser>Emerson Silva de Almeida</NameUser>
+            <EmailUser>@MrBaguela</EmailUser>
+          </ContainerName>
+        </ContainerDataUser>
 
-          <ContainerDrawerNavigation>
-            <DrawerItem
-              IconSvg={HomeIcon}
-              title="Home"
-              onPress={() => navigation.navigate("Home")}
-            />
-            <DrawerItem
-              IconSvg={StarIcon}
-              title="Favoritos"
-              onPress={() => navigation.navigate("Favoritos")}
-            />
-            <DrawerItem
-              IconSvg={SearchIcon}
-              title="Pesquise"
-              onPress={() => navigation.navigate("Pesquisa")}
-            />
-            <DrawerItem
-              IconSvg={ConfigIcon}
-              title="Configurações"
-              onPress={() => navigation.navigate("Suporte")}
-            />
-            <ContainerExit>
-              <DrawerItemExit IconSvg={ExitIcon} title="Sair" />
-            </ContainerExit>
-          </ContainerDrawerNavigation>
-        </ScrollView>
+        <ContainerDrawerNavigation>
+          <DrawerItem
+            IconSvg={HomeIcon}
+            title="Home"
+            onPress={() => navigation.navigate("Home")}
+          />
+          <DrawerItem
+            IconSvg={StarIcon}
+            title="Favoritos"
+            onPress={() => navigation.navigate("Favoritos")}
+          />
+          <DrawerItem
+            IconSvg={SearchIcon}
+            title="Pesquise"
+            onPress={() => navigation.navigate("Pesquisa")}
+          />
+          <DrawerItem
+            IconSvg={ConfigIcon}
+            title="Configurações"
+            onPress={() => navigation.navigate("Suporte")}
+          />
+        </ContainerDrawerNavigation>
+        <ContainerExit>
+          <DrawerItemExit IconSvg={ExitIcon} title="Sair" />
+        </ContainerExit>
       </LinearGradient>
     </Container>
   );

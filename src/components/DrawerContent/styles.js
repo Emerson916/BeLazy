@@ -44,12 +44,13 @@ export const EmailUser = styled.Text`
 `;
 
 export const ContainerDrawerNavigation = styled.View`
-  flex: 1;
-  margin-top: 1px;
+  width: 100%;
 `;
 
 export const ContainerExit = styled.View`
-  margin-top: 175px;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
   border-top-color: #f4f4f4;
   border-top-width: 1px;
 `;
