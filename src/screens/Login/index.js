@@ -8,16 +8,16 @@ import InputData from "../../components/InputData";
 import { Container, Text, View, TextRegister, ViewRegister } from "./styles";
 import Button from "../../components/Button";
 
-const Login = ({navigation}) => {
+const Login = ({ navigation }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const handleButtonClick = () => {
     //mandando o usuario para a proxima tela, mas sem deixar com que ele consiga voltar
     navigation.reset({
-      routes: [{name: 'Register'}],
+      routes: [{ name: "Register" }],
     });
   };
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
   return (
     <LinearGradient
@@ -46,7 +46,10 @@ const Login = ({navigation}) => {
           password={true}
         />
 
-        <Button text="ENTRAR" onPress={() => navigation.navigate('HomeScreen')}/>
+        <Button
+          text="ENTRAR"
+          onPress={() => navigation.navigate("HomeScreen")}
+        />
         <ViewRegister onPress={() => handleButtonClick()}>
           <Text> Ainda não possui uma conta ?</Text>
 

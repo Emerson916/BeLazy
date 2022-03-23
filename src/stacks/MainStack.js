@@ -10,7 +10,7 @@ const Stack = createStackNavigator();
 
 const Navigate = () => (
   <Stack.Navigator
-    initialRouteName="Login"
+    initialRouteName="Preload"
     screenOptions={{
       headerShown: false,
       headerStyle: { backgroundColor: "#343746" },

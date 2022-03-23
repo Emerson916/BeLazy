@@ -1,4 +1,4 @@
-import { StyleSheet, ScrollView } from "react-native";
+import { StyleSheet, BackHandler } from "react-native";
 import React from "react";
 import PremiumIcon from "../../assets/premiumIcon.svg";
 import StarIcon from "../../assets/starIcon.svg";
@@ -25,6 +25,12 @@ import DrawerItemExit from "../../components/DrawerItemExit";
 import { LinearGradient } from "expo-linear-gradient";
 
 const DrawerContent = ({ navigation }) => {
+
+  const handleBackApp = () => {
+    BackHandler.exitApp();
+    return true;
+  };
+
   return (
     <Container>
       <LinearGradient
@@ -76,7 +82,7 @@ const DrawerContent = ({ navigation }) => {
           />
         </ContainerDrawerNavigation>
         <ContainerExit>
-          <DrawerItemExit IconSvg={ExitIcon} title="Sair" />
+          <DrawerItemExit IconSvg={ExitIcon} title="Sair" onPress={() => handleBackApp()} />
         </ContainerExit>
       </LinearGradient>
     </Container>
