@@ -14,9 +14,9 @@ const DrawerNavigation = () => {
   return (
     <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
       <Drawer.Screen name="Home" component={HomeScreen} />
-      {/* <Drawer.Screen name="Favoritos" component={FavoritesScreen} />
+      <Drawer.Screen name="Favoritos" component={FavoritesScreen} />
       <Drawer.Screen name="Pesquisa" component={Search} />
-      <Drawer.Screen name="Suporte" component={SupportScreen} /> */}
+      <Drawer.Screen name="Suporte" component={SupportScreen} />
     </Drawer.Navigator>
   );
 };
