@@ -147,7 +147,6 @@ const HomeScreen = () => {
         colors={["#343746", "#303C76"]}
       >
         <ScrollView>
-          {/* <HeaderPoster /> */}
           <ImageCarousel data={FAKE_DATA.items} />
           <ListVideos data={FAKE_DATA.items} />
           <ListVideos data={FAKE_DATA.items} />
