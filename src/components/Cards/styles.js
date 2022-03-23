@@ -1,13 +1,13 @@
 import styled from "styled-components/native";
 
 export const Container = styled.TouchableOpacity`
-  height: 310px;
-  width: 200px;
+  height: 300px;
+  width: 185px;
   margin: 0px 10px;
 `;
 
 export const Image = styled.Image`
-  height: 270px;
+  height: 250px;
   width: 100%;
 `;
 
