@@ -13,13 +13,22 @@ const Navigate = () => (
     initialRouteName="Login"
     screenOptions={{
       headerShown: false,
+      headerStyle: { backgroundColor: "#343746" },
+      headerTintColor: '#6C63FF',
     }}
   >
     <Stack.Screen name="Preload" component={Preload} />
     <Stack.Screen name="Login" component={Login} />
     <Stack.Screen name="Register" component={Register} />
     <Stack.Screen name="HomeScreen" component={DrawerNavigation} />
-    <Stack.Screen name="CardDetails" component={CardDetails} />
+    <Stack.Screen
+      name="CardDetails"
+      component={CardDetails}
+      options={{
+        headerShown: true,
+        title: false,
+      }}
+    />
   </Stack.Navigator>
 );
 
