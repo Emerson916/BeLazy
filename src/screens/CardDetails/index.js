@@ -1,6 +1,6 @@
 import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
-import { StyleSheet } from "react-native";
+import { StyleSheet, ScrollView } from "react-native";
 import {
   Container,
   ImageBackground,
@@ -33,36 +33,38 @@ const CardDetails = (props) => {
         end={{ x: 1, y: 1.3 }}
         colors={["#343746", "#303C76"]}
       >
-        <ImageBackground opacity={0.6} source={{ uri: imageBanner }} />
+        <ScrollView>
+          <ImageBackground opacity={0.6} source={{ uri: imageBanner }} />
 
-        <ContainerTypeVideo>
-          <CamIcon width="20" height="20" />
-          <TypeVideo>{video.type.replace("FILM", "Filme")}</TypeVideo>
-        </ContainerTypeVideo>
+          <ContainerTypeVideo>
+            <CamIcon width="20" height="20" />
+            <TypeVideo>{video.type.replace("FILM", "Filme")}</TypeVideo>
+          </ContainerTypeVideo>
 
-        <ContainerTitle>
-          <TitleText>{video.title_video}</TitleText>
-        </ContainerTitle>
+          <ContainerTitle>
+            <TitleText>{video.title_video}</TitleText>
+          </ContainerTitle>
 
-        <ContainerCategory>
-          <LaunchText>{video.releaseYear}</LaunchText>
-          <LaunchText>{video.category}</LaunchText>
-        </ContainerCategory>
+          <ContainerCategory>
+            <LaunchText>{video.releaseYear}</LaunchText>
+            <LaunchText>{video.category}</LaunchText>
+          </ContainerCategory>
 
-        <ContainerButtons>
-          <ButtonWatch text="Assistir"/>
-        </ContainerButtons>
+          <ContainerButtons>
+            <ButtonWatch text="Assistir" />
+          </ContainerButtons>
 
-        <ContainerSinopse>
-          <TitleSinopse>Sinopse</TitleSinopse>
-          <TextSinopse>{video.sinopse}</TextSinopse>
-        </ContainerSinopse>
+          <ContainerSinopse>
+            <TitleSinopse>Sinopse</TitleSinopse>
+            <TextSinopse>{video.sinopse}</TextSinopse>
+          </ContainerSinopse>
 
-        <ContainerButtons>
-          <ButtonFeedback IconSvg={Bookmark} title="Favoritar" />
-          <ButtonFeedback IconSvg={ErrorIcon} title="Relatar Erro" />
-          <ButtonFeedback IconSvg={CompartilharIcon} title="Compartilhar" />
-        </ContainerButtons>
+          <ContainerButtons>
+            <ButtonFeedback IconSvg={Bookmark} title="Favoritar" />
+            <ButtonFeedback IconSvg={ErrorIcon} title="Relatar Erro" />
+            <ButtonFeedback IconSvg={CompartilharIcon} title="Compartilhar" />
+          </ContainerButtons>
+        </ScrollView>
       </LinearGradient>
     </Container>
   );
