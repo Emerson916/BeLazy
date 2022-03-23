@@ -8,7 +8,6 @@ export const HeaderDrawerLogo = styled.View`
   width: 100%;
   height: 100px;
   padding-left: 10px;
-  background-color: #303c76;
 `;
 
 export const ContainerDataUser = styled.View`
@@ -16,6 +15,10 @@ export const ContainerDataUser = styled.View`
   height: 150px;
   margin-top: 1px;
   background-color: #6c63ff;
+  border-top-color: #f4f4f4;
+  border-bottom-color: #f4f4f4;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
 `;
 
 export const ContainerAvatar = styled.View`
@@ -41,14 +44,12 @@ export const EmailUser = styled.Text`
 `;
 
 export const ContainerDrawerNavigation = styled.View`
-  width: 100%;
-  height: 55%;
-  background-color: #303c76;
+  flex: 1;
   margin-top: 1px;
 `;
 
 export const ContainerExit = styled.View`
-  margin-bottom: 15px;
+  margin-top: 175px;
   border-top-color: #f4f4f4;
   border-top-width: 1px;
 `;
