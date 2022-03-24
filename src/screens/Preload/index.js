@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, BackHandler } from "react";
 import { Container, LoadingIcon, Text, View } from "./styles";
 import { StyleSheet } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
@@ -6,20 +6,21 @@ import Logo from "../../assets/logo.svg";
 import { useNavigation } from "@react-navigation/native";
 
 const Preload = () => {
- 
   const navigation = useNavigation();
   useEffect(() => {
     const timer = setInterval(() => {
       // isso vai executar a cada 5 segundos
-      if (timer < 5000) {
+      if (timer < 3500) {
         navigation.reset({
           routes: [{ name: "Login" }],
         });
         console.log("Ainda estou rodando!!!");
       } else {
         alert("Algo deu errado!");
+        BackHandler.exitApp();
+        return true;
       }
-    }, 5000);
+    }, 3500);
     return () => clearInterval(timer);
   }, []);
 
@@ -32,10 +33,10 @@ const Preload = () => {
     >
       <Container>
         <Logo width="200" height="160" />
-        <View>
+        {/* <View>
           <Text>Olá, Bem-vindo</Text>
           <Text>Estamos carregando seus dados...</Text>
-        </View>
+        </View> */}
         <LoadingIcon size="large" color="#FFF" />
       </Container>
     </LinearGradient>
