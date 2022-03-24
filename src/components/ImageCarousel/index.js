@@ -2,8 +2,10 @@ import React, { useEffect } from "react";
 import { FlatList, View } from "react-native";
 import ImageCarouselItem from "../../components/ImageCarouselItem";
 
-const ImageCarousel = ({ data }) => {
+const ImageCarousel = ({ data, navigation }) => {
   let currentSlider = 0;
+  const flatListRef = React.createRef();
+
   const goToNext = () => {
     // console.log(ref);
     flatListRef.current.scrollToIndex({
@@ -15,16 +17,14 @@ const ImageCarousel = ({ data }) => {
   useEffect(() => {
     const timer = setInterval(() => {
       // isso vai executar a cada 5 segundos
-      if (currentSlider <= 2) {
+      if (currentSlider <= 5) {
         goToNext();
       } else {
         currentSlider = -1;
       }
-    }, 5000);
+    }, 3500);
     return () => clearInterval(timer);
   }, []);
-
-  const flatListRef = React.createRef();
 
   return (
     <View>

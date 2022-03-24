@@ -6,11 +6,11 @@ import Title from "../Title";
 const ListVideos = ({ data }) => {
   return (
     <>
-      <Title text="ÚLTIMOS LANÇAMENTOS" />
+      <Title text={data.title} />
       <FlatList
         horizontal
         showsHorizontalScrollIndicator={false}
-        data={data}
+        data={data.items}
         keyExtractor={(items) => items.id}
         renderItem={({ item }) => <Cards {...item} />}
       />
