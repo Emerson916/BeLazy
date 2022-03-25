@@ -6,7 +6,6 @@ export const ContainerButtonVoid = styled.TouchableOpacity`
   background-color: #6C63FF;
   flex-direction: row;
   border-radius: 15px;
-  padding-left: 15px;
   align-items: center;
   justify-content: center;
   margin-top: 20px;
