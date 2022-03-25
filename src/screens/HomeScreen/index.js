@@ -412,7 +412,7 @@ const HomeScreen = () => {
       <LinearGradient
         style={styles.linearGradient}
         start={{ x: 1, y: 0 }}
-        end={{ x: 1, y: 1.3 }}
+        end={{ x: 1, y: 1.0 }}
         colors={["#343746", "#303C76"]}
       >
         <ScrollView>

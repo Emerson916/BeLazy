@@ -1,14 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { FlatList, View } from "react-native";
 import ImageCarouselItem from "../../components/ImageCarouselItem";
 
 const ImageCarousel = ({ data, navigation }) => {
   let currentSlider = 0;
-  const flatListRef = React.createRef();
-
+  // const flatListRef = React.createRef();
+  const myRef = useRef(null);
   const goToNext = () => {
     // console.log(ref);
-    flatListRef.current.scrollToIndex({
+    myRef.current.scrollToIndex({
       index: ++currentSlider,
       animated: true,
     });
@@ -31,7 +31,7 @@ const ImageCarousel = ({ data, navigation }) => {
       <FlatList
         horizontal
         showsHorizontalScrollIndicator={false}
-        ref={flatListRef}
+        ref={myRef}
         data={data}
         keyExtractor={(i) => i.id}
         renderItem={({ item }) => <ImageCarouselItem {...item} />}
