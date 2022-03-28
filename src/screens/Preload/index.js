@@ -10,7 +10,7 @@ const Preload = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       // isso vai executar a cada 5 segundos
-      if (timer < 3500) {
+      if (timer < 1000) {
         navigation.reset({
           routes: [{ name: "Login" }],
         });
@@ -20,7 +20,7 @@ const Preload = () => {
         BackHandler.exitApp();
         return true;
       }
-    }, 3500);
+    }, 1000);
     return () => clearInterval(timer);
   }, []);
 
