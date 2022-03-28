@@ -23,7 +23,7 @@ export const ViewLogin = styled.TouchableOpacity`
   width: 85%;
   margin-top: 20px;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   flex-direction: row;
 `;
 

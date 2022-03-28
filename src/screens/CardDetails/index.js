@@ -1,6 +1,6 @@
 import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
-import { StyleSheet, ScrollView } from "react-native";
+import { StyleSheet, ScrollView, Image } from "react-native";
 import {
   Container,
   ImageBackground,

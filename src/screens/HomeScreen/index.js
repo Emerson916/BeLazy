@@ -19,7 +19,7 @@ const FAKE_DATA = [
           "https://www.yorkvision.co.uk/wp-content/uploads/2021/12/Spider-Man_No_Way_Home_banner_001.jpg",
         video: {
           title_video: "Spider-Man - No Way Home",
-          evaluation: 5,
+          evaluation: 2,
           releaseYear: 2022,
           createdAt: 16476078,
           duration: 220,
@@ -37,7 +37,7 @@ const FAKE_DATA = [
           "https://legadodadc.com.br/wp-content/uploads/2021/11/FD1vP6lWQAMNHQl-1.jpg",
         video: {
           title_video: "The Batman",
-          evaluation: 5,
+          evaluation: 3,
           releaseYear: 2022,
           createdAt: 16476078,
           duration: 180,
@@ -55,7 +55,7 @@ const FAKE_DATA = [
           "https://i0.wp.com/critical-room.com/wp-content/uploads/2021/09/70ebdc124071947.60fc4e4924497.jpg?fit=2800%2C1890&ssl=1",
         video: {
           title_video: "Venom - Tempo de Carnificina",
-          evaluation: 5,
+          evaluation: 2,
           releaseYear: 2019,
           createdAt: 16476078,
           duration: 170,
@@ -73,7 +73,7 @@ const FAKE_DATA = [
           "https://pm1.narvii.com/7417/d62b6a9a1cab48b52502b0ea9022b8a520a46346r1-1080-1350v2_hq.jpg",
         video: {
           title_video: "Thor - Amor e Trovão",
-          evaluation: 5,
+          evaluation: 4,
           releaseYear: 2023,
           createdAt: 16476078,
           duration: 200,
@@ -91,7 +91,7 @@ const FAKE_DATA = [
           "https://observatoriodocinema.uol.com.br/wp-content/uploads/2020/07/endgame-1.jpg",
         video: {
           title_video: "Vingadores Ultimato",
-          evaluation: 5,
+          evaluation: 4,
           releaseYear: 2019,
           createdAt: 16476078,
           duration: 200,
@@ -109,7 +109,7 @@ const FAKE_DATA = [
           "https://static.wixstatic.com/media/e77f03_e72f56062db04b1e93bf4249fb3f700c~mv2.png/v1/fill/w_1000,h_562,al_c,usm_0.66_1.00_0.01/e77f03_e72f56062db04b1e93bf4249fb3f700c~mv2.png",
         video: {
           title_video: "Shang-chi - E a lenda dos dez aneis",
-          evaluation: 5,
+          evaluation: 2,
           releaseYear: 2022,
           createdAt: 16476078,
           duration: 200,
@@ -127,7 +127,7 @@ const FAKE_DATA = [
           "https://cloudfront-us-east-1.images.arcpublishing.com/metroworldnews/YPF3KRY4ARCKPLRHLO5ZP3FPRE.png",
         video: {
           title_video: "Eternos",
-          evaluation: 5,
+          evaluation: 4,
           releaseYear: 2022,
           createdAt: 16476078,
           duration: 200,
@@ -285,7 +285,7 @@ const FAKE_DATA = [
           "https://wallpapers.com/images/high/jojo-bizarre-adventure-hero-banners-97au0jin9lw0i6lz.jpg",
         video: {
           title_video: "Jojo's Bizarre Adventure",
-          evaluation: 5,
+          evaluation: 4,
           releaseYear: 2022,
           createdAt: 16476078,
           duration: 220,
@@ -321,7 +321,7 @@ const FAKE_DATA = [
           "https://wp.radiojhero.com/wp-content/uploads/2020/12/one_punch_man.jpg",
         video: {
           title_video: "One Punch Man",
-          evaluation: 5,
+          evaluation: 4,
           releaseYear: 2019,
           createdAt: 16476078,
           duration: 170,
@@ -356,7 +356,7 @@ const FAKE_DATA = [
           "https://img.elo7.com.br/product/original/32579FF/painel-de-festa-boku-no-hero-decoracao-de-festa-death-note.jpg",
         video: {
           title_video: "Boku no Hero",
-          evaluation: 5,
+          evaluation: 3,
           releaseYear: 2019,
           createdAt: 16476078,
           duration: 200,
@@ -374,7 +374,7 @@ const FAKE_DATA = [
           "https://preview.redd.it/jpc798apewk41.png?auto=webp&s=c0e31f40532d67e91abe196df77b7eb691bb7bb9",
         video: {
           title_video: "Death Note",
-          evaluation: 5,
+          evaluation: 4,
           releaseYear: 2022,
           createdAt: 16476078,
           duration: 200,
@@ -392,7 +392,7 @@ const FAKE_DATA = [
           "https://img.elo7.com.br/product/zoom/1CB555E/dragon-ball-painel-festa-1-50x1m-painel-de-aniversario.jpg",
         video: {
           title_video: "Dragon Ball",
-          evaluation: 5,
+          evaluation: 8,
           releaseYear: 2022,
           createdAt: 16476078,
           duration: 200,
