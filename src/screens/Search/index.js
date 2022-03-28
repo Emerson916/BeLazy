@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
-import { StyleSheet } from "react-native";
-import { Container } from "./styles";
+import { StyleSheet, ScrollView } from "react-native";
+import { Container, ContainerSearch, Text, Image } from "./styles";
 import InputSearch from "../../components/InputSearch";
 
 const FAKE_DATA = [
@@ -407,6 +407,15 @@ const FAKE_DATA = [
 
 const Search = () => {
   const [search, setSearch] = useState("");
+
+  const soItems = FAKE_DATA.flatMap((tipo) => tipo.items);
+  // explicação do flatMap()
+  // [
+  //   {id: 1, title: '123'},{id: 1, title: '123'},{id: 1, title: '123'},
+  //   {id: 1, title: '123'},{id: 1, title: '123'},{id: 1, title: '123'},
+  //   {id: 1, title: '123'},{id: 1, title: '123'},{id: 1, title: '123'},
+  // ]
+
   return (
     <Container>
       <LinearGradient
@@ -418,8 +427,27 @@ const Search = () => {
         <InputSearch
           value={search}
           onChangeText={(t) => setSearch(t)}
-          placeholder={"Pesquise por filmes, séries ou animes"}
+          placeholder={"Pesquise por filmes, séries..."}
         />
+
+        <ScrollView>
+          {soItems
+            .filter((e) => {
+              if (search === "") {
+                return e;
+              } else if (
+                e.video.title_video.toLowerCase().includes(search.toLowerCase())
+              ) {
+                return e;
+              }
+            })
+            .map((item, index) => (
+              <ContainerSearch key={index}>
+                <Image source={{ uri: item.imageCard }} />
+                <Text>{item.video.title_video}</Text>
+              </ContainerSearch>
+            ))}
+        </ScrollView>
       </LinearGradient>
     </Container>
   );
