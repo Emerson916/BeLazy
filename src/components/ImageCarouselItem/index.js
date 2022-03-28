@@ -7,6 +7,7 @@ import {
   ImageBackground,
   TextFromBackground,
 } from "./styles";
+import Stars from "../Stars";
 
 const ImageCarouselItem = (props) => {
   const { imageBanner, video } = props;
@@ -22,7 +23,9 @@ const ImageCarouselItem = (props) => {
       <ImageBackground opacity={0.6} source={{ uri: imageBanner }}>
         <ContainerBackground>
           <TextFromBackground>{video.title_video}</TextFromBackground>
-          <TextFromBackground>{video.evaluation} estralas</TextFromBackground>
+          <TextFromBackground>
+            <Stars evaluation={video.evaluation} />
+          </TextFromBackground>
           <TextFromBackground>{video.duration} min</TextFromBackground>
         </ContainerBackground>
       </ImageBackground>
