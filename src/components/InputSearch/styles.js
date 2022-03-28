@@ -5,7 +5,7 @@ export const InputContainer = styled.View`
   height: 50px;
   background-color: #f0f0f0;
   display: flex;
-  margin: 20px auto 0px auto;
+  margin: 20px auto;
   flex-direction: row;
   border-radius: 8px;
   padding-left: 15px;
