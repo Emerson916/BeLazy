@@ -1,4 +1,4 @@
-import styled from 'styled-components/native';
+import styled from "styled-components/native";
 
 export const Container = styled.View`
   flex-direction: row;
@@ -8,6 +8,6 @@ export const Container = styled.View`
 
 export const Text = styled.Text`
   font-size: 16px;
-  color: #FFF;
+  color: #fff;
   font-weight: 500;
 `;

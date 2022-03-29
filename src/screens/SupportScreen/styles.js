@@ -24,7 +24,7 @@ export const TextEmail = styled.Text`
 export const ContainerConfig = styled.View`
   width: 100%;
   height: 100%;
-  background-color: #303C76;
+  background-color: #303c76;
   border-radius: 40px;
   padding: 20px;
 `;

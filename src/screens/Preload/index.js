@@ -1,5 +1,5 @@
-import React, { useEffect, BackHandler } from "react";
-import { Container, LoadingIcon, Text, View } from "./styles";
+import React, { useEffect } from "react";
+import { Container, LoadingIcon } from "./styles";
 import { StyleSheet } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import Logo from "../../assets/logo.svg";
@@ -31,10 +31,6 @@ const Preload = () => {
     >
       <Container>
         <Logo width="200" height="160" />
-        {/* <View>
-          <Text>Olá, Bem-vindo</Text>
-          <Text>Estamos carregando seus dados...</Text>
-        </View> */}
         <LoadingIcon size="large" color="#FFF" />
       </Container>
     </LinearGradient>

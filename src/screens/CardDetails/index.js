@@ -1,6 +1,6 @@
 import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
-import { StyleSheet, ScrollView, Image } from "react-native";
+import { StyleSheet, ScrollView } from "react-native";
 import {
   Container,
   ImageBackground,
@@ -23,7 +23,7 @@ import CompartilharIcon from "../../assets/compartilhar.svg";
 import ButtonWatch from "../../components/ButtonWatch";
 
 const CardDetails = (props) => {
-  const { id, video, imageBanner } = props.route.params;
+  const { video, imageBanner } = props.route.params;
 
   return (
     <Container>

@@ -1,7 +1,7 @@
-import React from 'react';
-import {Container, Text} from './styles';
+import React from "react";
+import { Container, Text } from "./styles";
 
-const Title = props => {
+const Title = (props) => {
   return (
     <Container>
       <Text>{props.text}</Text>

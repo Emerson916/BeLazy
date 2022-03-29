@@ -41,7 +41,10 @@ const SupportScreen = () => {
             <Title text="CONFIGURAÇÕES" />
             <ButtonConfig title="Editar Perfil" IconSvg={ArrowRight} />
             <ButtonConfig title="Permição de dados" IconSvg={ArrowRight} />
-            <ButtonConfig title="Permição de Notificação" IconSvg={ArrowRight} />
+            <ButtonConfig
+              title="Permição de Notificação"
+              IconSvg={ArrowRight}
+            />
             <ButtonConfig title="Sair" IconSvg={ArrowRight} />
           </ContainerConfig>
         </ScrollView>

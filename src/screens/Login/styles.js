@@ -28,7 +28,7 @@ export const ViewRegister = styled.TouchableOpacity`
 `;
 
 export const TextRegister = styled.Text`
-  color: #6C63FF;
+  color: #6c63ff;
   font-size: 16px;
   font-weight: 500;
   margin: 20px 0px;

@@ -25,7 +25,6 @@ import DrawerItemExit from "../../components/DrawerItemExit";
 import { LinearGradient } from "expo-linear-gradient";
 
 const DrawerContent = ({ navigation }) => {
-
   const handleBackApp = () => {
     BackHandler.exitApp();
     return true;
@@ -82,7 +81,11 @@ const DrawerContent = ({ navigation }) => {
           />
         </ContainerDrawerNavigation>
         <ContainerExit>
-          <DrawerItemExit IconSvg={ExitIcon} title="Sair" onPress={() => handleBackApp()} />
+          <DrawerItemExit
+            IconSvg={ExitIcon}
+            title="Sair"
+            onPress={() => handleBackApp()}
+          />
         </ContainerExit>
       </LinearGradient>
     </Container>

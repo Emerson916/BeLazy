@@ -1,8 +1,8 @@
-import React from 'react';
-import {InputContainer, Input} from './styles';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import React from "react";
+import { InputContainer, Input } from "./styles";
+import Icon from "react-native-vector-icons/FontAwesome";
 
-const InputSearch = ({placeholder, value, onChangeText}) => {
+const InputSearch = ({ placeholder, value, onChangeText }) => {
   return (
     <InputContainer>
       <Icon name="search" size={18} color="#5c5a5a" />

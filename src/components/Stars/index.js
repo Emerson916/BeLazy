@@ -10,7 +10,13 @@ const Stars = ({ evaluation }) => {
 
   const rating = [...arr, ...sobra];
 
-  return <>{rating.map((vl, i) => (vl ? <StarOutline key={i} /> : <StarFill key={i} />))}</>;
+  return (
+    <>
+      {rating.map((vl, i) =>
+        vl ? <StarOutline key={i} /> : <StarFill key={i} />
+      )}
+    </>
+  );
 };
 
 export default Stars;

@@ -54,10 +54,7 @@ const Register = ({ navigation }) => {
           password={true}
         />
 
-        <Button
-          text="REGISTRAR-SE"
-          onPress={() => handleButtonClick()}
-        />
+        <Button text="REGISTRAR-SE" onPress={() => handleButtonClick()} />
         <ViewLogin onPress={() => handleButtonClick()}>
           <Text> Já tem uma conta ?</Text>
 
