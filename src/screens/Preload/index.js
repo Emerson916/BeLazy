@@ -17,8 +17,6 @@ const Preload = () => {
         console.log("Ainda estou rodando!!!");
       } else {
         alert("Algo deu errado!");
-        BackHandler.exitApp();
-        return true;
       }
     }, 1000);
     return () => clearInterval(timer);
