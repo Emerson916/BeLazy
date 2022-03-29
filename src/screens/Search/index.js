@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { LinearGradient } from "expo-linear-gradient";
-import { StyleSheet, ScrollView } from "react-native";
-import { Container, ContainerSearch, Text, Image } from "./styles";
+import { StyleSheet, TouchableOpacity, FlatList } from "react-native";
+import { Container, ContainerSearch } from "./styles";
 import InputSearch from "../../components/InputSearch";
+import CardSearch from "../../components/CardSearch";
+import OrderAlphabetIcon from "../../assets/orderAlphabet.svg";
 
 const FAKE_DATA = [
   {
@@ -29,7 +31,7 @@ const FAKE_DATA = [
         },
       },
       {
-        id: "622b3560b67c72f2fe45c762",
+        id: "622b3560b67c72f2fe45c715",
         imageCard:
           "https://i.pinimg.com/originals/c4/3a/dd/c43add350b0e44f7cdf36fdc36e0946c.png",
         imageBanner:
@@ -65,7 +67,7 @@ const FAKE_DATA = [
         },
       },
       {
-        id: "622b3560b67c72f2fe45c764",
+        id: "622b3560b67c72f2fe45c884",
         imageCard:
           "https://pm1.narvii.com/7417/7e036e6ded8d672cbaa9ad6e70770d1ccf8b2616r1-1280-1897v2_hq.jpg",
         imageBanner:
@@ -83,7 +85,7 @@ const FAKE_DATA = [
         },
       },
       {
-        id: "622b3560b67c72f2fe45c765",
+        id: "622b3560b67c72f2fef4c765",
         imageCard:
           "https://img.elo7.com.br/product/zoom/266036C/big-poster-filme-vingadores-ultimato-lo47-tamanho-90x60-cm-vingadores.jpg",
         imageBanner:
@@ -101,7 +103,7 @@ const FAKE_DATA = [
         },
       },
       {
-        id: "622b3560b67c72f2fe45c766",
+        id: "622b3560b67c72f2fe45c676",
         imageCard:
           "https://legadodamarvel.com.br/wp-content/uploads/2021/04/shang-chi-poster-legadodamarvel.jpg",
         imageBanner:
@@ -119,7 +121,7 @@ const FAKE_DATA = [
         },
       },
       {
-        id: "622b3560b67c72f2fe45c767",
+        id: "622b3560b67c72f2fe44n767",
         imageCard:
           "https://technewsbrasil.com.br/wp-content/uploads/2021/10/eternos-dolby-cinema.jpeg",
         imageBanner:
@@ -407,14 +409,42 @@ const FAKE_DATA = [
 
 const Search = () => {
   const [search, setSearch] = useState("");
-
-  const soItems = FAKE_DATA.flatMap((tipo) => tipo.items);
+  const [list, setList] = useState(soItems);
+  const soItems = FAKE_DATA.flatMap((i) => i.items);
   // explicação do flatMap()
   // [
   //   {id: 1, title: '123'},{id: 1, title: '123'},{id: 1, title: '123'},
   //   {id: 1, title: '123'},{id: 1, title: '123'},{id: 1, title: '123'},
   //   {id: 1, title: '123'},{id: 1, title: '123'},{id: 1, title: '123'},
   // ]
+
+  useEffect(() => {
+    if (search === "") {
+      setList(soItems);
+    } else {
+      setList(
+        soItems.filter(
+          (e) =>
+            e.video.title_video.toLowerCase().indexOf(search.toLowerCase()) > -1
+        )
+      );
+    }
+  }, [search]);
+
+  const handleOrderClick = () => {
+    let newList = [...soItems];
+    newList.sort((a, b) => {
+      if (a.video.title_video > b.video.title_video) {
+        return 1;
+      } else if (b.video.title_video > a.video.title_video) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
+
+    setList(newList);
+  };
 
   return (
     <Container>
@@ -424,30 +454,23 @@ const Search = () => {
         end={{ x: 1, y: 1.0 }}
         colors={["#343746", "#303C76"]}
       >
-        <InputSearch
-          value={search}
-          onChangeText={(t) => setSearch(t)}
-          placeholder={"Pesquise por filmes, séries..."}
-        />
+        <ContainerSearch>
+          <InputSearch
+            value={search}
+            onChangeText={(t) => setSearch(t)}
+            placeholder={"Pesquise por filmes, séries..."}
+          />
+          <TouchableOpacity onPress={handleOrderClick}>
+            <OrderAlphabetIcon width={40} height={40} />
+          </TouchableOpacity>
+        </ContainerSearch>
 
-        <ScrollView>
-          {soItems
-            .filter((e) => {
-              if (search === "") {
-                return e;
-              } else if (
-                e.video.title_video.toLowerCase().includes(search.toLowerCase())
-              ) {
-                return e;
-              }
-            })
-            .map((item, index) => (
-              <ContainerSearch key={index}>
-                <Image source={{ uri: item.imageCard }} />
-                <Text>{item.video.title_video}</Text>
-              </ContainerSearch>
-            ))}
-        </ScrollView>
+        <FlatList
+          showsHorizontalScrollIndicator={false}
+          numColumns="2"
+          data={list}
+          renderItem={({ item }) => <CardSearch {...item} />}
+        />
       </LinearGradient>
     </Container>
   );
