@@ -4,7 +4,7 @@ import { StyleSheet, TouchableOpacity, FlatList } from "react-native";
 import { Container, ContainerSearch } from "./styles";
 import InputSearch from "../../components/InputSearch";
 import CardSearch from "../../components/CardSearch";
-import OrderAlphabetIcon from "../../assets/orderAlphabet.svg";
+import FilterIcon from "../../assets/filterIcon.svg";
 
 const FAKE_DATA = [
   {
@@ -461,7 +461,7 @@ const Search = () => {
             placeholder={"Pesquise por filmes, séries..."}
           />
           <TouchableOpacity onPress={handleOrderClick}>
-            <OrderAlphabetIcon width={40} height={40} />
+            <FilterIcon width={35} height={35} />
           </TouchableOpacity>
         </ContainerSearch>
 
