@@ -14,7 +14,8 @@ const Navigate = () => (
     screenOptions={{
       headerShown: false,
       headerStyle: { backgroundColor: "#343746" },
-      headerTintColor: "#6C63FF",
+      headerTransparent: true,
+      headerTintColor: "#fff",
     }}
   >
     <Stack.Screen name="Preload" component={Preload} />
