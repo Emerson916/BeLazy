@@ -3,7 +3,7 @@ import { Container, Image, Text } from "./styles";
 import { useNavigation } from "@react-navigation/native";
 
 const Cards = (props) => {
-  const { video, imageCard, imageBanner } = props;
+  const { video, imageCard } = props;
   const navigation = useNavigation();
 
   return (
