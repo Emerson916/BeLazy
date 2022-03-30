@@ -67,3 +67,8 @@ export const ContainerButtons = styled.View`
   justify-content: center;
   margin-top: 20px;
 `;
+
+export const ContainerStars = styled.View`
+  margin: 5px 20px;
+  flex-direction: row;
+`;
