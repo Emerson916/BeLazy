@@ -1,8 +1,8 @@
 import styled from "styled-components/native";
 
 export const ContainerSearch = styled.TouchableOpacity`
-  width: 180px;
-  height: 250px;
+  width: 150px;
+  height: 220px;
   margin: 25px auto;
 `;
 
