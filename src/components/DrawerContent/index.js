@@ -1,4 +1,4 @@
-import { StyleSheet, BackHandler } from "react-native";
+import { StyleSheet, BackHandler, Alert } from "react-native";
 import React from "react";
 import PremiumIcon from "../../assets/premiumIcon.svg";
 import StarIcon from "../../assets/starIcon.svg";
@@ -28,6 +28,15 @@ const DrawerContent = ({ navigation }) => {
   const handleBackApp = () => {
     BackHandler.exitApp();
     return true;
+  };
+
+  const alertMessage = () => {
+    Alert.alert("Quer mesmo sair do app ?", "😭😭", [
+      {
+        text: "Não",
+      },
+      { text: "Sim", onPress: () => handleBackApp() },
+    ]);
   };
 
   return (
@@ -84,7 +93,7 @@ const DrawerContent = ({ navigation }) => {
           <DrawerItemExit
             IconSvg={ExitIcon}
             title="Sair"
-            onPress={() => handleBackApp()}
+            onPress={() => alertMessage()}
           />
         </ContainerExit>
       </LinearGradient>
