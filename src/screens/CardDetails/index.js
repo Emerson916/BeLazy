@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import { StyleSheet, ScrollView } from "react-native";
 import {
@@ -14,18 +14,20 @@ import {
   ContainerTitle,
   TextSinopse,
   TitleSinopse,
-  ContainerStars,
 } from "./styles";
 import ButtonFeedback from "../../components/ButtonFeedback";
 import CamIcon from "../../assets/camIcon.svg";
 import Bookmark from "../../assets/bookmark.svg";
+import BookmarkFill from "../../assets/bookmarkFill.svg";
 import ErrorIcon from "../../assets/error.svg";
 import CompartilharIcon from "../../assets/compartilhar.svg";
 import ButtonWatch from "../../components/ButtonWatch";
-import Stars from "../../components/Stars";
+import { useNavigation } from "@react-navigation/native";
 
 const CardDetails = (props) => {
   const { video, imageBanner } = props.route.params;
+  const navigation = useNavigation();
+  const [favorite, setFavorite] = useState(false);
 
   return (
     <Container>
@@ -47,10 +49,6 @@ const CardDetails = (props) => {
             <TitleText>{video.title_video}</TitleText>
           </ContainerTitle>
 
-          <ContainerStars>
-            <Stars evaluation={video.evaluation} />
-          </ContainerStars>
-
           <ContainerCategory>
             <LaunchText>{video.releaseYear}</LaunchText>
             <LaunchText>{video.category}</LaunchText>
@@ -66,7 +64,12 @@ const CardDetails = (props) => {
           </ContainerSinopse>
 
           <ContainerButtons>
-            <ButtonFeedback IconSvg={Bookmark} title="Favoritar" />
+            <ButtonFeedback
+              onChange={() => setFavorite({ ...favorite })}
+              IconSvg={Bookmark}
+              IconFill={BookmarkFill}
+              title="Favoritar"
+            />
             <ButtonFeedback IconSvg={ErrorIcon} title="Relatar Erro" />
             <ButtonFeedback IconSvg={CompartilharIcon} title="Compartilhar" />
           </ContainerButtons>

@@ -72,3 +72,9 @@ export const ContainerStars = styled.View`
   margin: 5px 20px;
   flex-direction: row;
 `;
+
+export const Image = styled.Image`
+  height: 20px;
+  width: 20px;
+`;
+
