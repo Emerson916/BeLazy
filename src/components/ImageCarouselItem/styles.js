@@ -6,8 +6,8 @@ export const Container = styled.TouchableOpacity`
 `;
 
 export const ImageBackground = styled.ImageBackground`
-  width: 100%;
   height: 100%;
+  width: 100%;
 `;
 
 export const ContainerBackground = styled.View`
