@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
-import { StyleSheet, ScrollView } from "react-native";
+import { StyleSheet, ScrollView, Text } from "react-native";
 import {
   Container,
   ImageBackground,
@@ -27,7 +27,7 @@ import { useNavigation } from "@react-navigation/native";
 const CardDetails = (props) => {
   const { video, imageBanner } = props.route.params;
   const navigation = useNavigation();
-  const [favorite, setFavorite] = useState(false);
+  const [favorited, setFavorites] = useState(video.favorite);
 
   return (
     <Container>
@@ -64,8 +64,9 @@ const CardDetails = (props) => {
           </ContainerSinopse>
 
           <ContainerButtons>
+            <Text>favorited : {String(favorited)} </Text>
             <ButtonFeedback
-              onChange={() => setFavorite({ ...favorite })}
+              onChange={(favorited) => setFavorites(favorited)}
               IconSvg={Bookmark}
               IconFill={BookmarkFill}
               title="Favoritar"

@@ -13,7 +13,7 @@ const ButtonFeedback = ({ IconSvg, IconFill, title, onChange }) => {
       console.log("OnChange :", onChange(true));
     } else {
       onChange(false);
-      console.log("OnChange :", onChange(false));
+      console.log("OnChange2 :", onChange(false));
     }
   };
   return (

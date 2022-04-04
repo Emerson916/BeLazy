@@ -437,7 +437,7 @@ const HomeScreen = () => {
         colors={["#343746", "#303C76"]}
       >
         <ScrollView>
-          <ImageCarousel data={FAKE_DATA[1].items} />
+          <ImageCarousel data={FAKE_DATA[2].items} />
           <ListVideos data={FAKE_DATA[0]} />
           <ListVideos data={FAKE_DATA[1]} />
           <ListVideos data={FAKE_DATA[2]} />
