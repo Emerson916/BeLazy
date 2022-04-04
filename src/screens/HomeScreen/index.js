@@ -20,6 +20,7 @@ const FAKE_DATA = [
         video: {
           title_video: "Spider-Man - No Way Home",
           evaluation: 2,
+          favorite: false,
           releaseYear: 2022,
           createdAt: 16476078,
           duration: 220,
@@ -37,6 +38,7 @@ const FAKE_DATA = [
           "https://legadodadc.com.br/wp-content/uploads/2021/11/FD1vP6lWQAMNHQl-1.jpg",
         video: {
           title_video: "The Batman",
+          favorite: false,
           evaluation: 3,
           releaseYear: 2022,
           createdAt: 16476078,
@@ -55,6 +57,7 @@ const FAKE_DATA = [
           "https://i0.wp.com/critical-room.com/wp-content/uploads/2021/09/70ebdc124071947.60fc4e4924497.jpg?fit=2800%2C1890&ssl=1",
         video: {
           title_video: "Venom - Tempo de Carnificina",
+          favorite: false,
           evaluation: 2,
           releaseYear: 2019,
           createdAt: 16476078,
@@ -73,6 +76,7 @@ const FAKE_DATA = [
           "https://pm1.narvii.com/7417/d62b6a9a1cab48b52502b0ea9022b8a520a46346r1-1080-1350v2_hq.jpg",
         video: {
           title_video: "Thor - Amor e Trovão",
+          favorite: false,
           evaluation: 4,
           releaseYear: 2023,
           createdAt: 16476078,
@@ -91,6 +95,7 @@ const FAKE_DATA = [
           "https://observatoriodocinema.uol.com.br/wp-content/uploads/2020/07/endgame-1.jpg",
         video: {
           title_video: "Vingadores Ultimato",
+          favorite: false,
           evaluation: 4,
           releaseYear: 2019,
           createdAt: 16476078,
@@ -109,6 +114,7 @@ const FAKE_DATA = [
           "https://static.wixstatic.com/media/e77f03_e72f56062db04b1e93bf4249fb3f700c~mv2.png/v1/fill/w_1000,h_562,al_c,usm_0.66_1.00_0.01/e77f03_e72f56062db04b1e93bf4249fb3f700c~mv2.png",
         video: {
           title_video: "Shang-chi - E a lenda dos dez aneis",
+          favorite: false,
           evaluation: 2,
           releaseYear: 2022,
           createdAt: 16476078,
@@ -127,6 +133,7 @@ const FAKE_DATA = [
           "https://cloudfront-us-east-1.images.arcpublishing.com/metroworldnews/YPF3KRY4ARCKPLRHLO5ZP3FPRE.png",
         video: {
           title_video: "Eternos",
+          favorite: false,
           evaluation: 4,
           releaseYear: 2022,
           createdAt: 16476078,
@@ -153,7 +160,8 @@ const FAKE_DATA = [
           "https://radiogeekbr.com.br/wp-content/uploads/2018/09/rick-and-morty-season-3.jpg",
         video: {
           title_video: "Rick and Morty",
-          evaluation: 5,
+          favorite: false,
+          evaluation: 3,
           releaseYear: 2022,
           createdAt: 16476078,
           duration: 220,
@@ -170,7 +178,8 @@ const FAKE_DATA = [
         imageBanner: "https://pbs.twimg.com/media/DcSHI3NW4AAJFZJ.jpg",
         video: {
           title_video: "13 Reasons Why",
-          evaluation: 5,
+          favorite: false,
+          evaluation: 4,
           releaseYear: 2022,
           createdAt: 16476078,
           duration: 180,
@@ -187,7 +196,8 @@ const FAKE_DATA = [
           "https://img.elo7.com.br/product/original/2960598/stranger-things-painel-festa-1-50x1m-banner.jpg",
         video: {
           title_video: "Stranger Things",
-          evaluation: 5,
+          favorite: false,
+          evaluation: 4,
           releaseYear: 2019,
           createdAt: 16476078,
           duration: 170,
@@ -205,7 +215,8 @@ const FAKE_DATA = [
           "https://observatoriodeseries.uol.com.br/wp-content/uploads/2019/02/2378636.jpg",
         video: {
           title_video: "The Walking Dead",
-          evaluation: 5,
+          favorite: false,
+          evaluation: 3,
           releaseYear: 2023,
           createdAt: 16476078,
           duration: 200,
@@ -223,7 +234,8 @@ const FAKE_DATA = [
           "https://theclick.gg/wp-content/uploads/2021/09/arcane-league-of-legends-series-banner-1024x576.jpg",
         video: {
           title_video: "Arcane",
-          evaluation: 5,
+          favorite: false,
+          evaluation: 4,
           releaseYear: 2019,
           createdAt: 16476078,
           duration: 200,
@@ -241,7 +253,8 @@ const FAKE_DATA = [
           "https://spinoff.com.br/wp-content/uploads/os-simpsons-750x380-1200x720.jpg",
         video: {
           title_video: "The Simpsons",
-          evaluation: 5,
+          favorite: false,
+          evaluation: 3,
           releaseYear: 2022,
           createdAt: 16476078,
           duration: 200,
@@ -259,7 +272,8 @@ const FAKE_DATA = [
           "https://2.bp.blogspot.com/--2bS5EI0LBM/XJBl2A_F5iI/AAAAAAAABNs/OTGDARFv9Y8Z5s6VYA5I1fPpcybNj2axQCLcBGAs/w1200-h630-p-k-no-nu/EU-A-PATROA-CRIAN%25C3%2587AS-GEEK-RESENHAS.png",
         video: {
           title_video: "Eu, a Patroa e as Crianças",
-          evaluation: 5,
+          favorite: false,
+          evaluation: 52,
           releaseYear: 2022,
           createdAt: 16476078,
           duration: 200,
@@ -285,6 +299,7 @@ const FAKE_DATA = [
           "https://wallpapers.com/images/high/jojo-bizarre-adventure-hero-banners-97au0jin9lw0i6lz.jpg",
         video: {
           title_video: "Jojo's Bizarre Adventure",
+          favorite: false,
           evaluation: 4,
           releaseYear: 2022,
           createdAt: 16476078,
@@ -303,6 +318,7 @@ const FAKE_DATA = [
           "https://img.elo7.com.br/product/original/1BD7B1D/painel-festa-1x0-70cm-one-piece-banner.jpg",
         video: {
           title_video: "One Piece",
+          favorite: false,
           evaluation: 5,
           releaseYear: 2022,
           createdAt: 16476078,
@@ -321,6 +337,7 @@ const FAKE_DATA = [
           "https://wp.radiojhero.com/wp-content/uploads/2020/12/one_punch_man.jpg",
         video: {
           title_video: "One Punch Man",
+          favorite: false,
           evaluation: 4,
           releaseYear: 2019,
           createdAt: 16476078,
@@ -338,6 +355,7 @@ const FAKE_DATA = [
           "https://geeksaw.com.br/wp-content/uploads/2015/07/attack-on-titan-anime-banner-eren-600x360.png",
         video: {
           title_video: "Attack on Titan",
+          favorite: false,
           evaluation: 5,
           releaseYear: 2023,
           createdAt: 16476078,
@@ -356,6 +374,7 @@ const FAKE_DATA = [
           "https://img.elo7.com.br/product/original/32579FF/painel-de-festa-boku-no-hero-decoracao-de-festa-death-note.jpg",
         video: {
           title_video: "Boku no Hero",
+          favorite: false,
           evaluation: 3,
           releaseYear: 2019,
           createdAt: 16476078,
@@ -371,9 +390,10 @@ const FAKE_DATA = [
         imageCard:
           "https://img.elo7.com.br/product/original/2C165D0/big-poster-anime-death-note-lo26-tamanho-90x60-cm-quadro.jpg",
         imageBanner:
-          "https://preview.redd.it/jpc798apewk41.png?auto=webp&s=c0e31f40532d67e91abe196df77b7eb691bb7bb9",
+          "https://fonesepaginasamarelas.files.wordpress.com/2016/05/death-note-banner.jpg",
         video: {
           title_video: "Death Note",
+          favorite: false,
           evaluation: 4,
           releaseYear: 2022,
           createdAt: 16476078,
@@ -392,6 +412,7 @@ const FAKE_DATA = [
           "https://img.elo7.com.br/product/zoom/1CB555E/dragon-ball-painel-festa-1-50x1m-painel-de-aniversario.jpg",
         video: {
           title_video: "Dragon Ball",
+          favorite: false,
           evaluation: 8,
           releaseYear: 2022,
           createdAt: 16476078,
@@ -416,7 +437,7 @@ const HomeScreen = () => {
         colors={["#343746", "#303C76"]}
       >
         <ScrollView>
-          <ImageCarousel data={FAKE_DATA[2].items} />
+          <ImageCarousel data={FAKE_DATA[1].items} />
           <ListVideos data={FAKE_DATA[0]} />
           <ListVideos data={FAKE_DATA[1]} />
           <ListVideos data={FAKE_DATA[2]} />
