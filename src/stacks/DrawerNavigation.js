@@ -15,10 +15,15 @@ const DrawerNavigation = () => {
       screenOptions={{
         headerStyle: { backgroundColor: "#343746" },
         headerTintColor: "#6C63FF",
+        headerTransparent: false,
         title: false,
       }}
     >
-      <Drawer.Screen name="Home" component={HomeScreen} />
+      <Drawer.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{ headerTransparent: true }}
+      />
       <Drawer.Screen name="Favoritos" component={FavoritesScreen} />
       <Drawer.Screen name="Pesquisa" component={Search} />
       <Drawer.Screen name="Suporte" component={SupportScreen} />
