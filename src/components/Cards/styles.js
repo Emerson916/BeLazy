@@ -9,6 +9,7 @@ export const Container = styled.TouchableOpacity`
 export const Image = styled.Image`
   height: 250px;
   width: 100%;
+  border-radius: 15px;
 `;
 
 export const Text = styled.Text`
