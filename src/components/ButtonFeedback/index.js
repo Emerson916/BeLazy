@@ -1,23 +1,21 @@
 import React, { useState } from "react";
 import { Container, Text } from "./styles";
 
-const ButtonFeedback = ({ IconSvg, IconFill, title, onChange }) => {
+const ButtonFeedback = ({ IconSvg, IconFill, title, onChange, onPress }) => {
   const [checked, setChecked] = useState(false);
 
   const handleChecked = () => {
-    const newState = !checked;
-    setChecked(newState);
+    setChecked(!checked);
 
     if (!checked) {
       onChange(true);
-      console.log("OnChange :", onChange(true));
     } else {
       onChange(false);
-      console.log("OnChange2 :", onChange(false));
     }
   };
   return (
-    <Container onPress={handleChecked}>
+    // onPress={handleChecked}
+    <Container onPress={onPress}>
       {!checked ? (
         <IconSvg width="20" height="20" fill="#303C76" />
       ) : (
