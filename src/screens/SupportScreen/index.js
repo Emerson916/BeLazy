@@ -6,7 +6,7 @@ import {
   TextEmail,
   ContainerConfig,
 } from "./styles";
-import { StyleSheet, ScrollView } from "react-native";
+import { StyleSheet, ScrollView, Alert, BackHandler } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import Title from "../../components/Title";
 import ButtonPremium from "../../components/ButtonPremium";
@@ -16,6 +16,20 @@ import ButtonConfig from "../../components/ButtonConfig";
 import ArrowRight from "../../assets/arrowRight.svg";
 
 const SupportScreen = () => {
+  const handleBackApp = () => {
+    BackHandler.exitApp();
+    return true;
+  };
+
+  const alertMessage = () => {
+    Alert.alert("Quer mesmo sair do app ?", "😭😭", [
+      {
+        text: "Não",
+      },
+      { text: "Sim", onPress: () => handleBackApp() },
+    ]);
+  };
+
   return (
     <Container>
       <LinearGradient
@@ -45,7 +59,11 @@ const SupportScreen = () => {
               title="Permição de Notificação"
               IconSvg={ArrowRight}
             />
-            <ButtonConfig title="Sair" IconSvg={ArrowRight} />
+            <ButtonConfig
+              title="Sair"
+              IconSvg={ArrowRight}
+              onPress={() => alertMessage()}
+            />
           </ContainerConfig>
         </ScrollView>
       </LinearGradient>
