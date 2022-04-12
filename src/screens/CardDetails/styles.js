@@ -78,3 +78,33 @@ export const Image = styled.Image`
   width: 20px;
 `;
 
+export const ContainerModel = styled.View`
+  height: 300px;
+  width: 90%;
+  margin: 150px auto;
+  border: 2px solid #fff;
+  border-radius: 24px;
+  background-color: #303c76;
+  align-items: center;
+`;
+
+export const ContainerText = styled.View`
+  width: 90%;
+  flex-direction: row;
+  justify-content: space-around;
+`;
+
+export const Text = styled.Text`
+  color: #fff;
+  font-size: 16px;
+  margin: 20px;
+  padding-bottom: 30px;
+  font-weight: bold;
+`;
+
+export const TextExit = styled.Text`
+  color: #6c63ff;
+  margin: 5px;
+  font-size: 20px;
+  font-weight: bold;
+`;

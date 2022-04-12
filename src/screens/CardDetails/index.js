@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
-import { StyleSheet, ScrollView, Text } from "react-native";
+import { Modal, ToastAndroid } from "react-native";
+
+import { StyleSheet, ScrollView, Share } from "react-native";
 import {
   Container,
   ImageBackground,
@@ -14,6 +16,10 @@ import {
   ContainerTitle,
   TextSinopse,
   TitleSinopse,
+  ContainerModel,
+  Text,
+  TextExit,
+  ContainerText,
 } from "./styles";
 import ButtonFeedback from "../../components/ButtonFeedback";
 import CamIcon from "../../assets/camIcon.svg";
@@ -22,12 +28,43 @@ import BookmarkFill from "../../assets/bookmarkFill.svg";
 import ErrorIcon from "../../assets/error.svg";
 import CompartilharIcon from "../../assets/compartilhar.svg";
 import ButtonWatch from "../../components/ButtonWatch";
-import { useNavigation } from "@react-navigation/native";
+import InputData from "../../components/InputData";
+import ButtonError from "../../components/ButtonError";
 
 const CardDetails = (props) => {
   const { video, imageBanner } = props.route.params;
-  const navigation = useNavigation();
-  const [favorited, setFavorites] = useState(video.favorite);
+  // const [favorited, setFavorited] = useState(video.favorite);
+  const [favorited, setFavorited] = useState(video.favorite);
+  const [visible, setVisible] = useState(false);
+  const [errorText, setErrorText] = useState("");
+
+  const onShare = async () => {
+    try {
+      const result = await Share.share({
+        message: `https://${video.link}.com.br`,
+      });
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          // shared with activity type of result.activityType
+        } else {
+          // shared
+        }
+      } else if (result.action === Share.dismissedAction) {
+        // dismissed
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+  function onChange() {
+    setVisible(false);
+    ToastAndroid.show(
+      "Pedimos desculpa pelo incoveniente, vamos resolver o problema o mais rápido o possível.",
+      ToastAndroid.LONG
+    );
+    setErrorText("");
+  }
 
   return (
     <Container>
@@ -55,7 +92,10 @@ const CardDetails = (props) => {
           </ContainerCategory>
 
           <ContainerButtons>
-            <ButtonWatch text="Assistir" />
+            <ButtonWatch
+              text="Assistir"
+              onPress={() => props.navigation.navigate("VideoScreen")}
+            />
           </ContainerButtons>
 
           <ContainerSinopse>
@@ -64,16 +104,47 @@ const CardDetails = (props) => {
           </ContainerSinopse>
 
           <ContainerButtons>
-            <Text>favorited : {String(favorited)} </Text>
+            {/* <Text>favorited : {String(favorited)}</Text> */}
             <ButtonFeedback
-              onChange={(favorited) => setFavorites(favorited)}
+              onChange={(favorited) => setFavorited(favorited)}
+              // onChange={favorited}
               IconSvg={Bookmark}
               IconFill={BookmarkFill}
               title="Favoritar"
             />
-            <ButtonFeedback IconSvg={ErrorIcon} title="Relatar Erro" />
-            <ButtonFeedback IconSvg={CompartilharIcon} title="Compartilhar" />
+            <ButtonFeedback
+              IconSvg={ErrorIcon}
+              title="Relatar Erro"
+              onPress={() => setVisible(true)}
+            />
+            <ButtonFeedback
+              IconSvg={CompartilharIcon}
+              title="Compartilhar"
+              onPress={() => onShare()}
+            />
           </ContainerButtons>
+
+          <Modal animationType="fade" transparent={true} visible={visible}>
+            <ContainerModel>
+              <ContainerText>
+                <Text>Relate o problema que esta ocorrendo</Text>
+                <TextExit onPress={() => setVisible(false)}>X</TextExit>
+              </ContainerText>
+
+              <InputData
+                IconSvg={ErrorIcon}
+                value={errorText}
+                placeholder="Escreva aqui"
+                onChangeText={(t) => setErrorText(t)}
+              />
+              <ButtonError
+                title="Enviar"
+                onPress={() => {
+                  onChange();
+                }}
+              />
+            </ContainerModel>
+          </Modal>
         </ScrollView>
       </LinearGradient>
     </Container>
