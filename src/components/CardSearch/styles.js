@@ -1,13 +1,15 @@
 import styled from "styled-components/native";
 
 export const ContainerSearch = styled.TouchableOpacity`
-  width: 150px;
   height: 220px;
-  margin: 25px auto;
+  width: 150px;
+  margin: 35px auto;
 `;
 
 export const Text = styled.Text`
   color: #fff;
+  font-size: 14px;
+  font-weight: bold;
 `;
 
 export const Image = styled.Image`

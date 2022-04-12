@@ -15,4 +15,5 @@ export const Image = styled.Image`
 export const Text = styled.Text`
   font-size: 14px;
   color: #fff;
+  font-weight: bold;
 `;
