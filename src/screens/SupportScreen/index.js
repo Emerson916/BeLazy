@@ -54,9 +54,9 @@ const SupportScreen = () => {
           <ContainerConfig>
             <Title text="CONFIGURAÇÕES" />
             <ButtonConfig title="Editar Perfil" IconSvg={ArrowRight} />
-            <ButtonConfig title="Permição de dados" IconSvg={ArrowRight} />
+            <ButtonConfig title="Permissão de dados" IconSvg={ArrowRight} />
             <ButtonConfig
-              title="Permição de Notificação"
+              title="Permissão de Notificação"
               IconSvg={ArrowRight}
             />
             <ButtonConfig
