@@ -16,7 +16,7 @@ const ImageCarouselItem = (props) => {
   const { height, width } = Dimensions.get("window");
   return (
     <Container
-      style={{ width: width, height: height / 2 }}
+      style={{ width: width, height: height / 2.5 }}
       onPress={() => navigation.navigate("CardDetails", props)}
     >
       {/* <Text style={{ fontSize: 72 }}>{plot}</Text> */}
