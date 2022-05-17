@@ -1,0 +1,13 @@
+version: "1"
+
+services:
+  app:
+    image: belazy:dev
+
+    build:
+      context: .
+    command: yarn start
+    ports:
+      - "3000:3000"
+    
+    
