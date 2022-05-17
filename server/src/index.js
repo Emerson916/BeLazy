@@ -5,8 +5,8 @@ const bodyParser = require("body-parser");
 const app = express();
 
 const PORT = parseInt(process.env.PORT ?? process.env.port ?? "3000");
-
 const createUser = require("./endpoints/users/create-user");
+
 app.use(bodyParser.json());
 app.use(log());
 
