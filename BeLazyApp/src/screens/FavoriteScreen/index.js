@@ -3,6 +3,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { StyleSheet } from "react-native";
 import { Container } from "./styles";
 
+
 const FavoritesScreen = () => {
   return (
     <Container>
@@ -11,7 +12,9 @@ const FavoritesScreen = () => {
         start={{ x: 1, y: 0 }}
         end={{ x: 1, y: 1.0 }}
         colors={["#343746", "#303C76"]}
-      ></LinearGradient>
+      >
+
+      </LinearGradient>
     </Container>
   );
 };
