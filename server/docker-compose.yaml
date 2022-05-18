@@ -1,13 +1,15 @@
 version: "1"
-
 services:
   app:
-    image: belazy:dev
+    image: belazyapi
 
     build:
       context: .
     command: yarn start
     ports:
       - "3000:3000"
+    volumes:
+      - .:/opt/app
     
-    
+    # environment:
+    #   POSTGRES_URI:
