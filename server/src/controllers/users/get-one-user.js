@@ -17,9 +17,7 @@ function getOneUser(app) {
     if (getOneUser) {
       resp.status(200).send(getOneUser);
     } else {
-      resp
-        .status(400)
-        .send({ message: "Não foi possível, listar os usuários" });
+      resp.status(400).send({ message: "Não foi possível, listar o usuário" });
     }
   });
 }
