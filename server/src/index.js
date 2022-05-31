@@ -7,6 +7,7 @@ const app = express();
 const db = require("./middleware/db");
 
 const createUser = require("./controllers/users/create-user");
+const deleteUser = require("./controllers/users/delete-user");
 
 const PORT = parseInt(process.env.PORT ?? process.env.port ?? "3000");
 
@@ -15,6 +16,7 @@ app.use(log());
 app.use(db());
 
 createUser(app);
+deleteUser(app);
 
 app.listen(PORT, () => {
   console.log("Aplicação rodando na porta", PORT);
