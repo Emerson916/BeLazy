@@ -1,4 +1,4 @@
-const sha1 = require("sha1");
+const createUserService = require("../../services/user-service/create-user-service");
 
 function createUser(app) {
   app.post("/v1/users", async (req, resp) => {
@@ -9,37 +9,14 @@ function createUser(app) {
         message: "Preencha os campos!",
       });
     } else {
-      const selectUser = `SELECT email FROM users WHERE email = $1`;
-      const value = [email];
+      const createUser = await createUserService(email, password, username);
 
-      const userExists = await req.client
-        .query(selectUser, value)
-        .then((resp) => resp.rows)
-        .catch((e) => {
-          req.log.error("erro");
-          req.log.error(e);
-          return;
-        });
+      const message = createUser.message;
 
-      if (!userExists) {
-        resp.status(400).send({ message: "User not found" });
+      if (createUser.error) {
+        resp.status(400).send({ message });
       } else {
-        const hashPassword = sha1(password);
-
-        const insert = `INSERT INTO users (email, password, name) VALUES ($1, $2, $3)`;
-
-        const values = [email, hashPassword, username];
-
-        const insertUser = await req.client
-          .query(insert, values)
-          .then((resp) => resp.rows)
-          .catch((e) => {
-            req.log.error("erro");
-            req.log.error(e);
-            return;
-          });
-
-        resp.status(200).send(insertUser);
+        resp.status(201).send({ message });
       }
     }
   });

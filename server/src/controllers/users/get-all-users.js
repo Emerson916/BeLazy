@@ -1,22 +1,14 @@
-function getAllUsers(app) {
-  app.get("/v1/users", async (req, resp) => {
-    const selectUsers = `SELECT id, email, name, last_login FROM users`;
+const getAllUsersService = require("../../services/user-service/get-all-user-service");
 
-    const getAllUsers = await req.client
-      .query(selectUsers)
-      .then((resp) => resp.rows)
-      .catch((e) => {
-        req.log.error("erro");
-        req.log.error(e);
-        return;
-      });
+function getAllUsers(app) {
+  app.get("/v1/users", async (_req, resp) => {
+    const getAllUsers = await getAllUsersService();
+    const message = getAllUsers.message;
 
     if (getAllUsers) {
       resp.status(200).send(getAllUsers);
     } else {
-      resp
-        .status(400)
-        .send({ message: "Não foi possível, listar os usuários" });
+      resp.status(400).send({ message });
     }
   });
 }
