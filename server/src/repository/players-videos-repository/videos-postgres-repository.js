@@ -64,9 +64,9 @@ async function insertNewFilm(
 
   try {
     const query = await postgresConnection.query(insertFilm, values);
-    console.log("##############################");
-    console.log("# VIDEO CRIADO COM SUCESSO #");
-    console.log("##############################");
+    console.log("############################");
+    console.log("# FILME CRIADO COM SUCESSO #");
+    console.log("############################");
     return query;
   } catch (error) {
     console.log("CONSOLE LOG DO ERRO INSERT ======> ", error);
@@ -126,12 +126,47 @@ async function deleteFilmById(id) {
 
   try {
     const query = await postgresConnection.query(deleteFilm, value);
-    console.log("################################");
-    console.log("# FILM DELETADO COM SUCESSO #");
-    console.log("################################");
+    console.log("##############################");
+    console.log("# FILME DELETADO COM SUCESSO #");
+    console.log("##############################");
     return query;
   } catch (error) {
     console.log("DELETE ERROR", error);
+  } finally {
+    postgresConnection.release;
+  }
+}
+
+async function updateFilmById(dataFilm, id) {
+  const updateById = `UPDATE films SET (
+    imageCard,
+    imageBanner,
+    title_video,
+    evaluation,
+    favorite,
+    releaseYear,
+    createAt,
+    sinopse) = ($1, $2, $3, $4, $5, $6, $7, $8) WHERE id = $9`;
+  const values = [
+    dataFilm.imageCard,
+    dataFilm.imageBanner,
+    dataFilm.title_video,
+    dataFilm.evaluation,
+    dataFilm.favorite,
+    dataFilm.releaseYear,
+    dataFilm.createAt,
+    dataFilm.sinopse,
+    id,
+  ];
+
+  try {
+    const query = await postgresConnection.query(updateById, values);
+    console.log("################################");
+    console.log("# FILME ATUALIZADO COM SUCESSO #");
+    console.log("################################");
+    return query.rows;
+  } catch (error) {
+    console.log("CONSOLE LOG DO ERRO UPDATE ======> ", error);
   } finally {
     postgresConnection.release;
   }
@@ -142,5 +177,6 @@ module.exports = {
   insertNewFilm,
   getFilmById,
   getAllFilms,
-  deleteFilmById
+  deleteFilmById,
+  updateFilmById
 };
