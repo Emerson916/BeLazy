@@ -13,6 +13,7 @@ const updateUser = require("./controllers/users/update-user");
 const createFilm = require("./controllers/players-videos/films-controller/create-film");
 const getOneFilm = require("./controllers/players-videos/films-controller/get-one-film");
 const getAllFilms = require("./controllers/players-videos/films-controller/get-all-films");
+const deleteFilm = require("./controllers/players-videos/films-controller/delete-film");
 
 const PORT = parseInt(process.env.PORT ?? process.env.port ?? "3000");
 
@@ -30,6 +31,7 @@ updateUser(app);
 createFilm(app);
 getOneFilm(app);
 getAllFilms(app);
+deleteFilm(app);
 
 app.listen(PORT, () => {
   console.log("Aplicação rodando na porta", PORT);

@@ -120,9 +120,27 @@ async function getAllFilms() {
   }
 }
 
+async function deleteFilmById(id) {
+  const deleteFilm = `DELETE FROM films WHERE id = $1`;
+  const value = [id];
+
+  try {
+    const query = await postgresConnection.query(deleteFilm, value);
+    console.log("################################");
+    console.log("# FILM DELETADO COM SUCESSO #");
+    console.log("################################");
+    return query;
+  } catch (error) {
+    console.log("DELETE ERROR", error);
+  } finally {
+    postgresConnection.release;
+  }
+}
+
 module.exports = {
   selectFilmByTitle,
   insertNewFilm,
   getFilmById,
-  getAllFilms
+  getAllFilms,
+  deleteFilmById
 };
