@@ -1,7 +1,7 @@
 const {
   selectFilmByTitle,
   insertNewFilm,
-} = require("../../../repository/players-videos/videos-postgres-repository");
+} = require("../../../repository/players-videos-repository/videos-postgres-repository");
 const buildErrorObject = require("../../../config/factory-function");
 
 async function createNewFilmService(

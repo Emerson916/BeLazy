@@ -36,7 +36,7 @@ function createFilm(app) {
       if (createFilm.error) {
         resp.status(400).send({ message });
       } else {
-        resp.status(201).send(createFilm);
+        resp.status(201).send(createFilm.rows);
       }
     }
   });

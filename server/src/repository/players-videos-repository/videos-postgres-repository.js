@@ -98,8 +98,31 @@ async function getFilmById(id) {
   }
 }
 
+async function getAllFilms() {
+  const selectFilms = `SELECT 
+  id,
+  imageCard,
+  imageBanner,
+  title_video,
+  evaluation,
+  favorite,
+  releaseYear,
+  createAt,
+  sinopse FROM films`;
+
+  try {
+    const query = await postgresConnection.query(selectFilms);
+    return query.rows;
+  } catch (error) {
+    console.log("CONSOLE LOG DO ERRO GET-ALL-FILMS ======> ", error);
+  } finally {
+    postgresConnection.release;
+  }
+}
+
 module.exports = {
   selectFilmByTitle,
   insertNewFilm,
   getFilmById,
+  getAllFilms
 };
