@@ -1,7 +1,7 @@
 const {
   updateUserById,
   getUserById,
-} = require("../../repository/user-repository/postgres-repository");
+} = require("../../repository/user-repository/user-postgres-repository");
 const buildErrorObject = require("../../config/factory-function");
 const sha1 = require("sha1");
 

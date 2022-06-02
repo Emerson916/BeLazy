@@ -1,7 +1,7 @@
 const buildErrorObject = require("../../config/factory-function");
 const {
   getAllUsers,
-} = require("../../repository/user-repository/postgres-repository");
+} = require("../../repository/user-repository/user-postgres-repository");
 
 async function getAllUsersService() {
   const listUsers = await getAllUsers();

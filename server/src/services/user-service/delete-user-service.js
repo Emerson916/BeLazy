@@ -1,7 +1,7 @@
 const buildErrorObject = require("../../config/factory-function");
 const {
   deleteUserById,
-} = require("../../repository/user-repository/postgres-repository");
+} = require("../../repository/user-repository/user-postgres-repository");
 
 async function deleteUserService(id) {
   const deletingUser = await deleteUserById(id);

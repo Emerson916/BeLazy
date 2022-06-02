@@ -1,6 +1,6 @@
 const {
   getUserById,
-} = require("../../repository/user-repository/postgres-repository");
+} = require("../../repository/user-repository/user-postgres-repository");
 const buildErrorObject = require("../../config/factory-function");
 
 async function getOneUserService(id) {
