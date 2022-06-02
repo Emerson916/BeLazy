@@ -13,6 +13,7 @@ async function createNewFilmService(
   favorite,
   releaseYear,
   createAt,
+  duration,
   sinopse
 ) {
   const checkingIdFilm = await selectFilmByTitle(title_video);
@@ -29,6 +30,7 @@ async function createNewFilmService(
       favorite,
       releaseYear,
       createAt,
+      duration,
       sinopse
     );
 

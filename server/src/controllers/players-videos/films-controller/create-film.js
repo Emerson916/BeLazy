@@ -11,6 +11,7 @@ function createFilm(app) {
       favorite,
       releaseYear,
       createAt,
+      duration,
       sinopse,
     } = req.body;
 
@@ -28,6 +29,7 @@ function createFilm(app) {
         favorite,
         releaseYear,
         createAt,
+        duration,
         sinopse
       );
 

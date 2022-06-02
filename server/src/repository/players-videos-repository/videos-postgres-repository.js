@@ -10,6 +10,7 @@ async function selectFilmByTitle(title_video) {
     favorite,
     releaseYear,
     createAt,
+    duration,
     sinopse
     ) FROM films WHERE title_video = $1`;
   const value = [title_video];
@@ -34,6 +35,7 @@ async function insertNewFilm(
   favorite,
   releaseYear,
   createAt,
+  duration,
   sinopse
 ) {
   //Insert de films
@@ -46,8 +48,9 @@ async function insertNewFilm(
     favorite,
     releaseYear,
     createAt,
+    duration,
     sinopse
-    ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`;
+    ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)`;
 
   //Parâmetros passados para o insert de films
   const values = [
@@ -59,6 +62,7 @@ async function insertNewFilm(
     favorite,
     releaseYear,
     createAt,
+    duration,
     sinopse,
   ];
 
@@ -85,6 +89,7 @@ async function getFilmById(id) {
   favorite,
   releaseYear,
   createAt,
+  duration,
   sinopse FROM films WHERE id = $1`;
   const value = [id];
 
@@ -108,6 +113,7 @@ async function getAllFilms() {
   favorite,
   releaseYear,
   createAt,
+  duration,
   sinopse FROM films`;
 
   try {
@@ -146,7 +152,8 @@ async function updateFilmById(dataFilm, id) {
     favorite,
     releaseYear,
     createAt,
-    sinopse) = ($1, $2, $3, $4, $5, $6, $7, $8) WHERE id = $9`;
+    duration,
+    sinopse) = ($1, $2, $3, $4, $5, $6, $7, $8, $9) WHERE id = $10`;
   const values = [
     dataFilm.imageCard,
     dataFilm.imageBanner,
@@ -155,6 +162,7 @@ async function updateFilmById(dataFilm, id) {
     dataFilm.favorite,
     dataFilm.releaseYear,
     dataFilm.createAt,
+    dataFilm.duration,
     dataFilm.sinopse,
     id,
   ];
