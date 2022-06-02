@@ -1,7 +1,7 @@
 const postgresConnection = require("../../config/postgresConnection");
 
 async function selectFilmByTitle(title_video) {
-  const selectUser = `SELECT (
+  const selectFilm = `SELECT (
     user_id,
     imageCard,
     imageBanner,
@@ -15,7 +15,7 @@ async function selectFilmByTitle(title_video) {
   const value = [title_video];
 
   try {
-    const query = await postgresConnection.query(selectUser, value);
+    const query = await postgresConnection.query(selectFilm, value);
     return query.rows[0];
   } catch (error) {
     console.log("CONSOLE LOG DO ERRO SELECT ======> ", error);
@@ -37,7 +37,7 @@ async function insertNewFilm(
   sinopse
 ) {
   //Insert de films
-  const insertUser = `INSERT INTO films (
+  const insertFilm = `INSERT INTO films (
     user_id,
     imageCard,
     imageBanner,
@@ -63,7 +63,7 @@ async function insertNewFilm(
   ];
 
   try {
-    const query = await postgresConnection.query(insertUser, values);
+    const query = await postgresConnection.query(insertFilm, values);
     console.log("##############################");
     console.log("# VIDEO CRIADO COM SUCESSO #");
     console.log("##############################");
@@ -75,7 +75,31 @@ async function insertNewFilm(
   }
 }
 
+async function getFilmById(id) {
+  const selectFilmById = `SELECT
+  id,
+  imageCard,
+  imageBanner,
+  title_video,
+  evaluation,
+  favorite,
+  releaseYear,
+  createAt,
+  sinopse FROM films WHERE id = $1`;
+  const value = [id];
+
+  try {
+    const query = await postgresConnection.query(selectFilmById, value);
+    return query.rows;
+  } catch (error) {
+    console.log("CONSOLE LOG DO ERRO GET-FILM-BY-ID ======> ", error);
+  } finally {
+    postgresConnection.release;
+  }
+}
+
 module.exports = {
   selectFilmByTitle,
   insertNewFilm,
+  getFilmById,
 };
