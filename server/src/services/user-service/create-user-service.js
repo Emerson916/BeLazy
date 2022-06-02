@@ -4,7 +4,6 @@ const {
 } = require("../../repository/user-repository/user-postgres-repository");
 const buildErrorObject = require("../../config/factory-function");
 const sha1 = require("sha1");
-const log = require("../../middleware/logger");
 
 async function createNewUser(email, password, username) {
   const checkingEmail = await selectUserByEmail(email);
