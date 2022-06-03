@@ -1,5 +1,5 @@
 const buildErrorObject = require("../../../config/factory-function");
-const { getFilmById, updateFilmById } = require("../../../repository/players-videos-repository/videos-postgres-repository");
+const { getFilmById, updateFilmById } = require("../../../repository/players-videos-repository/films/films-postgres-repository");
 
 async function updateFilmService(dataFilm, id) {
   try {

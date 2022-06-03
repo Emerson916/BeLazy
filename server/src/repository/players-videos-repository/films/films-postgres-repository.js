@@ -1,4 +1,4 @@
-const postgresConnection = require("../../config/postgresConnection");
+const postgresConnection = require("../../../config/postgresConnection");
 
 async function selectFilmByTitle(title_video) {
   const selectFilm = `SELECT (

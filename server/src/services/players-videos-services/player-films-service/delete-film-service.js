@@ -1,5 +1,5 @@
 const buildErrorObject = require("../../../config/factory-function");
-const { deleteFilmById } = require("../../../repository/players-videos-repository/videos-postgres-repository");
+const { deleteFilmById } = require("../../../repository/players-videos-repository/films/films-postgres-repository");
 
 async function deleteFilmService(id) {
   const deletingFilm = await deleteFilmById(id);

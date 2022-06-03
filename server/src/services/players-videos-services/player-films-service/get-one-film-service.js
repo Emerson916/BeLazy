@@ -1,7 +1,7 @@
 const buildErrorObject = require("../../../config/factory-function");
 const {
   getFilmById,
-} = require("../../../repository/players-videos-repository/videos-postgres-repository");
+} = require("../../../repository/players-videos-repository/films/films-postgres-repository");
 
 async function getOneFilmService(id) {
   const listOneFilm = await getFilmById(id);
