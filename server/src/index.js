@@ -5,17 +5,17 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
-const createUser = require("./controllers/users/create-user");
-const deleteUser = require("./controllers/users/delete-user");
-const getOneUser = require("./controllers/users/get-one-user");
-const getAllUsers = require("./controllers/users/get-all-users");
-const updateUser = require("./controllers/users/update-user");
+const createUser = require("./controllers/users/create-user-controller");
+const deleteUser = require("./controllers/users/delete-user-controller");
+const getOneUser = require("./controllers/users/get-one-user-controller");
+const getAllUsers = require("./controllers/users/get-all-users-controller");
+const updateUser = require("./controllers/users/update-user-controller");
 
-const createFilm = require("./controllers/players-videos/films-controller/create-film");
-const getOneFilm = require("./controllers/players-videos/films-controller/get-one-film");
-const getAllFilms = require("./controllers/players-videos/films-controller/get-all-films");
-const deleteFilm = require("./controllers/players-videos/films-controller/delete-film");
-const updateFilm = require("./controllers/players-videos/films-controller/update-film");
+const createFilm = require("./controllers/players-videos/films-controller/create-film-controller");
+const getOneFilm = require("./controllers/players-videos/films-controller/get-one-film-controller");
+const getAllFilms = require("./controllers/players-videos/films-controller/get-all-films-controller");
+const deleteFilm = require("./controllers/players-videos/films-controller/delete-film-controller");
+const updateFilm = require("./controllers/players-videos/films-controller/update-film-controller");
 
 const PORT = parseInt(process.env.PORT ?? process.env.port ?? "3000");
 
