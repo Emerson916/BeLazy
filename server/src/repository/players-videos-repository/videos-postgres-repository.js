@@ -2,7 +2,6 @@ const postgresConnection = require("../../config/postgresConnection");
 
 async function selectFilmByTitle(title_video) {
   const selectFilm = `SELECT (
-    user_id,
     imageCard,
     imageBanner,
     title_video,
@@ -27,7 +26,6 @@ async function selectFilmByTitle(title_video) {
 
 async function insertNewFilm(
   //Parâmetros da função
-  user_id,
   imageCard,
   imageBanner,
   title_video,
@@ -40,7 +38,6 @@ async function insertNewFilm(
 ) {
   //Insert de films
   const insertFilm = `INSERT INTO films (
-    user_id,
     imageCard,
     imageBanner,
     title_video,
@@ -50,11 +47,10 @@ async function insertNewFilm(
     createAt,
     duration,
     sinopse
-    ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)`;
+    ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`;
 
   //Parâmetros passados para o insert de films
   const values = [
-    user_id,
     imageCard,
     imageBanner,
     title_video,

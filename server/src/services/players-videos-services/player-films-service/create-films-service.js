@@ -5,7 +5,6 @@ const {
 const buildErrorObject = require("../../../config/factory-function");
 
 async function createNewFilmService(
-  user_id,
   imageCard,
   imageBanner,
   title_video,
@@ -22,7 +21,6 @@ async function createNewFilmService(
     return buildErrorObject("Esse filme já existe");
   } else {
     const insertFilm = await insertNewFilm(
-      user_id,
       imageCard,
       imageBanner,
       title_video,

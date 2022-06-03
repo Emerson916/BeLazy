@@ -3,7 +3,6 @@ const createNewFilmService = require("../../../services/players-videos-services/
 function createFilm(app) {
   app.post("/v1/films", async (req, resp) => {
     const {
-      user_id,
       imageCard,
       imageBanner,
       title_video,
@@ -21,7 +20,6 @@ function createFilm(app) {
       });
     } else {
       const createFilm = await createNewFilmService(
-        user_id,
         imageCard,
         imageBanner,
         title_video,
