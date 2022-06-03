@@ -17,6 +17,10 @@ const getAllFilms = require("./controllers/players-videos/films-controller/get-a
 const deleteFilm = require("./controllers/players-videos/films-controller/delete-film-controller");
 const updateFilm = require("./controllers/players-videos/films-controller/update-film-controller");
 
+const createAnimeController = require("./controllers/players-videos/anime-controller/create-anime-controller");
+const createEpisodeController = require("./controllers/episodes-controller/create-episodes-controller");
+const createSeasonController = require("./controllers/season-controller/create-season-controller");
+
 const PORT = parseInt(process.env.PORT ?? process.env.port ?? "3000");
 
 app.use(bodyParser.json());
@@ -35,6 +39,15 @@ getOneFilm(app);
 getAllFilms(app);
 deleteFilm(app);
 updateFilm(app);
+
+//ROTAS DE ANIMES
+createAnimeController(app);
+
+//ROTAS DE EPISÓDIOS
+createEpisodeController(app);
+
+//ROTAS DE SEASON
+createSeasonController(app);
 
 app.listen(PORT, () => {
   console.log("Aplicação rodando na porta", PORT);
