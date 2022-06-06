@@ -132,6 +132,33 @@ async function deleteAnimeById(id) {
   }
 }
 
+async function updateAnimeById(dataAnime, id) {
+  const updateById = `UPDATE animes SET (imageCard, imageBanner, title_video, evaluation, favorite, releaseYear, createAt, sinopse) = ($1, $2, $3, $4, $5, $6, $7, $8) WHERE id = $9`;
+  const values = [
+    dataAnime.imageCard,
+    dataAnime.imageBanner,
+    dataAnime.title_video,
+    dataAnime.evaluation,
+    dataAnime.favorite,
+    dataAnime.releaseYear,
+    dataAnime.createAt,
+    dataAnime.sinopse,
+    id,
+  ];
+
+  try {
+    const query = await postgresConnection.query(updateById, values);
+    console.log("################################");
+    console.log("# ANIME ATUALIZADO COM SUCESSO #");
+    console.log("################################");
+    return query.rows;
+  } catch (error) {
+    console.log("CONSOLE LOG DO ERRO UPDATE ======> ", error);
+  } finally {
+    postgresConnection.release;
+  }
+}
+
 module.exports = {
   selectAnimeByTitle,
   insertNewAnime,
@@ -139,4 +166,5 @@ module.exports = {
   getAllAnime,
   deleteAnimeSeasonById_anime,
   deleteAnimeById,
+  updateAnimeById,
 };
