@@ -1,5 +1,4 @@
 const postgresConnection = require("../../config/postgresConnection");
-const log = require("../../middleware/logger");
 
 async function selectUserByEmail(email) {
   const selectUser = `SELECT email FROM users WHERE email = $1`;

@@ -1,15 +1,15 @@
 const buildErrorObject = require("../../config/factory-function");
 const {
   insertNewSeason,
-  selectUserByNumberSeason,
+  selectSeasonByNumberSeasonAndId_anime,
 } = require("../../repository/season-repository/season-repository");
 
 async function createNewSeasonService(id_anime, number_season, imageCard, episodes) {
-  const checkingSeason = await selectUserByNumberSeason(number_season);
+  const checkingSeason = await selectSeasonByNumberSeasonAndId_anime(id_anime, number_season);
 
   if (checkingSeason) {
-    console.log("Essa temporada já foi adicionada");
-    return buildErrorObject("Essa temporada já foi adicionada");
+    console.log("Essa temporada já foi adicionada para esse anime");
+    return buildErrorObject("Essa temporada já foi adicionada para esse anime");
   } else {
     const insert = await insertNewSeason(id_anime, number_season, imageCard, episodes);
 

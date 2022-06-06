@@ -22,6 +22,7 @@ const createAnimeController = require("./controllers/players-videos/anime-contro
 const createSeasonController = require("./controllers/season-controller/create-season-controller");
 
 const getOneAnimeController = require("./controllers/players-videos/anime-controller/get-one-anime-controller");
+const getAllAnimeController = require("./controllers/players-videos/anime-controller/get-all-anime-controller");
 
 const PORT = parseInt(process.env.PORT ?? process.env.port ?? "3000");
 
@@ -45,6 +46,7 @@ updateFilm(app);
 //ROTAS DE ANIMES
 createAnimeController(app);
 getOneAnimeController(app);
+getAllAnimeController(app);
 
 //ROTAS DE SEASON
 createSeasonController(app);

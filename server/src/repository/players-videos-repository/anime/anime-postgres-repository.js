@@ -86,8 +86,22 @@ async function getAnimeById(id) {
   }
 }
 
+async function getAllAnime() {
+  const selectAnime = `SELECT id, imageCard, imageBanner, title_video, evaluation, favorite, releaseYear, createAt, sinopse FROM animes`;
+
+  try {
+    const query = await postgresConnection.query(selectAnime);
+    return query.rows;
+  } catch (error) {
+    console.log("CONSOLE LOG DO ERRO GET-ALL-Anime ======> ", error);
+  } finally {
+    postgresConnection.release;
+  }
+}
+
 module.exports = {
   selectAnimeByTitle,
   insertNewAnime,
   getAnimeById,
+  getAllAnime
 };
