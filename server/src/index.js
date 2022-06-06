@@ -5,11 +5,11 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
-const createUser = require("./controllers/users/create-user-controller");
-const deleteUser = require("./controllers/users/delete-user-controller");
-const getOneUser = require("./controllers/users/get-one-user-controller");
-const getAllUsers = require("./controllers/users/get-all-users-controller");
-const updateUser = require("./controllers/users/update-user-controller");
+const createUser = require("./controllers/users-controller/create-user-controller");
+const deleteUser = require("./controllers/users-controller/delete-user-controller");
+const getOneUser = require("./controllers/users-controller/get-one-user-controller");
+const getAllUsers = require("./controllers/users-controller/get-all-users-controller");
+const updateUser = require("./controllers/users-controller/update-user-controller");
 
 const createFilm = require("./controllers/players-videos/films-controller/create-film-controller");
 const getOneFilm = require("./controllers/players-videos/films-controller/get-one-film-controller");
