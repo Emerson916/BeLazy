@@ -72,8 +72,7 @@ async function insertNewAnime(
 }
 
 async function getAnimeById(id) {
-  const selectAnimeById = `SELECT * FROM animes WHERE id = $1`;
-  // id, season_id, imageCard, imageBanner, title_video, evaluation,
+  const selectAnimeById = `SELECT id, imageCard, imageBanner, title_video, evaluation, favorite, releaseYear, createAt, sinopse FROM animes WHERE id = $1`;
   const value = [id];
 
   try {
@@ -99,9 +98,45 @@ async function getAllAnime() {
   }
 }
 
+async function deleteAnimeSeasonById_anime(id) {
+  const deleteById_anime = `DELETE FROM season WHERE id_anime = $1`;
+  const value = [id];
+
+  try {
+    const query = await postgresConnection.query(deleteById_anime, value);
+    console.log("########################################");
+    console.log("# DADOS DA SEASON DELETADO COM SUCESSO #");
+    console.log("########################################");
+    return query;
+  } catch (error) {
+    console.log("DELETE ERROR", error);
+  } finally {
+    postgresConnection.release;
+  }
+}
+
+async function deleteAnimeById(id) {
+  const deleteAnime = `DELETE FROM animes WHERE id = $1`;
+  const value = [id];
+
+  try {
+    const query = await postgresConnection.query(deleteAnime, value);
+    console.log("##############################");
+    console.log("# ANIME DELETADO COM SUCESSO #");
+    console.log("##############################");
+    return query;
+  } catch (error) {
+    console.log("DELETE ERROR", error);
+  } finally {
+    postgresConnection.release;
+  }
+}
+
 module.exports = {
   selectAnimeByTitle,
   insertNewAnime,
   getAnimeById,
-  getAllAnime
+  getAllAnime,
+  deleteAnimeSeasonById_anime,
+  deleteAnimeById,
 };
