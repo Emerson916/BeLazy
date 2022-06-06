@@ -3,7 +3,6 @@ const createNewAnimeService = require("../../../services/players-videos-services
 function createAnimeController(app) {
   app.post("/v1/anime", async (req, resp) => {
     const {
-      season_id,
       imageCard,
       imageBanner,
       title_video,
@@ -20,7 +19,6 @@ function createAnimeController(app) {
       });
     } else {
       const createAnime = await createNewAnimeService(
-        season_id,
         imageCard,
         imageBanner,
         title_video,

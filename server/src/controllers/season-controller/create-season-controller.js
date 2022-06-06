@@ -2,25 +2,26 @@ const createNewSeasonService = require("../../services/season-service/season-ser
 
 function createSeasonController(app) {
   app.post("/v1/season", async (req, resp) => {
-    const { episodes_id, number_season, imageCard } = req.body;
+    const {id_anime, number_season, imageCard, episodes } = req.body;
 
     if (!number_season) {
       resp.status(400).send({
         message: "Adicione qual temporada é, ex: (1, 2, 3...)!",
       });
     } else {
-      const createEpisodes = await createNewSeasonService(
-        episodes_id,
+      const createSeason = await createNewSeasonService(
+        id_anime,
         number_season,
-        imageCard
+        imageCard,
+        episodes
       );
 
-      const message = createEpisodes.message;
+      const message = createSeason.message;
 
-      if (createEpisodes.error) {
+      if (createSeason.error) {
         resp.status(400).send({ message });
       } else {
-        resp.status(201).send(createEpisodes.rows);
+        resp.status(201).send(createSeason.rows);
       }
     }
   });

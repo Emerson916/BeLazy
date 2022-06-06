@@ -14,16 +14,16 @@ async function selectUserByNumberSeason(number_season) {
   }
 }
 
-async function insertNewSeason(episodes_id, number_season, imageCard) {
-  const insertSeason = `INSERT INTO season (episodes_id, number_season, imageCard) VALUES ($1, $2, $3)`;
-  const values = [episodes_id, number_season, imageCard];
+async function insertNewSeason(id_anime, number_season, imageCard, episodes) {
+  const insertSeason = `INSERT INTO season (id_anime, number_season, imageCard, episodes) VALUES ($1, $2, $3, $4)`;
+  const values = [id_anime, number_season, imageCard, episodes];
 
   try {
     const query = await postgresConnection.query(insertSeason, values);
     console.log("################################");
     console.log("# TEMPORADA CRIADO COM SUCESSO #");
     console.log("################################");
-    return query;
+    return query.rowCount;
   } catch (error) {
     console.log("CONSOLE LOG DO ERRO INSERT ======> ", error);
   } finally {
@@ -31,9 +31,7 @@ async function insertNewSeason(episodes_id, number_season, imageCard) {
   }
 }
 
-
 module.exports = {
-    selectUserByNumberSeason,
-    insertNewSeason,
-   
-  };
+  selectUserByNumberSeason,
+  insertNewSeason,
+};

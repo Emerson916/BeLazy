@@ -5,7 +5,6 @@ const {
 const buildErrorObject = require("../../../config/factory-function");
 
 async function createNewAnimeService(
-  season_id,
   imageCard,
   imageBanner,
   title_video,
@@ -18,10 +17,9 @@ async function createNewAnimeService(
   const checkingExistsAnime = await selectAnimeByTitle(title_video);
 
   if (checkingExistsAnime) {
-    return buildErrorObject("Esse filme já existe");
+    return buildErrorObject("Esse anime já existe");
   } else {
     const insertAnime = await insertNewAnime(
-      season_id,
       imageCard,
       imageBanner,
       title_video,
@@ -33,11 +31,11 @@ async function createNewAnimeService(
     );
 
     if (insertAnime.rowCount > 0) {
-      console.log(`Filme ${title_video} criado`);
+      console.log(`Anime ${title_video} adicionado`);
       return insertAnime;
     } else {
-      console.log("Não foi possível criar o filme");
-      return buildErrorObject("Não foi possível criar o filme");
+      console.log("Não foi possível adicionar o anime");
+      return buildErrorObject("Não foi possível adicionar o anime");
     }
   }
 }
