@@ -1,6 +1,6 @@
 const getOneUserService = require("../../services/user-service/get-one-user-service");
 
-function getOneUser(app) {
+function getOneUserController(app) {
   app.get("/v1/users/:id", async (req, resp) => {
     const { id } = req.params;
 
@@ -15,4 +15,4 @@ function getOneUser(app) {
   });
 }
 
-module.exports = getOneUser;
+module.exports = getOneUserController;

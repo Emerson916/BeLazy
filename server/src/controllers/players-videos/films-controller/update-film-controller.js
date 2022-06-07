@@ -1,6 +1,6 @@
 const updateFilmService = require("../../../services/players-videos-services/player-films-service/update-film-service");
 
-function updateFilm(app) {
+function updateFilmController(app) {
   app.put("/v1/films/:id", async (req, resp) => {
     const { id } = req.params;
     const dataFilm = req.body;
@@ -22,4 +22,4 @@ function updateFilm(app) {
   });
 }
 
-module.exports = updateFilm;
+module.exports = updateFilmController;

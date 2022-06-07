@@ -1,6 +1,6 @@
 const createNewFilmService = require("../../../services/players-videos-services/player-films-service/create-films-service");
 
-function createFilm(app) {
+function createFilmController(app) {
   app.post("/v1/films", async (req, resp) => {
     const {
       imageCard,
@@ -42,4 +42,4 @@ function createFilm(app) {
   });
 }
 
-module.exports = createFilm;
+module.exports = createFilmController;

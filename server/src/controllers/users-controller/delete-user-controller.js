@@ -1,6 +1,6 @@
 const deleteUserService = require("../../services/user-service/delete-user-service");
 
-function deleteUser(app) {
+function deleteUserController(app) {
   app.delete("/v1/users/:id", async (req, resp) => {
     const { id } = req.params;
 
@@ -15,4 +15,4 @@ function deleteUser(app) {
   });
 }
 
-module.exports = deleteUser;
+module.exports = deleteUserController;

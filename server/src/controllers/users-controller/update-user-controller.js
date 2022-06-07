@@ -1,6 +1,6 @@
 const updateUserService = require("../../services/user-service/update-user-service");
 
-function updateUser(app) {
+function updateUserController(app) {
   app.put("/v1/users/:id", async (req, resp) => {
     const { id } = req.params;
     const dataUser = req.body;
@@ -22,4 +22,4 @@ function updateUser(app) {
   });
 }
 
-module.exports = updateUser;
+module.exports = updateUserController;

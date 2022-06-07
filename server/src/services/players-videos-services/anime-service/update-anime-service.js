@@ -1,5 +1,8 @@
 const buildErrorObject = require("../../../config/factory-function");
-const { updateAnimeById, getAnimeById } = require("../../../repository/players-videos-repository/anime/anime-postgres-repository");
+const {
+  updateAnimeById,
+  getAnimeById,
+} = require("../../../repository/players-videos-repository/anime/anime-postgres-repository");
 
 async function updateAnimeService(dataAnime, id) {
   try {

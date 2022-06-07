@@ -1,6 +1,6 @@
 const getAllUsersService = require("../../services/user-service/get-all-user-service");
 
-function getAllUsers(app) {
+function getAllUsersController(app) {
   app.get("/v1/users", async (_req, resp) => {
     const getAllUsers = await getAllUsersService();
     const message = getAllUsers.message;
@@ -13,4 +13,4 @@ function getAllUsers(app) {
   });
 }
 
-module.exports = getAllUsers;
+module.exports = getAllUsersController;

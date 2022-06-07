@@ -1,6 +1,6 @@
 const deleteFilmService = require("../../../services/players-videos-services/player-films-service/delete-film-service");
 
-function deleteFilm(app) {
+function deleteFilmController(app) {
   app.delete("/v1/films/:id", async (req, resp) => {
     const { id } = req.params;
 
@@ -15,4 +15,4 @@ function deleteFilm(app) {
   });
 }
 
-module.exports = deleteFilm;
+module.exports = deleteFilmController;

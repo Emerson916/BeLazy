@@ -1,6 +1,6 @@
 const getAllFilmsService = require("../../../services/players-videos-services/player-films-service/get-all-films-service");
 
-function getAllFilms(app) {
+function getAllFilmsController(app) {
   app.get("/v1/films", async (_req, resp) => {
     const getAllFilms = await getAllFilmsService();
     const message = getAllFilms.message;
@@ -13,4 +13,4 @@ function getAllFilms(app) {
   });
 }
 
-module.exports = getAllFilms;
+module.exports = getAllFilmsController;

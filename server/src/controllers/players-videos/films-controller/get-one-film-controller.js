@@ -1,6 +1,6 @@
 const getOneFilmService = require("../../../services/players-videos-services/player-films-service/get-one-film-service");
 
-function getOneFilm(app) {
+function getOneFilmController(app) {
   app.get("/v1/films/:id", async (req, resp) => {
     const { id } = req.params;
 
@@ -15,4 +15,4 @@ function getOneFilm(app) {
   });
 }
 
-module.exports = getOneFilm;
+module.exports = getOneFilmController;

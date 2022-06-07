@@ -1,6 +1,6 @@
 const createUserService = require("../../services/user-service/create-user-service");
 
-function createUser(app) {
+function createUserController(app) {
   app.post("/v1/users", async (req, resp) => {
     const { email, password, username } = req.body;
 
@@ -22,4 +22,4 @@ function createUser(app) {
   });
 }
 
-module.exports = createUser;
+module.exports = createUserController;
