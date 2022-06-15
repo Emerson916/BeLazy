@@ -1,8 +1,9 @@
-import Login from "./views/login";
+// import Login from "./views/login";
+import Register from "./views/Register";
 
 function App() {
   return (
-    <Login />
+    <Register />
   );
 }
 
