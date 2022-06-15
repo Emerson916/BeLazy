@@ -1,8 +1,8 @@
-import logo from "../assets/img/logo.svg";
-import imageScreenRegister from "../assets/img/imageScreenRegister.svg";
-import register from "../assets/img/register.svg";
-import Button from "../components/button";
-import InputData from "../components/input";
+import logo from "../../assets/img/logo.svg";
+import imageScreenRegister from "../../assets/img/imageScreenRegister.svg";
+import register from "../../assets/img/imageScreenRegister.svg";
+import Button from "../../components/button";
+import InputData from "../../components/input";
 import { useNavigate } from "react-router-dom";
 
 const Register = () => {
