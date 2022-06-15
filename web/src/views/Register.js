@@ -3,10 +3,10 @@ import imageScreenRegister from "../assets/img/imageScreenRegister.svg";
 import register from "../assets/img/register.svg";
 import Button from "../components/button";
 import InputData from "../components/input";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
 
   return (
     <div className="h-screen bg-gradient-to-b from-current to-purple-800 grid grid-cols-2">
@@ -22,12 +22,13 @@ const Register = () => {
           <InputData placeholder="Digite seu nome" />
           <InputData placeholder="Digite sua e-mail" />
           <InputData placeholder="Digite sua senha" />
-          <Button title="Registrar" />
-          <div className="flex justify-end m-2">
+          {/* Verificar se o registro foi feito com sucesso ai mandar para a tela de login*/}
+          <Button title="Registrar" onClick={() => navigate("/")}/>
+          <div className="flex justify-end m-2 cursor-pointer">
             <img src={register} alt="Logo do site" />
-            <Link className="text-white p-2" to="/">
+            <p className="text-white p-2" onClick={() => navigate("/")}>
               Fazer login
-            </Link>
+            </p>
           </div>
         </div>
       </div>

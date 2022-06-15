@@ -3,9 +3,11 @@ import imageScreenLogin from "../assets/img/imageScreenLogin.svg";
 import register from "../assets/img/register.svg";
 import Button from "../components/button";
 import InputData from "../components/input";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="h-screen bg-gradient-to-b from-current to-purple-800 grid grid-cols-2">
       <div className="flex flex-col w-2/3 mx-auto relative">
@@ -17,10 +19,15 @@ const Login = () => {
           <h1 className="text-white text-2xl font-bold mb-5">Faça seu login</h1>
           <InputData placeholder="Digite seu e-mail" />
           <InputData placeholder="Digite sua senha" />
-          <Button title="Entrar" />
-          <div className="flex justify-end m-2">
+          <Button title="Entrar" onClick={() => navigate("/home")} />
+          <div className="flex justify-end m-2 cursor-pointer">
             <img src={register} alt="Logo do site" />
-            <Link className="text-white p-2" to="/register">Registre-se</Link>
+            <p
+              className="text-white p-2 "
+              onClick={() => navigate("/register")}
+            >
+              Registre-se
+            </p>
           </div>
         </div>
       </div>
