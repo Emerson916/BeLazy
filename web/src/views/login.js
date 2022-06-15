@@ -7,23 +7,23 @@ import InputData from "../components/input";
 const Login = () => {
   return (
     <div className="h-screen bg-gradient-to-b from-current to-purple-800 grid grid-cols-2">
-      <div className="space-y-20">
-        <div className="ml-40">
+      <div className="flex flex-col w-2/3 mx-auto relative">
+        <div className="mt-5">
           <img src={logo} alt="Logo do site" />
         </div>
 
-        <h1 className="text-white text-2xl font-bold ml-40">Faça seu login</h1>
-
-        <div className="flex flex-col items-center space-y-5 bottom-0">
+        <div className="w-full flex flex-col flex-wrap space-y-5 absolute bottom-24">
+          <h1 className="text-white text-2xl font-bold mb-5">Faça seu login</h1>
           <InputData placeholder="Digite seu e-mail" />
           <InputData placeholder="Digite sua senha" />
           <Button title="Entrar" />
-        <div className="flex">
-          <img src={register} alt="Logo do site" />
-          <p className="text-white">Registre-se</p>
-        </div>
+          <div className="flex justify-end m-2">
+            <img src={register} alt="Logo do site" />
+            <p className="text-white p-2">Registre-se</p>
+          </div>
         </div>
       </div>
+
       <div className="flex items-center">
         <img src={imageScreenLogin} alt="Imagem ao lado dos campos de login" />
       </div>
