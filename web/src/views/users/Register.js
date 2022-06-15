@@ -1,6 +1,6 @@
 import logo from "../../assets/img/logo.svg";
 import imageScreenRegister from "../../assets/img/imageScreenRegister.svg";
-import register from "../../assets/img/imageScreenRegister.svg";
+import register from "../../assets/img/register.svg";
 import Button from "../../components/button";
 import InputData from "../../components/input";
 import { useNavigate } from "react-router-dom";
@@ -22,7 +22,7 @@ const Register = () => {
           <InputData placeholder="Digite seu nome" />
           <InputData placeholder="Digite sua e-mail" />
           <InputData placeholder="Digite sua senha" />
-          {/* Verificar se o registro foi feito com sucesso ai mandar para a tela de login*/}
+          {/* Verificar se o registro foi feito com sucesso ai mandar para a tela de login */}
           <Button title="Registrar" onClick={() => navigate("/")}/>
           <div className="flex justify-end m-2 cursor-pointer">
             <img src={register} alt="Logo do site" />
