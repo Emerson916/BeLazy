@@ -2,11 +2,15 @@ import logo from "../../assets/img/logo.svg";
 import imageScreenLogin from "../../assets/img/imageScreenLogin.svg";
 import register from "../../assets/img/register.svg";
 import Button from "../../components/button";
-import InputData from "../../components/input";
+import InputData from "../../components/InputData";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const Login = () => {
   const navigate = useNavigate();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   return (
     <div className="h-screen bg-gradient-to-b from-current to-purple-800 grid grid-cols-2">
@@ -17,8 +21,17 @@ const Login = () => {
 
         <div className="w-full flex flex-col flex-wrap space-y-5 absolute bottom-16">
           <h1 className="text-white text-2xl font-bold mb-5">Faça seu login</h1>
-          <InputData placeholder="Digite seu e-mail" />
-          <InputData placeholder="Digite sua senha" />
+          <InputData
+            placeholder="Digite seu e-mail"
+            defaultValue={email}
+            onChange={(t) => setEmail(t)}
+          />
+          <InputData
+            placeholder="Digite sua senha"
+            type={"password"}
+            defaultValue={password}
+            onChange={(t) => setPassword(t)}
+          />
           <Button title="Entrar" onClick={() => navigate("/home")} />
           <div className="flex justify-end m-2 cursor-pointer">
             <img src={register} alt="Logo do site" />
