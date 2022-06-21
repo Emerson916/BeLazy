@@ -4,6 +4,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 
 const app = express();
+const cors = require("cors");
 
 //IMPORTS DAS ROTAS DO USUÁRIO
 const createUserController = require("./controllers/users-controller/create-user-controller");
@@ -30,6 +31,8 @@ const updateAnimeController = require("./controllers/players-videos/anime-contro
 const createSeasonController = require("./controllers/season-controller/create-season-controller");
 
 const PORT = parseInt(process.env.PORT ?? process.env.port ?? "3000");
+
+app.use(cors());
 
 app.use(bodyParser.json());
 app.use(log());
