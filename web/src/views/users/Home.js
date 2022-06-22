@@ -1,8 +1,10 @@
+import CardsVideos from "../../components/CardsVideos";
+
 const Home = () => {
   return (
-    <>
-      <p>Essa é a Home</p>
-    </>
+    <div className="h-screen px-10 bg-gradient-to-b from-current to-purple-800">
+        <CardsVideos />
+    </div>
   );
 };
 
