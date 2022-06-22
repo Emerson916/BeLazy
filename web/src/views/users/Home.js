@@ -1,5 +1,6 @@
-import CardsVideos from "../../components/CardsVideos";
+import CardsVideos from "../../components/CardCarousel/CardsVideos";
 import ImageCarousel from "../../components/ImageCarousel/ImageCarousel";
+import Footer from "../../layout/Footer";
 import Header from "../../layout/Header";
 
 const Home = () => {
@@ -11,6 +12,7 @@ const Home = () => {
       <CardsVideos />
       <CardsVideos />
       <CardsVideos />
+      <Footer />
     </div>
   );
 };

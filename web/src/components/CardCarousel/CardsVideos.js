@@ -1,5 +1,5 @@
-import arrowLeft from "../assets/img/arrowLeft.svg";
-import arrowRight from "../assets/img/arrowRight.svg";
+import arrowLeft from "../../assets/img/arrowLeft.svg";
+import arrowRight from "../../assets/img/arrowRight.svg";
 
 const data = [
   {
@@ -187,42 +187,55 @@ const data = [
   },
 ];
 
-const CardsVideos = () => {
+const CardsVideos = ({ text }) => {
   const sliderLeft = () => {
     const slider = document.getElementById("slider");
-    slider.scrollLeft = slider.scrollLeft - 500;
+    slider.scrollLeft = slider.scrollLeft - 600;
   };
 
   const sliderRight = () => {
     const slider = document.getElementById("slider");
-    slider.scrollLeft = slider.scrollLeft + 500;
+    slider.scrollLeft = slider.scrollLeft + 600;
   };
+
   return (
-    <div className="relative flex items-center">
-      <button
-        onClick={sliderLeft}
-        className="opacity-75 cursor-pointer hover:opacity-100"
-      >
-        <img src={arrowLeft} alt="/" />
-      </button>
-      <div
-        id="slider"
-        className="w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide"
-      >
-        {data?.map((item) => (
-          <img
-            className="w-[220px] inline-block p-2 h-[320px] cursor-pointer hover:scale-95 ease-in-out duration-300"
-            src={item.imageCard}
-            alt="/"
-          />
-        ))}
+    <div className="my-10">
+      <p className="text-white text-2xl font-bold mb-5 flex mx-14" text={text}>
+        {text} title_video
+      </p>
+
+      <div className="relative flex items-center">
+        <button
+          onClick={sliderLeft}
+          className="opacity-75 cursor-pointer hover:opacity-100"
+        >
+          <img src={arrowLeft} alt="Icone de uma flecha virada para esquerda" />
+        </button>
+       
+       <div
+          id="slider"
+          className="w-full h-[400px] overflow-x-scroll scroll whitespace-nowrap scroll-smooth container-snap"
+        >
+          {data?.map((item) => (
+            <div className="w-[220px] inline-block p-2 h-[320px] cursor-pointer hover:scale-95 ease-in-out duration-300 hover:opacity-80">
+              <img
+                src={item.imageCard}
+                alt="Imagem do filme"
+                className="h-full w-full scale-95"
+              />
+              <p className="text-white text-1xl font-bold py-5">
+                Titulo do filme
+              </p>
+            </div>
+          ))}
+        </div>
+        <button
+          onClick={sliderRight}
+          className="opacity-75 cursor-pointer hover:opacity-100"
+        >
+          <img src={arrowRight} alt="Icone de uma flecha virada para direita" />
+        </button>
       </div>
-      <button
-        onClick={sliderRight}
-        className="opacity-75 cursor-pointer hover:opacity-100"
-      >
-        <img src={arrowRight} alt="/" />
-      </button>
     </div>
   );
 };

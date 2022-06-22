@@ -23,7 +23,7 @@ const ImageCarousel = () => {
   //   }, []);
 
   return (
-    <div className="w-full h-[28rem] mb-20">
+    <div className="w-full h-[550px] mb-20">
       <img
         className="w-full h-full opacity-50"
         alt="Imagem do filme"
