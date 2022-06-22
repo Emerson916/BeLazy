@@ -1,7 +1,7 @@
 import logo from "../../assets/img/logo.svg";
 import imageScreenRegister from "../../assets/img/imageScreenRegister.svg";
 import register from "../../assets/img/register.svg";
-import Button from "../../components/button";
+import Button from "../../components/Button";
 import InputData from "../../components/InputData";
 import { useNavigate } from "react-router-dom";
 
