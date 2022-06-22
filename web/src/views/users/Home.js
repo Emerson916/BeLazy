@@ -5,7 +5,15 @@ const Home = () => {
   return (
     <div className="h-screen bg-gradient-to-b from-current to-purple-800">
       <Header />
-      <CardsVideos />
+      <div className="flex">
+        <CardsVideos />
+        <CardsVideos />
+        <CardsVideos />
+        <CardsVideos />
+        <CardsVideos />
+        <CardsVideos />
+        <CardsVideos />
+      </div>
     </div>
   );
 };
