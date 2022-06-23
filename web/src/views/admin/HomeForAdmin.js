@@ -49,7 +49,7 @@ const HomeForAdmin = () => {
           defaultValue={idFilmDelete}
           onChange={(t) => setIdFilmDelete(t)}
         />
-        <button className="h-16 w-1/2 ml-10 text-purple-700 rounded-md border-4 border-purple-700 bg-white text-xl font-bold hover:opacity-75">
+        <button className="h-16 w-1/2 ml-10 text-[#6C63FF] rounded-md border-4 border-[#6C63FF] bg-white text-xl font-bold hover:opacity-75">
           Deletar
         </button>
       </div>
@@ -134,7 +134,7 @@ const HomeForAdmin = () => {
             </div>
           </div>
           <div className="flex justify-end py-10">
-            <button className="flex items-center justify-center w-2/6 h-16 p-2 bg-purple-700 rounded-md text-white text-xl font-bold  hover:opacity-75">
+            <button className="flex items-center justify-center w-2/6 h-16 p-2 bg-[#6C63FF] rounded-md text-white text-xl font-bold  hover:opacity-75">
               Enviar
             </button>
           </div>
