@@ -1,5 +1,6 @@
 import arrowLeft from "../../assets/img/arrowLeft.svg";
 import arrowRight from "../../assets/img/arrowRight.svg";
+import "../../css/styles.css";
 
 const data = [
   {
@@ -187,7 +188,7 @@ const data = [
   },
 ];
 
-const CardsVideos = ({ text }) => {
+const CardsVideos = ({ title }) => {
   const sliderLeft = () => {
     const slider = document.getElementById("slider");
     slider.scrollLeft = slider.scrollLeft - 600;
@@ -199,22 +200,22 @@ const CardsVideos = ({ text }) => {
   };
 
   return (
-    <div className="my-10">
-      <p className="text-white text-2xl font-bold mb-5 flex mx-14" text={text}>
-        {text} title_video
+    <div className="my-10 select-none">
+      <p className="text-white text-2xl font-bold mb-5 flex mx-14" title>
+        {title}
       </p>
 
-      <div className="relative flex items-center">
+      <div className="relative flex">
         <button
           onClick={sliderLeft}
           className="opacity-75 cursor-pointer hover:opacity-100"
         >
           <img src={arrowLeft} alt="Icone de uma flecha virada para esquerda" />
         </button>
-       
-       <div
+
+        <div
           id="slider"
-          className="w-full h-[400px] overflow-x-scroll scroll whitespace-nowrap scroll-smooth container-snap"
+          className="w-full h-[380px] overflow-x-scroll scroll whitespace-nowrap scroll-smooth container-snap"
         >
           {data?.map((item) => (
             <div className="w-[220px] inline-block p-2 h-[320px] cursor-pointer hover:scale-95 ease-in-out duration-300 hover:opacity-80">
@@ -223,7 +224,7 @@ const CardsVideos = ({ text }) => {
                 alt="Imagem do filme"
                 className="h-full w-full scale-95"
               />
-              <p className="text-white text-1xl font-bold py-5">
+              <p className="text-white text-1xl font-bold py-2">
                 Titulo do filme
               </p>
             </div>
