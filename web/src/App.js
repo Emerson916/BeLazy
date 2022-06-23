@@ -3,6 +3,7 @@ import Home from "./views/users/Home";
 import Login from "./views/users/Login";
 import Register from "./views/users/Register";
 import HomeForAdmin from "./views/admin/HomeForAdmin";
+import CardDetails from "./views/users/CardDetails";
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/" element={<Login />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/cardDetails" element={<CardDetails />} />
 
         <Route path="/homeForAdmin" element={<HomeForAdmin />} />
       </Routes>

@@ -1,6 +1,7 @@
 import arrowLeft from "../../assets/img/arrowLeft.svg";
 import arrowRight from "../../assets/img/arrowRight.svg";
 import "../../css/styles.css";
+import { useNavigate } from "react-router-dom";
 
 const data = [
   {
@@ -188,7 +189,9 @@ const data = [
   },
 ];
 
-const CardsVideosItems = () => {
+const CardsVideosItems = ({props}) => {
+  const navigate = useNavigate();
+
   const sliderLeft = () => {
     const slider = document.getElementById("slider");
     slider.scrollLeft = slider.scrollLeft - 600;
@@ -213,7 +216,10 @@ const CardsVideosItems = () => {
         className="w-full h-[380px] overflow-x-scroll scroll whitespace-nowrap scroll-smooth container-snap"
       >
         {data?.map((item) => (
-          <div className="w-[220px] inline-block p-2 h-[300px] cursor-pointer hover:scale-95 ease-in-out duration-300 hover:opacity-80">
+          <div
+            onClick={() => navigate("/cardDetails", {props})}
+            className="w-[220px] inline-block p-2 h-[300px] cursor-pointer hover:scale-95 ease-in-out duration-300 hover:opacity-80"
+          >
             <img
               src={item.imageCard}
               alt="Imagem do filme"
