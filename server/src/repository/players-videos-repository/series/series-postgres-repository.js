@@ -1,7 +1,7 @@
 const postgresConnection = require("../../../config/postgresConnection");
 
-async function selectAnimeByTitle(title_video) {
-  const selectAnime = `SELECT (
+async function selectSerieByTitle(title_video) {
+  const selectSerie = `SELECT (
     imageCard,
     imageBanner,
     title_video,
@@ -10,11 +10,11 @@ async function selectAnimeByTitle(title_video) {
     releaseYear,
     createAt,
     sinopse
-    ) FROM animes WHERE title_video = $1`;
+    ) FROM Series WHERE title_video = $1`;
   const value = [title_video];
 
   try {
-    const query = await postgresConnection.query(selectAnime, value);
+    const query = await postgresConnection.query(selectSerie, value);
     return query.rows[0];
   } catch (error) {
     console.log("CONSOLE LOG DO ERRO SELECT ======> ", error);
@@ -23,7 +23,7 @@ async function selectAnimeByTitle(title_video) {
   }
 }
 
-async function insertNewAnime(
+async function insertNewSerie(
   //Parâmetros da função
   imageCard,
   imageBanner,
@@ -34,8 +34,8 @@ async function insertNewAnime(
   createAt,
   sinopse
 ) {
-  //Insert de Animes
-  const insertAnime = `INSERT INTO animes (
+  //Insert de Series
+  const insertSerie = `INSERT INTO Series (
     imageCard,
     imageBanner,
     title_video,
@@ -59,9 +59,9 @@ async function insertNewAnime(
   ];
 
   try {
-    const query = await postgresConnection.query(insertAnime, values);
+    const query = await postgresConnection.query(insertSerie, values);
     console.log("############################");
-    console.log("# ANIME CRIADO COM SUCESSO #");
+    console.log("# Serie CRIADO COM SUCESSO #");
     console.log("############################");
     return query;
   } catch (error) {
@@ -71,39 +71,39 @@ async function insertNewAnime(
   }
 }
 
-async function getAnimeById(id) {
-  const selectAnimeById = `SELECT id, imageCard, imageBanner, title_video, evaluation, favorite, releaseYear, createAt, sinopse FROM animes WHERE id = $1`;
+async function getSerieById(id) {
+  const selectSerieById = `SELECT id, imageCard, imageBanner, title_video, evaluation, favorite, releaseYear, createAt, sinopse FROM Series WHERE id = $1`;
   const value = [id];
 
   try {
-    const query = await postgresConnection.query(selectAnimeById, value);
+    const query = await postgresConnection.query(selectSerieById, value);
     return query.rows;
   } catch (error) {
-    console.log("CONSOLE LOG DO ERRO GET-ANIME-BY-ID ======> ", error);
+    console.log("CONSOLE LOG DO ERRO GET-SERIE-BY-ID ======> ", error);
   } finally {
     postgresConnection.release;
   }
 }
 
-async function getAllAnime() {
-  const selectAnime = `SELECT id, imageCard, imageBanner, title_video, evaluation, favorite, releaseYear, createAt, sinopse FROM animes`;
+async function getAllSerie() {
+  const selectSerie = `SELECT id, imageCard, imageBanner, title_video, evaluation, favorite, releaseYear, createAt, sinopse FROM Series`;
 
   try {
-    const query = await postgresConnection.query(selectAnime);
+    const query = await postgresConnection.query(selectSerie);
     return query.rows;
   } catch (error) {
-    console.log("CONSOLE LOG DO ERRO GET-ALL-Anime ======> ", error);
+    console.log("CONSOLE LOG DO ERRO GET-ALL-Serie ======> ", error);
   } finally {
     postgresConnection.release;
   }
 }
 
-async function deleteAnimeSeasonById_anime(id) {
-  const deleteById_anime = `DELETE FROM season WHERE id_anime = $1`;
+async function deleteSerieSeasonById_Serie(id) {
+  const deleteById_Serie = `DELETE FROM season WHERE id = $1`;
   const value = [id];
 
   try {
-    const query = await postgresConnection.query(deleteById_anime, value);
+    const query = await postgresConnection.query(deleteById_Serie, value);
     console.log("########################################");
     console.log("# DADOS DA SEASON DELETADO COM SUCESSO #");
     console.log("########################################");
@@ -115,14 +115,14 @@ async function deleteAnimeSeasonById_anime(id) {
   }
 }
 
-async function deleteAnimeById(id) {
-  const deleteAnime = `DELETE FROM animes WHERE id = $1`;
+async function deleteSerieById(id) {
+  const deleteSerie = `DELETE FROM Series WHERE id = $1`;
   const value = [id];
 
   try {
-    const query = await postgresConnection.query(deleteAnime, value);
+    const query = await postgresConnection.query(deleteSerie, value);
     console.log("##############################");
-    console.log("# ANIME DELETADO COM SUCESSO #");
+    console.log("# SÉRIE DELETADO COM SUCESSO #");
     console.log("##############################");
     return query;
   } catch (error) {
@@ -132,24 +132,24 @@ async function deleteAnimeById(id) {
   }
 }
 
-async function updateAnimeById(dataAnime, id) {
-  const updateById = `UPDATE animes SET (imageCard, imageBanner, title_video, evaluation, favorite, releaseYear, createAt, sinopse) = ($1, $2, $3, $4, $5, $6, $7, $8) WHERE id = $9`;
+async function updateSerieById(dataSerie, id) {
+  const updateById = `UPDATE Series SET (imageCard, imageBanner, title_video, evaluation, favorite, releaseYear, createAt, sinopse) = ($1, $2, $3, $4, $5, $6, $7, $8) WHERE id = $9`;
   const values = [
-    dataAnime.imageCard,
-    dataAnime.imageBanner,
-    dataAnime.title_video,
-    dataAnime.evaluation,
-    dataAnime.favorite,
-    dataAnime.releaseYear,
-    dataAnime.createAt,
-    dataAnime.sinopse,
+    dataSerie.imageCard,
+    dataSerie.imageBanner,
+    dataSerie.title_video,
+    dataSerie.evaluation,
+    dataSerie.favorite,
+    dataSerie.releaseYear,
+    dataSerie.createAt,
+    dataSerie.sinopse,
     id,
   ];
 
   try {
     const query = await postgresConnection.query(updateById, values);
     console.log("################################");
-    console.log("# ANIME ATUALIZADO COM SUCESSO #");
+    console.log("# Serie ATUALIZADO COM SUCESSO #");
     console.log("################################");
     return query.rows;
   } catch (error) {
@@ -160,11 +160,11 @@ async function updateAnimeById(dataAnime, id) {
 }
 
 module.exports = {
-  selectAnimeByTitle,
-  insertNewAnime,
-  getAnimeById,
-  getAllAnime,
-  deleteAnimeSeasonById_anime,
-  deleteAnimeById,
-  updateAnimeById,
+  selectSerieByTitle,
+  insertNewSerie,
+  getSerieById,
+  getAllSerie,
+  deleteSerieSeasonById_Serie,
+  deleteSerieById,
+  updateSerieById,
 };

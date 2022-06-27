@@ -20,12 +20,12 @@ const getAllFilmsController = require("./controllers/players-videos/films-contro
 const deleteFilmController = require("./controllers/players-videos/films-controller/delete-film-controller");
 const updateFilmController = require("./controllers/players-videos/films-controller/update-film-controller");
 
-//IMPORTS DAS ROTAS DE ANIMES
-const createAnimeController = require("./controllers/players-videos/anime-controller/create-anime-controller");
-const getOneAnimeController = require("./controllers/players-videos/anime-controller/get-one-anime-controller");
-const getAllAnimeController = require("./controllers/players-videos/anime-controller/get-all-anime-controller");
-const deleteAnimeController = require("./controllers/players-videos/anime-controller/delete-anime-controller");
-const updateAnimeController = require("./controllers/players-videos/anime-controller/update-anime-controller");
+//IMPORTS DAS ROTAS DE SERIES
+const createSeriesController = require("./controllers/players-videos/series-controller/create-serie-controller");
+const getOneSeriesController = require("./controllers/players-videos/series-controller/get-one-serie-controller");
+const getAllSeriesController = require("./controllers/players-videos/series-controller/get-all-series-controller");
+const deleteSeriesController = require("./controllers/players-videos/series-controller/delete-serie-controller");
+const updateSeriesController = require("./controllers/players-videos/series-controller/update-serie-controller");
 
 //IMPORTS DAS ROTAS DE TEMPORADAS
 const createSeasonController = require("./controllers/season-controller/create-season-controller");
@@ -51,12 +51,12 @@ getAllFilmsController(app);
 deleteFilmController(app);
 updateFilmController(app);
 
-//ROTAS DE ANIMES
-createAnimeController(app);
-getOneAnimeController(app);
-getAllAnimeController(app);
-deleteAnimeController(app);
-updateAnimeController(app);
+//ROTAS DE SERIES
+createSeriesController(app);
+getOneSeriesController(app);
+getAllSeriesController(app);
+deleteSeriesController(app);
+updateSeriesController(app);
 
 //ROTAS DE SEASON
 createSeasonController(app);

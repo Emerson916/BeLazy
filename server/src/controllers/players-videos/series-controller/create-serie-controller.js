@@ -1,7 +1,7 @@
-const createNewAnimeService = require("../../../services/players-videos-services/anime-service/create-anime-service");
+const createNewSerieService = require("../../../services/players-videos-services/player-series-service/create-serie-service");
 
-function createAnimeController(app) {
-  app.post("/v1/anime", async (req, resp) => {
+function createSerieController(app) {
+  app.post("/v1/serie", async (req, resp) => {
     const {
       imageCard,
       imageBanner,
@@ -18,7 +18,7 @@ function createAnimeController(app) {
         message: "Preencha os campos!",
       });
     } else {
-      const createAnime = await createNewAnimeService(
+      const createSerie = await createNewSerieService(
         imageCard,
         imageBanner,
         title_video,
@@ -29,15 +29,15 @@ function createAnimeController(app) {
         sinopse
       );
 
-      const message = createAnime.message;
+      const message = createSerie.message;
 
-      if (createAnime.error) {
+      if (createSerie.error) {
         resp.status(400).send({ message });
       } else {
-        resp.status(201).send(createAnime.rows);
+        resp.status(201).send(createSerie.rows);
       }
     }
   });
 }
 
-module.exports = createAnimeController;
+module.exports = createSerieController;
