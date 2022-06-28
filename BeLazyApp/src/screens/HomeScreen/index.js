@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import { StyleSheet, ScrollView } from "react-native";
 import { Container } from "./styles";
@@ -447,6 +447,18 @@ const FAKE_DATA = [
     ],
   },
 ];
+
+const [filmsData, setFilmsData] = useState();
+
+useEffect(() => {
+  try {
+    api.get("/v1/films").then((response) => setFilmsData(response));
+  } catch (error) {
+    console.log("Error do criando filme", error);
+  }
+}, [filmsData]);
+
+console.log("teste", filmsData)
 
 const HomeScreen = () => {
   return (
