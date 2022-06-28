@@ -61,7 +61,7 @@ async function insertNewSerie(
   try {
     const query = await postgresConnection.query(insertSerie, values);
     console.log("############################");
-    console.log("# Serie CRIADO COM SUCESSO #");
+    console.log("# SÉRIE CRIADO COM SUCESSO #");
     console.log("############################");
     return query;
   } catch (error) {
@@ -92,7 +92,7 @@ async function getAllSerie() {
     const query = await postgresConnection.query(selectSerie);
     return query.rows;
   } catch (error) {
-    console.log("CONSOLE LOG DO ERRO GET-ALL-Serie ======> ", error);
+    console.log("CONSOLE LOG DO ERRO GET-ALL-SERIE ======> ", error);
   } finally {
     postgresConnection.release;
   }
