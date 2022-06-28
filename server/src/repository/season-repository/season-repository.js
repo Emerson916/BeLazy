@@ -1,8 +1,8 @@
 const postgresConnection = require("../../config/postgresConnection");
 
-async function selectSeasonByNumberSeasonAndId_anime(id_anime, number_season) {
-  const selectSeason = `SELECT id_anime, number_season FROM season WHERE id_anime = $1 AND number_season = $2`;
-  const value = [id_anime, number_season];
+async function selectSeasonByNumberSeasonAndId_series(id_series, number_season) {
+  const selectSeason = `SELECT id_series, number_season FROM season WHERE id_series = $1 AND number_season = $2`;
+  const value = [id_series, number_season];
 
   try {
     const query = await postgresConnection.query(selectSeason, value);
@@ -14,9 +14,9 @@ async function selectSeasonByNumberSeasonAndId_anime(id_anime, number_season) {
   }
 }
 
-async function insertNewSeason(id_anime, number_season, imageCard, episodes) {
-  const insertSeason = `INSERT INTO season (id_anime, number_season, imageCard, episodes) VALUES ($1, $2, $3, $4)`;
-  const values = [id_anime, number_season, imageCard, episodes];
+async function insertNewSeason(id_series, number_season, imageCard, episodes) {
+  const insertSeason = `INSERT INTO season (id_series, number_season, imageCard, episodes) VALUES ($1, $2, $3, $4)`;
+  const values = [id_series, number_season, imageCard, episodes];
 
   try {
     const query = await postgresConnection.query(insertSeason, values);
@@ -32,6 +32,6 @@ async function insertNewSeason(id_anime, number_season, imageCard, episodes) {
 }
 
 module.exports = {
-  selectSeasonByNumberSeasonAndId_anime,
+  selectSeasonByNumberSeasonAndId_series,
   insertNewSeason,
 };
