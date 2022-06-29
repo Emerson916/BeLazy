@@ -4,6 +4,7 @@ import { StyleSheet, ScrollView } from "react-native";
 import { Container } from "./styles";
 import ListVideos from "../../components/ListVideos";
 import ImageCarousel from "../../components/ImageCarousel";
+import { api } from "../../services/api";
 
 const FAKE_DATA = [
   {
@@ -448,19 +449,18 @@ const FAKE_DATA = [
   },
 ];
 
-const [filmsData, setFilmsData] = useState();
-
-useEffect(() => {
-  try {
-    api.get("/v1/films").then((response) => setFilmsData(response));
-  } catch (error) {
-    console.log("Error do criando filme", error);
-  }
-}, [filmsData]);
-
-console.log("teste", filmsData)
-
 const HomeScreen = () => {
+  const [filmsData, setFilmsData] = useState();
+
+  useEffect(() => {
+    api
+      .get("/v1/films")
+      .then((response) => setFilmsData(response.data))
+      .catch((err) => {
+        console.log("OLHA O CONSOLE AQUI", err);
+      });
+  }, []);
+
   return (
     <Container>
       <LinearGradient
