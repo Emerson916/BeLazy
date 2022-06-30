@@ -193,7 +193,6 @@ import api from "../../services/api";
 
 const CardsVideosItems = ({ props }) => {
   const [filmsData, setFilmsData] = useState();
-  console.log("Dados do filme", filmsData);
   useEffect(() => {
     async function getFilms() {
       try {
@@ -208,15 +207,16 @@ const CardsVideosItems = ({ props }) => {
     getFilms();
   }, []);
   const navigate = useNavigate();
+  let width = window.innerWidth;
 
   const sliderLeft = () => {
     const slider = document.getElementById("slider");
-    slider.scrollLeft = slider.scrollLeft - 600;
+    slider.scrollLeft = slider.scrollLeft - (width - 250);
   };
 
   const sliderRight = () => {
     const slider = document.getElementById("slider");
-    slider.scrollLeft = slider.scrollLeft + 600;
+    slider.scrollLeft = slider.scrollLeft + (width - 250);
   };
 
   return (
