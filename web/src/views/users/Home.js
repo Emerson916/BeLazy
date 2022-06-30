@@ -10,6 +10,9 @@ const Home = () => {
       <ImageCarousel />
       <CardsVideos title={"Novos lançamentos"} />
       <CardsVideos title={"Os melhores filmes"} />
+      <CardsVideos title={"Exclusivo para você"} />
+      <CardsVideos title={"Para maratonar"} />
+      <CardsVideos title={"Feito para, Emerson"} />
       <Footer />
     </div>
   );

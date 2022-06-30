@@ -110,7 +110,7 @@ const ImageCarousel = ({ props }) => {
       } else {
         sliderRight();
       }
-    }, 2000);
+    }, 3500);
     return () => clearInterval(timer);
   }, []);
 
