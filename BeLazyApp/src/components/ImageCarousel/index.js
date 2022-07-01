@@ -13,9 +13,10 @@ const ImageCarousel = ({ data }) => {
     });
   };
 
+
   useEffect(() => {
     const timer = setInterval(() => {
-      if (currentSlider <= 2) {
+      if (currentSlider <= 0) {
         goToNext();
       } else {
         currentSlider = -1;

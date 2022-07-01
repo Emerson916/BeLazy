@@ -474,9 +474,9 @@ const HomeScreen = () => {
       >
         <ScrollView>
           <ImageCarousel data={filmsData} />
-          <ListVideos data={FAKE_DATA[0]} />
-          <ListVideos data={FAKE_DATA[1]} />
-          <ListVideos data={FAKE_DATA[2]} />
+          <ListVideos text={"Os melhores filmes"} data={filmsData} />
+          <ListVideos text={"Os melhores filmes"} data={filmsData} />
+          <ListVideos text={"Os melhores filmes"} data={filmsData} />
         </ScrollView>
       </LinearGradient>
     </Container>

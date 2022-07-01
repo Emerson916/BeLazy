@@ -3,13 +3,13 @@ import { Container, Image, Text } from "./styles";
 import { useNavigation } from "@react-navigation/native";
 
 const Cards = (props) => {
-  const { video, imageCard } = props;
+  const { imagecard, title_video  } = props;
   const navigation = useNavigation();
 
   return (
     <Container onPress={() => navigation.navigate("CardDetails", props)}>
-      <Image source={{ uri: imageCard }} />
-      <Text>{video.title_video}</Text>
+      <Image source={{ uri: imagecard }} />
+      <Text>{title_video}</Text>
     </Container>
   );
 };
