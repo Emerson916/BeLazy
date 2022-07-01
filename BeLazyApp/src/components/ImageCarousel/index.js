@@ -13,15 +13,18 @@ const ImageCarousel = ({ data }) => {
     });
   };
 
-  
+
+
   useEffect(() => {
+    const qntBanner = data?.length / 2;
+    console.log("BANNER", qntBanner);
     const timer = setInterval(() => {
-      if (currentSlider <= 0) {
+      if (currentSlider <= qntBanner) {
         goToNext();
       } else {
         currentSlider = -1;
       }
-    }, 3500);
+    }, 2500);
     return () => clearInterval(timer);
   }, []);
 

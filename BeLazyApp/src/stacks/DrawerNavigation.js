@@ -22,7 +22,7 @@ const DrawerNavigation = () => {
       <Drawer.Screen
         name="Home"
         component={HomeScreen}
-        options={{ headerTransparent: true }}
+        options={{ headerTransparent: false }}
       />
       <Drawer.Screen name="Favoritos" component={FavoritesScreen} />
       <Drawer.Screen name="Pesquisa" component={Search} />
