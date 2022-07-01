@@ -15,8 +15,7 @@ const ImageCarousel = ({ data }) => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      // isso vai executar a cada 5 segundos
-      if (currentSlider <= 5) {
+      if (currentSlider <= 2) {
         goToNext();
       } else {
         currentSlider = -1;

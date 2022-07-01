@@ -10,7 +10,7 @@ import {
 import Stars from "../Stars";
 
 const ImageCarouselItem = (props) => {
-  const { imageBanner, video } = props;
+  const { imagebanner, title_video, evaluation, duration  } = props;
   //   const plot = id.substring(id.length - 2, id.length);
   const navigation = useNavigation();
   const { height, width } = Dimensions.get("window");
@@ -20,13 +20,13 @@ const ImageCarouselItem = (props) => {
       onPress={() => navigation.navigate("CardDetails", props)}
     >
       {/* <Text style={{ fontSize: 72 }}>{plot}</Text> */}
-      <ImageBackground opacity={0.5} source={{ uri: imageBanner }}>
+      <ImageBackground opacity={0.5} source={{ uri: imagebanner }}>
         <ContainerBackground>
-          <TextFromBackground>{video.title_video}</TextFromBackground>
+          <TextFromBackground>{title_video}</TextFromBackground>
           <TextFromBackground>
-            <Stars evaluation={video.evaluation} />
+            <Stars evaluation={evaluation} />
           </TextFromBackground>
-          <TextFromBackground>{video.duration} min</TextFromBackground>
+          <TextFromBackground>{duration} min</TextFromBackground>
         </ContainerBackground>
       </ImageBackground>
     </Container>

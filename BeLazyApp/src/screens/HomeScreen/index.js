@@ -451,16 +451,19 @@ const FAKE_DATA = [
 
 const HomeScreen = () => {
   const [filmsData, setFilmsData] = useState();
-
   useEffect(() => {
-    api
-      .get("/v1/films")
-      .then((response) => setFilmsData(response.data))
-      .catch((err) => {
-        console.log("OLHA O CONSOLE AQUI", err);
-      });
-  }, []);
+    async function getFilms() {
+      try {
+        const response = await api.get("/v1/films");
 
+        setFilmsData(response.data);
+      } catch (error) {
+        console.log("Erro da requisição get", error);
+      }
+    }
+
+    getFilms();
+  }, []);
   return (
     <Container>
       <LinearGradient
@@ -470,7 +473,7 @@ const HomeScreen = () => {
         colors={["#343746", "#303C76"]}
       >
         <ScrollView>
-          <ImageCarousel data={FAKE_DATA[2].items} />
+          <ImageCarousel data={filmsData} />
           <ListVideos data={FAKE_DATA[0]} />
           <ListVideos data={FAKE_DATA[1]} />
           <ListVideos data={FAKE_DATA[2]} />
