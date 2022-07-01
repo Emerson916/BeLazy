@@ -32,16 +32,14 @@ import InputData from "../../components/InputData";
 import ButtonError from "../../components/ButtonError";
 
 const CardDetails = (props) => {
-  const { video, imageBanner } = props.route.params;
-  // const [favorited, setFavorited] = useState(video.favorite);
-  const [favorited, setFavorited] = useState(video.favorite);
+  const { imagebanner, title_video, releaseyear, sinopse } = props.route.params;
   const [visible, setVisible] = useState(false);
   const [errorText, setErrorText] = useState("");
 
   const onShare = async () => {
     try {
       const result = await Share.share({
-        message: `https://${video.link}.com.br`,
+        message: `https://github.com/Emerson916`,
       });
       if (result.action === Share.sharedAction) {
         if (result.activityType) {
@@ -75,20 +73,20 @@ const CardDetails = (props) => {
         colors={["#343746", "#303C76"]}
       >
         <ScrollView>
-          <ImageBackground opacity={0.6} source={{ uri: imageBanner }} />
+          <ImageBackground opacity={0.6} source={{ uri: imagebanner }} />
 
           <ContainerTypeVideo>
             <CamIcon width="20" height="20" />
-            <TypeVideo>{video.type.replace("FILM", "Filme")}</TypeVideo>
+            <TypeVideo>type</TypeVideo>
           </ContainerTypeVideo>
 
           <ContainerTitle>
-            <TitleText>{video.title_video}</TitleText>
+            <TitleText>{title_video || "Título"}</TitleText>
           </ContainerTitle>
 
           <ContainerCategory>
-            <LaunchText>{video.releaseYear}</LaunchText>
-            <LaunchText>{video.category}</LaunchText>
+            <LaunchText>{releaseyear || "dd/mm/aaaa"}</LaunchText>
+            {/* <LaunchText>{video.category}</LaunchText> */}
           </ContainerCategory>
 
           <ContainerButtons>
@@ -100,13 +98,12 @@ const CardDetails = (props) => {
 
           <ContainerSinopse>
             <TitleSinopse>Sinopse</TitleSinopse>
-            <TextSinopse>{video.sinopse}</TextSinopse>
+            <TextSinopse>{sinopse || "Sinopse"}</TextSinopse>
           </ContainerSinopse>
 
           <ContainerButtons>
             {/* <Text>favorited : {String(favorited)}</Text> */}
             <ButtonFeedback
-              onChange={(favorited) => setFavorited(favorited)}
               // onChange={favorited}
               IconSvg={Bookmark}
               IconFill={BookmarkFill}

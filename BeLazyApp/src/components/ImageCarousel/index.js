@@ -13,7 +13,7 @@ const ImageCarousel = ({ data }) => {
     });
   };
 
-
+  
   useEffect(() => {
     const timer = setInterval(() => {
       if (currentSlider <= 0) {
