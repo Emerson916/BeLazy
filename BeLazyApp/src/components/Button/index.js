@@ -1,10 +1,10 @@
 import React from 'react';
 import {ContainerButtonVoid, ButtonTextVoid} from './styles';
 
-const Button = props => {
+const Button = ({onPress, text}) => {
   return (
-    <ContainerButtonVoid onPress={props.onPress}>
-      <ButtonTextVoid>{props.text} </ButtonTextVoid>
+    <ContainerButtonVoid onPress={onPress}>
+      <ButtonTextVoid text>{text}</ButtonTextVoid>
     </ContainerButtonVoid>
   );
 };
