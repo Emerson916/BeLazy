@@ -1,4 +1,4 @@
-# 📄 Documentação das rotas da API
+# 📄 Documentação das rotas da API 
 
 ## Sobre a API
 
@@ -11,11 +11,11 @@
 
 | Method  | Endpoint  | Params        | O que faz   |
 | --------------------| ------------- | ----------  | ---------- |
-| GET     | /v1/users |               | Lista todos os usuários existentes no banco |
+| GET     | /v1/users/|               | Lista todos os usuários existentes no banco |
 | GET     | /v1/users/|       id      | Lista 1 (um) usuário específico             | 
-| POST    | /v1/users |               | Cria usuários                               | 
-| PUT     | /v1/users |       id      | Edita usuário específico                    | 
-| DELETE  | /v1/users |       id      | Deleta 1 (um) usuário específico            | 
+| POST    | /v1/users/|               | Cria usuários                               | 
+| PUT     | /v1/users/|       id      | Edita usuário específico                    | 
+| DELETE  | /v1/users/|       id      | Deleta 1 (um) usuário específico            | 
 
 ### Body Request (Users)
 
