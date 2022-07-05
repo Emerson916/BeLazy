@@ -6,7 +6,7 @@ const CardsVideos = ({ title, data }) => {
       <p className="text-white text-2xl font-bold mb-5 flex mx-14" title>
         {title}
       </p>
-      <CardsVideosItems data={data}/>
+      <CardsVideosItems data={data} />
     </div>
   );
 };

@@ -12,7 +12,6 @@ const CardDetails = () => {
   const [filmsData, setFilmsData] = useState();
   const { id } = useParams();
 
-  // console.log("o que tem no id ", id);
   useEffect(() => {
     async function getFilms() {
       try {

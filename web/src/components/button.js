@@ -1,6 +1,10 @@
 const Button = ({ title, onClick, width }) => {
   return (
-    <button onClick={onClick} style={{width}} className="h-16 p-2 bg-[#6C63FF] rounded-md text-white text-xl font-bold hover:opacity-75">
+    <button
+      onClick={onClick}
+      style={{ width }}
+      className="h-16 p-2 bg-[#6C63FF] rounded-md text-white text-xl font-bold hover:opacity-75"
+    >
       {title}
     </button>
   );

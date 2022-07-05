@@ -22,7 +22,7 @@ const Home = () => {
     getFilms();
   }, []);
 
-  console.log("FILMS DATA", filmsData)
+  console.log("FILMS DATA", filmsData);
 
   return (
     <>
@@ -30,7 +30,7 @@ const Home = () => {
         <>
           <Header />
           {console.log("ESTOU PEGANDO")}
-          <div className="h-screen bg-gradient-to-b from-current to-purple-800 ">
+          <div className="h-screen bg-gradient-to-b from-current to-purple-800">
             <img
               className="flex w-full h-[700px] py-24 relative"
               src={notFoundImage}
