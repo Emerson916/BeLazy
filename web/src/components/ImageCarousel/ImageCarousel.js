@@ -1,35 +1,36 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import imageNotFound from "../../assets/img/pageNotFound.svg";
 
 const ImageCarousel = ({ data }) => {
   const navigate = useNavigate();
-  useEffect((data) => {
+  const [currentSlider, setCurrentSlider] = useState(0);
+  useEffect(() => {
     let width = window.innerWidth;
-    let currentSlider = 0;
     const qntImagens = data?.map((item) => item.imagebanner);
 
     const sliderRight = () => {
-      currentSlider = currentSlider + 1;
+      setCurrentSlider(currentSlider + 1)
       const slider = document.getElementById("imageCarousel");
       slider.scrollLeft = slider.scrollLeft + width;
     };
 
     const sliderLeft = () => {
       width = 0;
-      currentSlider = currentSlider = 0;
+      setCurrentSlider(0)
       const slider = document.getElementById("imageCarousel");
       slider.scrollLeft = slider.scrollLeft - 15000;
     };
+
     const timer = setInterval(() => {
-      if (currentSlider >= qntImagens / 2) {
-        sliderLeft();
-      } else {
+      if (currentSlider <= qntImagens.length / 2) {
         sliderRight();
+      } else {
+        sliderLeft();
       }
     }, 3500);
     return () => clearInterval(timer);
-  }, []);
+  }, [currentSlider]);
 
   return (
     <div

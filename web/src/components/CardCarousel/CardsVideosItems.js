@@ -29,8 +29,9 @@ const CardsVideosItems = ({ data }) => {
         id="slider"
         className="w-full h-[380px] overflow-x-scroll scroll whitespace-nowrap scroll-smooth container-snap"
       >
-        {data?.map((item) => (
+        {data?.map((item, key) => (
           <Link
+            key={key}
             to={`/cardDetails/${item.id}`}
             className="w-[220px] inline-block p-2 h-[300px] cursor-pointer hover:scale-95 ease-in-out duration-300 hover:opacity-80"
           >
