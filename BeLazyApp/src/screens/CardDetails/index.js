@@ -27,9 +27,8 @@ import Bookmark from "../../assets/bookmark.svg";
 import BookmarkFill from "../../assets/bookmarkFill.svg";
 import ErrorIcon from "../../assets/error.svg";
 import CompartilharIcon from "../../assets/compartilhar.svg";
-import ButtonWatch from "../../components/ButtonWatch";
 import InputData from "../../components/InputData";
-import ButtonError from "../../components/ButtonError";
+import Button from "../../components/Button";
 
 const CardDetails = (props) => {
   const { imagebanner, title_video, releaseyear, sinopse } = props.route.params;
@@ -90,7 +89,10 @@ const CardDetails = (props) => {
           </ContainerCategory>
 
           <ContainerButtons>
-            <ButtonWatch
+            <Button
+              backgroundColor={"#6c63ff"}
+              height={60}
+              width={"90%"}
               text="Assistir"
               onPress={() => props.navigation.navigate("VideoScreen")}
             />
@@ -134,8 +136,11 @@ const CardDetails = (props) => {
                 placeholder="Escreva aqui"
                 onChangeText={(t) => setErrorText(t)}
               />
-              <ButtonError
-                title="Enviar"
+              <Button
+                backgroundColor={"#6c63ff"}
+                height={60}
+                width={250}
+                text="Enviar"
                 onPress={() => {
                   onChange();
                 }}

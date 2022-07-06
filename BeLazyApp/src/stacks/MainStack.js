@@ -14,7 +14,7 @@ const Navigate = () => (
     initialRouteName="Preload"
     screenOptions={{
       headerShown: false,
-      headerStyle: { backgroundColor: "#121016" },
+      headerStyle: { backgroundColor: "#343746" },
       headerTransparent: false,
       headerTintColor: "#6C63FF",
     }}

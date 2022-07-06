@@ -56,7 +56,7 @@ const Login = ({ navigation }) => {
         <ViewRegister onPress={() => handleButtonClick()}>
           <Text> Ainda não possui uma conta ?</Text>
 
-          <TextRegister> Cadastre-se</TextRegister>
+          <TextRegister>Cadastre-se</TextRegister>
         </ViewRegister>
       </Container>
     </LinearGradient>
