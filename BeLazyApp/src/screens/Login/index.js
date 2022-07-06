@@ -54,7 +54,7 @@ const Login = ({ navigation }) => {
           onPress={() => navigation.navigate("HomeScreen")}
         />
         <ViewRegister onPress={() => handleButtonClick()}>
-          <Text> Ainda não possui uma conta ?</Text>
+          <Text> Ainda não possui uma conta ? </Text>
 
           <TextRegister>Cadastre-se</TextRegister>
         </ViewRegister>
