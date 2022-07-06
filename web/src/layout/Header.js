@@ -12,7 +12,7 @@ const Header = () => {
       <img
         src={logo}
         alt="Logo do site"
-        className="h-[150px] w-[150px] cursor-pointer"
+        className="h-[120px] w-[120px] cursor-pointer"
       />
       <img
         src={iconMenu}
@@ -58,6 +58,7 @@ const Header = () => {
             <Button
               height={"35px"}
               width={"250px"}
+              icon={iconMenu}
               backgroundColor={"#6C63FF"}
               title={"Virar Premium"}
             />
