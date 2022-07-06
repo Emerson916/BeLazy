@@ -47,6 +47,9 @@ const Login = ({ navigation }) => {
         />
 
         <Button
+          backgroundColor={"#6c63ff"}
+          height={60}
+          width={"90%"}
           text="ENTRAR"
           onPress={() => navigation.navigate("HomeScreen")}
         />

@@ -1,9 +1,6 @@
 import styled from "styled-components/native";
 
 export const ContainerButtonVoid = styled.TouchableOpacity`
-  width: 90%;
-  height: 60px;
-  background-color: #6c63ff;
   flex-direction: row;
   border-radius: 15px;
   align-items: center;

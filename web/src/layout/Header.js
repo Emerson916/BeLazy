@@ -1,11 +1,10 @@
 import logo from "../assets/img/logo.svg";
-import iconMenu from "../assets/img/iconMenu.svg";
 import fotoPerfil from "../assets/img/addPerfil.svg";
 import { useState } from "react";
 import Button from "../components/Button";
 
 const Header = () => {
-  const [menuOpen, setMenuOpen] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <div className="w-full h-24 bg-gray-900 flex justify-between items-center px-10">
@@ -20,7 +19,7 @@ const Header = () => {
           setMenuOpen(!menuOpen);
         }}
       >
-        <ul className="flex flex-col space-y-2 rotate-180">
+        <ul className="flex flex-col space-y-2 rotate-180 cursor-pointer">
           <li
             className={`${
               menuOpen ? "w-3" : ""
@@ -38,14 +37,6 @@ const Header = () => {
           />
         </ul>
       </div>
-      {/* <img
-        src={iconMenu}
-        alt="logo"
-        className="cursor-pointer w-10"
-        onClick={() => {
-          setMenuOpen(!menuOpen);
-        }}
-      /> */}
 
       <div
         className={`${
@@ -82,7 +73,6 @@ const Header = () => {
             <Button
               height={"35px"}
               width={"250px"}
-              icon={iconMenu}
               backgroundColor={"#6C63FF"}
               title={"Virar Premium"}
             />
