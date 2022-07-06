@@ -47,7 +47,7 @@ const CardDetails = () => {
           </div>
 
           <div>
-            <Button width={"400px"} title={"Assitir"} />
+            <Button height={"64px"} backgroundColor={"#6C63FF"} width={"400px"} title={"Assitir"} />
           </div>
         </div>
 

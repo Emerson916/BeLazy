@@ -23,7 +23,7 @@ const Register = () => {
           <InputData placeholder="Digite sua e-mail" />
           <InputData placeholder="Digite sua senha" type={"password"} />
           {/* Verificar se o registro foi feito com sucesso ai mandar para a tela de login */}
-          <Button title="Registrar" onClick={() => navigate("/")} />
+          <Button title="Registrar" height={"64px"} backgroundColor={"#6C63FF"} onClick={() => navigate("/")} />
           <div className="flex justify-end m-2 cursor-pointer">
             <img src={register} alt="Logo do site" />
             <p className="text-white p-2" onClick={() => navigate("/")}>
