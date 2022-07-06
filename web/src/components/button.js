@@ -1,10 +1,10 @@
-const Button = ({ title, onClick, width, height, backgroundColor }) => {
+const Button = ({ title, onClick, width, height, backgroundColor, fontSize }) => {
   return (
     <div>
       <button
         onClick={onClick}
-        style={{ width, height, backgroundColor }}
-        className="p-2 flex justify-center items-center rounded-md text-white text-xl font-bold hover:opacity-75"
+        style={{ width, height, backgroundColor, fontSize}}
+        className="p-2 flex justify-center items-center rounded-md text-white font-bold hover:opacity-75"
       >
         {title}
       </button>

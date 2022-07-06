@@ -32,7 +32,7 @@ const Login = () => {
             defaultValue={password}
             onChange={(t) => setPassword(t)}
           />
-          <Button title="Entrar" height={"64px"} backgroundColor={"#6C63FF"} onClick={() => navigate("/home")} />
+          <Button title="Entrar" height={"64px"} width={"100%"} fontSize={"22px"} backgroundColor={"#6C63FF"} onClick={() => navigate("/home")} />
           <div className="flex justify-end m-2 cursor-pointer">
             <img src={register} alt="Logo do site" />
             <p

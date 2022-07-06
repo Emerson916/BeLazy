@@ -14,14 +14,38 @@ const Header = () => {
         alt="Logo do site"
         className="h-[120px] w-[120px] cursor-pointer"
       />
-      <img
+      <div
+        className=" h-10 w-10"
+        onClick={() => {
+          setMenuOpen(!menuOpen);
+        }}
+      >
+        <ul className="flex flex-col space-y-2 rotate-180">
+          <li
+            className={`${
+              menuOpen ? "w-3" : ""
+            }  border-2 border-[#6C63FF] h-1`}
+          />
+          <li
+            className={`${
+              menuOpen ? "w-6" : "w-7"
+            }  border-2 border-[#6C63FF] h-1`}
+          />
+          <li
+            className={`${
+              menuOpen ? "" : "w-3"
+            }  border-2 border-[#6C63FF] h-1`}
+          />
+        </ul>
+      </div>
+      {/* <img
         src={iconMenu}
         alt="logo"
         className="cursor-pointer w-10"
         onClick={() => {
           setMenuOpen(!menuOpen);
         }}
-      />
+      /> */}
 
       <div
         className={`${
