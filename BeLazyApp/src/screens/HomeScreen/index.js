@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
-import { StyleSheet, ScrollView } from "react-native";
+import { StyleSheet, ScrollView, Text } from "react-native";
 import { Container } from "./styles";
 import ListVideos from "../../components/ListVideos";
 import ImageCarousel from "../../components/ImageCarousel";
+import NotFoundImage from "../../assets/404Error.svg";
 import { api } from "../../services/api";
 
 // const FAKE_DATA = [
@@ -465,21 +466,37 @@ const HomeScreen = () => {
     getFilms();
   }, []);
   return (
-    <Container>
-      <LinearGradient
-        style={styles.linearGradient}
-        start={{ x: 1, y: 0 }}
-        end={{ x: 1, y: 1.0 }}
-        colors={["#343746", "#303C76"]}
-      >
-        <ScrollView>
-          <ImageCarousel data={filmsData} />
-          <ListVideos text={"Os melhores filmes"} data={filmsData} />
-          <ListVideos text={"Os melhores filmes"} data={filmsData} />
-          <ListVideos text={"Os melhores filmes"} data={filmsData} />
-        </ScrollView>
-      </LinearGradient>
-    </Container>
+    <>
+      {filmsData?.length <= 0 || filmsData === undefined ? (
+        <LinearGradient
+          style={styles.linearGradient}
+          start={{ x: 1, y: 0 }}
+          end={{ x: 1, y: 1.0 }}
+          colors={["#343746", "#303C76"]}
+        >
+          <NotFoundImage width={400} height={400}/>
+          <Text style={styles.text}>
+            Oops!!, Estamos com problemas tecnicos, voltaremos já.
+          </Text>
+        </LinearGradient>
+      ) : (
+        <Container>
+          <LinearGradient
+            style={styles.linearGradient}
+            start={{ x: 1, y: 0 }}
+            end={{ x: 1, y: 1.0 }}
+            colors={["#343746", "#303C76"]}
+          >
+            <ScrollView>
+              <ImageCarousel data={filmsData} />
+              <ListVideos text={"Os melhores filmes"} data={filmsData} />
+              <ListVideos text={"Os melhores filmes"} data={filmsData} />
+              <ListVideos text={"Os melhores filmes"} data={filmsData} />
+            </ScrollView>
+          </LinearGradient>
+        </Container>
+      )}
+    </>
   );
 };
 
@@ -488,5 +505,11 @@ export default HomeScreen;
 const styles = StyleSheet.create({
   linearGradient: {
     flex: 1,
+  },
+
+  text: {
+    color: "#fff",
+    fontSize: 18,
+    textAlign: "center",
   },
 });

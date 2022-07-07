@@ -3,7 +3,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import HomeScreen from "../screens/HomeScreen";
 import FavoritesScreen from "../screens/FavoriteScreen";
 import Search from "../screens/Search";
-import SupportScreen from "../screens/SupportScreen";
+import SettingsScreen from "../screens/SettingsScreen";
 import DrawerContent from "../components/DrawerContent";
 
 const Drawer = createDrawerNavigator();
@@ -26,7 +26,7 @@ const DrawerNavigation = () => {
       />
       <Drawer.Screen name="Favoritos" component={FavoritesScreen} />
       <Drawer.Screen name="Pesquisa" component={Search} />
-      <Drawer.Screen name="Suporte" component={SupportScreen} />
+      <Drawer.Screen name="Configuracao" component={SettingsScreen} />
     </Drawer.Navigator>
   );
 };

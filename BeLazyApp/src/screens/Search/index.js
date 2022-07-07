@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { LinearGradient } from "expo-linear-gradient";
-import { StyleSheet, TouchableOpacity, FlatList } from "react-native";
-import { Container, ContainerSearch } from "./styles";
+import { StyleSheet, TouchableOpacity, FlatList, View } from "react-native";
 import InputSearch from "../../components/InputSearch";
 import CardSearch from "../../components/CardSearch";
 import FilterIcon from "../../assets/filterIcon.svg";
@@ -447,38 +446,43 @@ const Search = () => {
   };
 
   return (
-    <Container>
-      <LinearGradient
-        style={styles.linearGradient}
-        start={{ x: 1, y: 0 }}
-        end={{ x: 1, y: 1.0 }}
-        colors={["#343746", "#303C76"]}
-      >
-        <ContainerSearch>
-          <InputSearch
-            value={search}
-            onChangeText={(t) => setSearch(t)}
-            placeholder={"Pesquise por filmes, séries..."}
-          />
-          <TouchableOpacity onPress={handleOrderClick}>
-            <FilterIcon width={35} height={35} />
-          </TouchableOpacity>
-        </ContainerSearch>
-
-        <FlatList
-          showsHorizontalScrollIndicator={false}
-          numColumns="2"
-          data={list}
-          renderItem={({ item }) => <CardSearch {...item} />}
+    <LinearGradient
+      style={styles.linearGradient}
+      start={{ x: 1, y: 0 }}
+      end={{ x: 1, y: 1.0 }}
+      colors={["#343746", "#303C76"]}
+    >
+      <View style={styles.containerSearch}>
+        <InputSearch
+          value={search}
+          onChangeText={(t) => setSearch(t)}
+          placeholder={"Pesquise por filmes, séries..."}
         />
-      </LinearGradient>
-    </Container>
+        <TouchableOpacity onPress={handleOrderClick}>
+          <FilterIcon width={35} height={35} />
+        </TouchableOpacity>
+      </View>
+
+      <FlatList
+        showsHorizontalScrollIndicator={false}
+        numColumns="2"
+        data={list}
+        renderItem={({ item }) => <CardSearch {...item} />}
+      />
+    </LinearGradient>
   );
 };
 
 export default Search;
 
 const styles = StyleSheet.create({
+  containerSearch: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    marginRight: 15,
+    marginStart: 15,
+  },
   linearGradient: {
     flex: 1,
   },

@@ -5,7 +5,6 @@ import Login from "../screens/Login";
 import Register from "../screens/Register";
 import DrawerNavigation from "./DrawerNavigation";
 import CardDetails from "../screens/CardDetails";
-import VideoScreen from "../screens/VideoScreen";
 
 const Stack = createStackNavigator();
 
@@ -31,7 +30,6 @@ const Navigate = () => (
         title: false,
       }}
     />
-    <Stack.Screen name="VideoScreen" component={VideoScreen} />
   </Stack.Navigator>
 );
 

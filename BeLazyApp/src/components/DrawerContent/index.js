@@ -86,7 +86,7 @@ const DrawerContent = ({ navigation }) => {
           <DrawerItem
             IconSvg={ConfigIcon}
             title="Configurações"
-            onPress={() => navigation.navigate("Suporte")}
+            onPress={() => navigation.navigate("Configuracao")}
           />
         </ContainerDrawerNavigation>
         <ContainerExit>

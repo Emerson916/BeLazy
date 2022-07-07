@@ -1,37 +1,31 @@
 import React, { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
-import { Modal, ToastAndroid } from "react-native";
-
-import { StyleSheet, ScrollView, Share } from "react-native";
 import {
-  Container,
-  ImageBackground,
-  ContainerCategory,
-  ContainerSinopse,
-  ContainerButtons,
-  TitleText,
-  LaunchText,
-  ContainerTypeVideo,
-  TypeVideo,
-  ContainerTitle,
-  TextSinopse,
-  TitleSinopse,
-  ContainerModel,
+  Image,
+  Modal,
+  ToastAndroid,
+  View,
   Text,
-  TextExit,
-  ContainerText,
-} from "./styles";
+  TextInput,
+  StyleSheet,
+  ScrollView,
+  Share,
+} from "react-native";
+
 import ButtonFeedback from "../../components/ButtonFeedback";
-import CamIcon from "../../assets/camIcon.svg";
+import CameraIcon from "../../assets/camIcon.svg";
 import Bookmark from "../../assets/bookmark.svg";
 import BookmarkFill from "../../assets/bookmarkFill.svg";
 import ErrorIcon from "../../assets/error.svg";
 import CompartilharIcon from "../../assets/compartilhar.svg";
-import InputData from "../../components/InputData";
+import ExitError from "../../assets/exitError.svg";
+// import InputData from "../../components/InputData";
 import Button from "../../components/Button";
+import Stars from "../../components/Stars";
 
 const CardDetails = (props) => {
-  const { imagebanner, title_video, releaseyear, sinopse } = props.route.params;
+  const { imagecard, title_video, releaseyear, sinopse, evaluation, duration } =
+    props.route.params;
   const [visible, setVisible] = useState(false);
   const [errorText, setErrorText] = useState("");
 
@@ -64,92 +58,114 @@ const CardDetails = (props) => {
   }
 
   return (
-    <Container>
-      <LinearGradient
-        style={styles.linearGradient}
-        start={{ x: 1, y: 0 }}
-        end={{ x: 1, y: 1.0 }}
-        colors={["#343746", "#303C76"]}
-      >
-        <ScrollView>
-          <ImageBackground opacity={0.6} source={{ uri: imagebanner }} />
+    <LinearGradient
+      style={styles.linearGradient}
+      start={{ x: 1, y: 0 }}
+      end={{ x: 1, y: 1.0 }}
+      colors={["#343746", "#303C76"]}
+    >
+      <ScrollView>
+        <View style={styles.container}>
+          <View>
+            <Image
+              style={styles.imageCard}
+              opacity={0.6}
+              source={{ uri: imagecard }}
+            />
+          </View>
+          <View style={styles.containerData}>
+            <View style={styles.data}>
+              <CameraIcon width={20} height={20} />
+              <Text style={styles.textData}>Tipo</Text>
+            </View>
+            <Text style={styles.text}>Filme</Text>
+            <View style={styles.data}>
+              <CameraIcon width={20} height={20} />
+              <Text style={styles.textData}>Avaliação geral</Text>
+            </View>
+            <View style={styles.stars}>
+              <Stars evaluation={evaluation} />
+            </View>
+            <View style={styles.data}>
+              <CameraIcon width={20} height={20} />
+              <Text style={styles.textData}>Lançado em</Text>
+            </View>
+            <Text style={styles.text}>{releaseyear || "Indisponível"}</Text>
+            <View style={styles.data}>
+              <CameraIcon width={20} height={20} />
+              <Text style={styles.textData}>Duração</Text>
+            </View>
+            <Text style={styles.text}>{duration || "Indisponível"} min</Text>
+          </View>
+        </View>
 
-          <ContainerTypeVideo>
-            <CamIcon width="20" height="20" />
-            <TypeVideo>type</TypeVideo>
-          </ContainerTypeVideo>
+        <Text style={styles.title}>{title_video || "Titulo indisponível"}</Text>
 
-          <ContainerTitle>
-            <TitleText>{title_video || "Título"}</TitleText>
-          </ContainerTitle>
+        <View style={styles.containerWatch}>
+          <Button
+            backgroundColor={"#6c63ff"}
+            height={60}
+            width={"90%"}
+            text="Assistir"
+          />
+        </View>
 
-          <ContainerCategory>
-            <LaunchText>{releaseyear || "dd/mm/aaaa"}</LaunchText>
-            {/* <LaunchText>{video.category}</LaunchText> */}
-          </ContainerCategory>
+        <View style={styles.containerSinopse}>
+          <Text style={styles.titleSinopse}>Sinopse</Text>
+          <Text style={styles.textSinopse}>
+            {sinopse || "Sinopse indisponível"}
+          </Text>
+        </View>
 
-          <ContainerButtons>
+        <View style={styles.containerFeedback}>
+          <ButtonFeedback
+            IconSvg={Bookmark}
+            IconFill={BookmarkFill}
+            title="Favoritar"
+          />
+          <ButtonFeedback
+            IconSvg={ErrorIcon}
+            title="Relatar Erro"
+            onPress={() => setVisible(true)}
+          />
+          <ButtonFeedback
+            IconSvg={CompartilharIcon}
+            title="Compartilhar"
+            onPress={() => onShare()}
+          />
+        </View>
+
+        <Modal animationType="fade" transparent={true} visible={visible}>
+          <View style={styles.containerTextArea}>
+            <View style={styles.containerTitleModal}>
+              <Text style={styles.textErro}>Relate o erro</Text>
+              <ExitError
+                width={30}
+                height={30}
+                onPress={() => setVisible(false)}
+              ></ExitError>
+            </View>
+
+            <TextInput
+              style={styles.textArea}
+              multiline
+              placeholder="Conte com detalhes o que está acontecendo..."
+              placeholderTextColor={"#fff"}
+              autoCorrect={false}
+            />
             <Button
               backgroundColor={"#6c63ff"}
               height={60}
               width={"90%"}
-              text="Assistir"
-              onPress={() => props.navigation.navigate("VideoScreen")}
+              text="Enviar"
+              onPress={() => {
+                onChange();
+              }}
             />
-          </ContainerButtons>
-
-          <ContainerSinopse>
-            <TitleSinopse>Sinopse</TitleSinopse>
-            <TextSinopse>{sinopse || "Sinopse"}</TextSinopse>
-          </ContainerSinopse>
-
-          <ContainerButtons>
-            {/* <Text>favorited : {String(favorited)}</Text> */}
-            <ButtonFeedback
-              // onChange={favorited}
-              IconSvg={Bookmark}
-              IconFill={BookmarkFill}
-              title="Favoritar"
-            />
-            <ButtonFeedback
-              IconSvg={ErrorIcon}
-              title="Relatar Erro"
-              onPress={() => setVisible(true)}
-            />
-            <ButtonFeedback
-              IconSvg={CompartilharIcon}
-              title="Compartilhar"
-              onPress={() => onShare()}
-            />
-          </ContainerButtons>
-
-          <Modal animationType="fade" transparent={true} visible={visible}>
-            <ContainerModel>
-              <ContainerText>
-                <Text>Relate o problema que esta ocorrendo</Text>
-                <TextExit onPress={() => setVisible(false)}>X</TextExit>
-              </ContainerText>
-
-              <InputData
-                IconSvg={ErrorIcon}
-                value={errorText}
-                placeholder="Escreva aqui"
-                onChangeText={(t) => setErrorText(t)}
-              />
-              <Button
-                backgroundColor={"#6c63ff"}
-                height={60}
-                width={250}
-                text="Enviar"
-                onPress={() => {
-                  onChange();
-                }}
-              />
-            </ContainerModel>
-          </Modal>
-        </ScrollView>
-      </LinearGradient>
-    </Container>
+          </View>
+        </Modal>
+      </ScrollView>
+    </LinearGradient>
   );
 };
 
@@ -158,5 +174,109 @@ export default CardDetails;
 const styles = StyleSheet.create({
   linearGradient: {
     flex: 1,
+  },
+
+  container: {
+    flexDirection: "row",
+    margin: 20,
+  },
+
+  imageCard: {
+    height: 300,
+    width: 200,
+  },
+
+  containerData: {
+    marginStart: 20,
+  },
+
+  data: {
+    flexDirection: "row",
+    marginBottom: 10,
+  },
+
+  textData: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "bold",
+    paddingStart: 10,
+  },
+
+  text: {
+    color: "#fff",
+    marginBottom: 25,
+  },
+
+  containerWatch: {
+    alignItems: "center",
+  },
+
+  title: {
+    color: "#fff",
+    fontSize: 24,
+    marginStart: 20,
+    fontWeight: "bold",
+  },
+
+  stars: {
+    flexDirection: "row",
+    marginBottom: 25,
+    paddingTop: 5,
+  },
+
+  containerSinopse: {
+    margin: 20,
+  },
+
+  titleSinopse: {
+    color: "#fff",
+    fontSize: 20,
+    fontWeight: "bold",
+    marginBottom: 15,
+  },
+
+  textSinopse: {
+    color: "#fff",
+    fontSize: 16,
+  },
+
+  containerFeedback: {
+    flexDirection: "row",
+    justifyContent: "center",
+    marginTop: 15,
+  },
+
+  containerTextArea: {
+    width: "100%",
+    height: 350,
+    marginTop: 150,
+    alignItems: "center",
+    backgroundColor: "#303c76",
+    color: "#fff",
+    borderRadius: 30,
+    borderWidth: 2,
+    borderColor: "#fff",
+  },
+
+  containerTitleModal: {
+    color: "#fff",
+    width: "100%",
+    padding: 20,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+
+  textArea: {
+    height: 180,
+    width: "100%",
+    marginTop: 5,
+    padding: 10,
+    color: "#fff",
+  },
+
+  textErro: {
+    fontSize: 18,
+    color: "#fff",
   },
 });
