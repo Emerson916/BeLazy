@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import { StyleSheet, TouchableOpacity, FlatList, View } from "react-native";
-import InputSearch from "../components/InputSearch";
+// import InputSearch from "../components/InputSearch";
 import CardSearch from "../components/CardSearch";
 import FilterIcon from "../assets/filterIcon.svg";
+import InputData from "../components/InputData";
+// import searchIcon from "../assets/searchIcone.svg";
 
 const FAKE_DATA = [
   {
@@ -453,11 +455,14 @@ const Search = () => {
       colors={["#343746", "#303C76"]}
     >
       <View style={styles.containerSearch}>
-        <InputSearch
+        {/* <InputData
+          width={"85%"}
+          height={50}
+          IconSvg={searchIcon}
           value={search}
           onChangeText={(t) => setSearch(t)}
           placeholder={"Pesquise por filmes, séries..."}
-        />
+        /> */}
         <TouchableOpacity onPress={handleOrderClick}>
           <FilterIcon width={35} height={35} />
         </TouchableOpacity>

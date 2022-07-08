@@ -33,18 +33,24 @@ const Register = ({ navigation }) => {
         <Text style={styles.text}>Criar uma conta</Text>
       </View>
       <InputData
+        width={"90%"}
+        height={60}
         IconSvg={PersonIcon}
         value={user}
         placeholder="Digite seu nome"
         onChangeText={(t) => setUser(t)}
       />
       <InputData
+        width={"90%"}
+        height={60}
         IconSvg={EmailIcon}
         value={email}
         placeholder="Digite seu e-mail"
         onChangeText={(t) => setEmail(t)}
       />
       <InputData
+        width={"90%"}
+        height={60}
         IconSvg={LockIcon}
         placeholder="Digite sua senha"
         value={password}
@@ -59,7 +65,10 @@ const Register = ({ navigation }) => {
         text="REGISTRAR-SE"
         onPress={() => handleButtonClick()}
       />
-      <TouchableOpacity style={styles.containerLogin} onPress={() => handleButtonClick()}>
+      <TouchableOpacity
+        style={styles.containerLogin}
+        onPress={() => handleButtonClick()}
+      >
         <Text style={styles.text}> Já tem uma conta ?</Text>
 
         <Text style={styles.textLogin}> Fazer Login </Text>

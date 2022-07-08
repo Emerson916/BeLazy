@@ -1,7 +1,7 @@
 import React from "react";
 import { FlatList } from "react-native";
-import Cards from "../Cards";
-import Title from "../Title";
+import Cards from "./Cards";
+import Title from "./Title";
 
 const ListVideos = ({ data, text }) => {
   return (

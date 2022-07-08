@@ -19,7 +19,7 @@ import BookmarkFill from "../assets/bookmarkFill.svg";
 import ErrorIcon from "../assets/error.svg";
 import CompartilharIcon from "../assets/compartilhar.svg";
 import ExitError from "../assets/exitError.svg";
-import FileIcon from  "../assets/file.svg"
+import CalendarIcon from  "../assets/calendar.svg"
 import HeartIcon from  "../assets/heart.svg"
 // import InputData from "../../components/InputData";
 import Button from "../components/Button";
@@ -90,12 +90,12 @@ const CardDetails = (props) => {
               <Stars evaluation={evaluation} />
             </View>
             <View style={styles.data}>
-              <FileIcon width={18} height={18} />
+              <CalendarIcon width={18} height={18} />
               <Text style={styles.textData}>Lançado em</Text>
             </View>
             <Text style={styles.text}>{releaseyear || "Indisponível"}</Text>
             <View style={styles.data}>
-              <FileIcon width={18} height={18} />
+              <CalendarIcon width={18} height={18} />
               <Text style={styles.textData}>Duração</Text>
             </View>
             <Text style={styles.text}>{duration || "Indisponível"} min</Text>

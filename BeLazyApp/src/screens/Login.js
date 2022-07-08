@@ -31,12 +31,16 @@ const Login = ({ navigation }) => {
         <Text style={styles.text}>Faça seu login</Text>
       </View>
       <InputData
+        width={"90%"}
+        height={60}
         IconSvg={EmailIcon}
         value={email}
         placeholder="Digite seu e-mail"
         onChangeText={(t) => setEmail(t)}
       />
       <InputData
+        width={"90%"}
+        height={60}
         IconSvg={LockIcon}
         placeholder="Digite sua senha"
         value={password}

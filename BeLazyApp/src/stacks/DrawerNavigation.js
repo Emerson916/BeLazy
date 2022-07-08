@@ -4,7 +4,7 @@ import HomeScreen from "../screens/HomeScreen";
 import FavoritesScreen from "../screens/FavoriteScreen";
 import Search from "../screens/Search";
 import SettingsScreen from "../screens/SettingsScreen";
-import DrawerContent from "../components/DrawerContent";
+import DrawerContent from "../layout/DrawerContent/DrawerContent";
 
 const Drawer = createDrawerNavigator();
 

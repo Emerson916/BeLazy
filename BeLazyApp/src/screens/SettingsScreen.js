@@ -9,7 +9,6 @@ import {
   Image,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import PremiumIcon from "../assets/premiumIcon.svg";
 import ButtonConfig from "../components/ButtonConfig";
 import Button from "../components/Button";
 import ArrowRight from "../assets/arrowRight.svg";
@@ -51,7 +50,6 @@ const SupportScreen = () => {
             width={150}
             height={30}
             backgroundColor={"#303c76"}
-            IconSvg={PremiumIcon}
             text="Ser Premium"
           />
         </View>

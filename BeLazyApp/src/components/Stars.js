@@ -1,6 +1,6 @@
 import React from "react";
-import StarFill from "../../assets/starFill.svg";
-import StarOutline from "../../assets/starOutline.svg";
+import StarFill from "../assets/starFill.svg";
+import StarOutline from "../assets/starOutline.svg";
 
 const Stars = ({ evaluation }) => {
   const qtd = evaluation > 5 ? 5 : evaluation < 0 ? 0 : evaluation;
