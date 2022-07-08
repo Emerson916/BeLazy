@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import Logo from "../../assets/logo.svg";
 import EmailIcon from "../../assets/email.svg";
 import LockIcon from "../../assets/lock.svg";
 import InputData from "../../components/InputData";
-import { Container, Text, View, TextRegister, ViewRegister } from "./styles";
 import Button from "../../components/Button";
 
 const Login = ({ navigation }) => {
@@ -26,39 +25,40 @@ const Login = ({ navigation }) => {
       end={{ x: 1, y: 1.0 }}
       colors={["#343746", "#303C76"]}
     >
-      <Container>
-        <Logo width="200" height="160" />
+      <Logo width="200" height="160" />
 
-        <View>
-          <Text>Faça seu login</Text>
-        </View>
-        <InputData
-          IconSvg={EmailIcon}
-          value={email}
-          placeholder="Digite seu e-mail"
-          onChangeText={(t) => setEmail(t)}
-        />
-        <InputData
-          IconSvg={LockIcon}
-          placeholder="Digite sua senha"
-          value={password}
-          onChangeText={(t) => setPassword(t)}
-          password={true}
-        />
+      <View style={styles.view}>
+        <Text style={styles.text}>Faça seu login</Text>
+      </View>
+      <InputData
+        IconSvg={EmailIcon}
+        value={email}
+        placeholder="Digite seu e-mail"
+        onChangeText={(t) => setEmail(t)}
+      />
+      <InputData
+        IconSvg={LockIcon}
+        placeholder="Digite sua senha"
+        value={password}
+        onChangeText={(t) => setPassword(t)}
+        password={true}
+      />
 
-        <Button
-          backgroundColor={"#6c63ff"}
-          height={60}
-          width={"90%"}
-          text="ENTRAR"
-          onPress={() => navigation.navigate("HomeScreen")}
-        />
-        <ViewRegister onPress={() => handleButtonClick()}>
-          <Text> Ainda não possui uma conta ? </Text>
+      <Button
+        backgroundColor={"#6c63ff"}
+        height={60}
+        width={"90%"}
+        text="ENTRAR"
+        onPress={() => navigation.navigate("HomeScreen")}
+      />
+      <TouchableOpacity
+        style={styles.containerRegister}
+        onPress={() => handleButtonClick()}
+      >
+        <Text style={styles.text}> Ainda não possui uma conta ? </Text>
 
-          <TextRegister>Cadastre-se</TextRegister>
-        </ViewRegister>
-      </Container>
+        <Text style={styles.textRegister}>Cadastre-se</Text>
+      </TouchableOpacity>
     </LinearGradient>
   );
 };
@@ -70,5 +70,32 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+  },
+
+  text: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "700",
+    marginVertical: 10,
+  },
+
+  view: {
+    width: "90%",
+    marginBottom: 10,
+  },
+
+  containerRegister: {
+    width: "100%",
+    marginTop: 20,
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "row",
+  },
+
+  textRegister: {
+    color: "#6c63ff",
+    fontSize: 16,
+    fontWeight: "500",
+    flexDirection: "row",
   },
 });

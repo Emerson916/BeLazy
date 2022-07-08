@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-import { Container, LoadingIcon } from "./styles";
-import { StyleSheet } from "react-native";
+import { ActivityIndicator, StyleSheet } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import Logo from "../../assets/logo.svg";
 import { useNavigation } from "@react-navigation/native";
@@ -29,10 +28,12 @@ const Preload = () => {
       end={{ x: 1, y: 1.0 }}
       colors={["#343746", "#303C76"]}
     >
-      <Container>
-        <Logo width="200" height="160" />
-        <LoadingIcon size="large" color="#FFF" />
-      </Container>
+      <Logo width="200" height="160" />
+      <ActivityIndicator
+        style={styles.activityIndicator}
+        size="large"
+        color="#FFF"
+      />
     </LinearGradient>
   );
 };
@@ -44,5 +45,9 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+  },
+
+  activityIndicator: {
+    marginTop: 50,
   },
 });

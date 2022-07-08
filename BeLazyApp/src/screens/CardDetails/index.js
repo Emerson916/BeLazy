@@ -19,6 +19,8 @@ import BookmarkFill from "../../assets/bookmarkFill.svg";
 import ErrorIcon from "../../assets/error.svg";
 import CompartilharIcon from "../../assets/compartilhar.svg";
 import ExitError from "../../assets/exitError.svg";
+import FileIcon from  "../../assets/file.svg"
+import HeartIcon from  "../../assets/heart.svg"
 // import InputData from "../../components/InputData";
 import Button from "../../components/Button";
 import Stars from "../../components/Stars";
@@ -65,6 +67,7 @@ const CardDetails = (props) => {
       colors={["#343746", "#303C76"]}
     >
       <ScrollView>
+        <Text style={styles.title}>{title_video || "Titulo indisponível"}</Text>
         <View style={styles.container}>
           <View>
             <Image
@@ -75,36 +78,34 @@ const CardDetails = (props) => {
           </View>
           <View style={styles.containerData}>
             <View style={styles.data}>
-              <CameraIcon width={20} height={20} />
+              <CameraIcon width={18} height={18} />
               <Text style={styles.textData}>Tipo</Text>
             </View>
             <Text style={styles.text}>Filme</Text>
             <View style={styles.data}>
-              <CameraIcon width={20} height={20} />
+              <HeartIcon width={18} height={18} />
               <Text style={styles.textData}>Avaliação geral</Text>
             </View>
             <View style={styles.stars}>
               <Stars evaluation={evaluation} />
             </View>
             <View style={styles.data}>
-              <CameraIcon width={20} height={20} />
+              <FileIcon width={18} height={18} />
               <Text style={styles.textData}>Lançado em</Text>
             </View>
             <Text style={styles.text}>{releaseyear || "Indisponível"}</Text>
             <View style={styles.data}>
-              <CameraIcon width={20} height={20} />
+              <FileIcon width={18} height={18} />
               <Text style={styles.textData}>Duração</Text>
             </View>
             <Text style={styles.text}>{duration || "Indisponível"} min</Text>
           </View>
         </View>
 
-        <Text style={styles.title}>{title_video || "Titulo indisponível"}</Text>
-
         <View style={styles.containerWatch}>
           <Button
             backgroundColor={"#6c63ff"}
-            height={60}
+            height={50}
             width={"90%"}
             text="Assistir"
           />
@@ -178,21 +179,22 @@ const styles = StyleSheet.create({
 
   container: {
     flexDirection: "row",
-    margin: 20,
+    margin: 15,
   },
 
   imageCard: {
-    height: 300,
-    width: 200,
+    height: 230,
+    width: 160,
   },
 
   containerData: {
     marginStart: 20,
+    height: 220,
   },
 
   data: {
     flexDirection: "row",
-    marginBottom: 10,
+    marginBottom: 5,
   },
 
   textData: {
@@ -204,7 +206,7 @@ const styles = StyleSheet.create({
 
   text: {
     color: "#fff",
-    marginBottom: 25,
+    marginBottom: 10,
   },
 
   containerWatch: {
@@ -213,14 +215,17 @@ const styles = StyleSheet.create({
 
   title: {
     color: "#fff",
-    fontSize: 24,
-    marginStart: 20,
+    fontSize: 14,
+    textAlign: "center",
+    marginTop: 20,
+    marginBottom: 10,
+    paddingHorizontal: 5,
     fontWeight: "bold",
   },
 
   stars: {
     flexDirection: "row",
-    marginBottom: 25,
+    marginBottom: 15,
     paddingTop: 5,
   },
 
@@ -243,7 +248,6 @@ const styles = StyleSheet.create({
   containerFeedback: {
     flexDirection: "row",
     justifyContent: "center",
-    marginTop: 15,
   },
 
   containerTextArea: {

@@ -480,7 +480,6 @@ const HomeScreen = () => {
           </Text>
         </LinearGradient>
       ) : (
-        <Container>
           <LinearGradient
             style={styles.linearGradient}
             start={{ x: 1, y: 0 }}
@@ -494,7 +493,6 @@ const HomeScreen = () => {
               <ListVideos text={"Os melhores filmes"} data={filmsData} />
             </ScrollView>
           </LinearGradient>
-        </Container>
       )}
     </>
   );
