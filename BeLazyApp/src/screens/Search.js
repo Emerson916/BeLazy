@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import { StyleSheet, TouchableOpacity, FlatList, View } from "react-native";
-import InputSearch from "../../components/InputSearch";
-import CardSearch from "../../components/CardSearch";
-import FilterIcon from "../../assets/filterIcon.svg";
+import InputSearch from "../components/InputSearch";
+import CardSearch from "../components/CardSearch";
+import FilterIcon from "../assets/filterIcon.svg";
 
 const FAKE_DATA = [
   {

@@ -12,18 +12,18 @@ import {
   Share,
 } from "react-native";
 
-import ButtonFeedback from "../../components/ButtonFeedback";
-import CameraIcon from "../../assets/camIcon.svg";
-import Bookmark from "../../assets/bookmark.svg";
-import BookmarkFill from "../../assets/bookmarkFill.svg";
-import ErrorIcon from "../../assets/error.svg";
-import CompartilharIcon from "../../assets/compartilhar.svg";
-import ExitError from "../../assets/exitError.svg";
-import FileIcon from  "../../assets/file.svg"
-import HeartIcon from  "../../assets/heart.svg"
+import ButtonFeedback from "../components/ButtonFeedback";
+import CameraIcon from "../assets/camIcon.svg";
+import Bookmark from "../assets/bookmark.svg";
+import BookmarkFill from "../assets/bookmarkFill.svg";
+import ErrorIcon from "../assets/error.svg";
+import CompartilharIcon from "../assets/compartilhar.svg";
+import ExitError from "../assets/exitError.svg";
+import FileIcon from  "../assets/file.svg"
+import HeartIcon from  "../assets/heart.svg"
 // import InputData from "../../components/InputData";
-import Button from "../../components/Button";
-import Stars from "../../components/Stars";
+import Button from "../components/Button";
+import Stars from "../components/Stars";
 
 const CardDetails = (props) => {
   const { imagecard, title_video, releaseyear, sinopse, evaluation, duration } =

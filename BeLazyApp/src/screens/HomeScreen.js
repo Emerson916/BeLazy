@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import { StyleSheet, ScrollView, Text } from "react-native";
-import { Container } from "./styles";
-import ListVideos from "../../components/ListVideos";
-import ImageCarousel from "../../components/ImageCarousel";
-import NotFoundImage from "../../assets/404Error.svg";
-import { api } from "../../services/api";
+import ListVideos from "../components/ListVideos";
+import ImageCarousel from "../components/ImageCarousel";
+import NotFoundImage from "../assets/404Error.svg";
+import { api } from "../services/api";
 
 // const FAKE_DATA = [
 //   {

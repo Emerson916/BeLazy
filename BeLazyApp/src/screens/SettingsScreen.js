@@ -9,10 +9,10 @@ import {
   Image,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import PremiumIcon from "../../assets/premiumIcon.svg";
-import ButtonConfig from "../../components/ButtonConfig";
-import Button from "../../components/Button";
-import ArrowRight from "../../assets/arrowRight.svg";
+import PremiumIcon from "../assets/premiumIcon.svg";
+import ButtonConfig from "../components/ButtonConfig";
+import Button from "../components/Button";
+import ArrowRight from "../assets/arrowRight.svg";
 
 const SupportScreen = () => {
   const handleBackApp = () => {

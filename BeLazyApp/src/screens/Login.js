@@ -1,24 +1,22 @@
 import React, { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
-import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
-import Logo from "../../assets/logo.svg";
-import EmailIcon from "../../assets/email.svg";
-import PersonIcon from "../../assets/person.svg";
-import LockIcon from "../../assets/lock.svg";
-import InputData from "../../components/InputData";
-import Button from "../../components/Button";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import Logo from "../assets/logo.svg";
+import EmailIcon from "../assets/email.svg";
+import LockIcon from "../assets/lock.svg";
+import InputData from "../components/InputData";
+import Button from "../components/Button";
 
-const Register = ({ navigation }) => {
+const Login = ({ navigation }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const handleButtonClick = () => {
     //mandando o usuario para a proxima tela, mas sem deixar com que ele consiga voltar
     navigation.reset({
-      routes: [{ name: "Login" }],
+      routes: [{ name: "Register" }],
     });
   };
-
-  const [user, setUser] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
   return (
     <LinearGradient
@@ -27,17 +25,11 @@ const Register = ({ navigation }) => {
       end={{ x: 1, y: 1.0 }}
       colors={["#343746", "#303C76"]}
     >
-      <Logo width="200" height="150" />
+      <Logo width="200" height="160" />
 
-      <View style={styles.containerText}>
-        <Text style={styles.text}>Criar uma conta</Text>
+      <View style={styles.view}>
+        <Text style={styles.text}>Faça seu login</Text>
       </View>
-      <InputData
-        IconSvg={PersonIcon}
-        value={user}
-        placeholder="Digite seu nome"
-        onChangeText={(t) => setUser(t)}
-      />
       <InputData
         IconSvg={EmailIcon}
         value={email}
@@ -56,30 +48,28 @@ const Register = ({ navigation }) => {
         backgroundColor={"#6c63ff"}
         height={60}
         width={"90%"}
-        text="REGISTRAR-SE"
-        onPress={() => handleButtonClick()}
+        text="ENTRAR"
+        onPress={() => navigation.navigate("HomeScreen")}
       />
-      <TouchableOpacity style={styles.containerLogin} onPress={() => handleButtonClick()}>
-        <Text style={styles.text}> Já tem uma conta ?</Text>
+      <TouchableOpacity
+        style={styles.containerRegister}
+        onPress={() => handleButtonClick()}
+      >
+        <Text style={styles.text}> Ainda não possui uma conta ? </Text>
 
-        <Text style={styles.textLogin}> Fazer Login </Text>
+        <Text style={styles.textRegister}>Cadastre-se</Text>
       </TouchableOpacity>
     </LinearGradient>
   );
 };
 
-export default Register;
+export default Login;
 
 const styles = StyleSheet.create({
   linearGradient: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-  },
-
-  containerText: {
-    width: "90%",
-    marginBottom: 10,
   },
 
   text: {
@@ -89,18 +79,23 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
 
-  containerLogin: {
-    width: "85%",
+  view: {
+    width: "90%",
+    marginBottom: 10,
+  },
+
+  containerRegister: {
+    width: "100%",
     marginTop: 20,
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "row",
   },
 
-  textLogin: {
+  textRegister: {
     color: "#6c63ff",
     fontSize: 16,
     fontWeight: "500",
-    marginVertical: 20,
+    flexDirection: "row",
   },
 });

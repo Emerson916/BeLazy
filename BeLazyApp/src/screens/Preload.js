@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { ActivityIndicator, StyleSheet } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import Logo from "../../assets/logo.svg";
+import Logo from "../assets/logo.svg";
 import { useNavigation } from "@react-navigation/native";
 
 const Preload = () => {
