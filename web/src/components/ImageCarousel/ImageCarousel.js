@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import imageNotFound from "../../assets/img/pageNotFound.svg";
+import imageNotFound from "../../assets/img/notFoundImage.svg";
 
 const ImageCarousel = ({ data }) => {
   const [currentSlider, setCurrentSlider] = useState(0);

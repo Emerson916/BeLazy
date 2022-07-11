@@ -4,6 +4,7 @@ import Login from "./views/users/Login";
 import Register from "./views/users/Register";
 import HomeForAdmin from "./views/admin/HomeForAdmin";
 import CardDetails from "./views/users/CardDetails";
+import AddingSeason from "./views/admin/AddingSeason";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/cardDetails/:id" element={<CardDetails />} />
         <Route path="/homeForAdmin" element={<HomeForAdmin />} />
+        <Route path="/addingSeason/:id" element={<AddingSeason />} />
       </Routes>
     </BrowserRouter>
   );

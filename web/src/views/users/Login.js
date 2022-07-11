@@ -22,17 +22,26 @@ const Login = () => {
         <div className="w-full flex flex-col flex-wrap space-y-5 absolute bottom-16">
           <h1 className="text-white text-2xl font-bold mb-5">Faça seu login</h1>
           <InputData
+            height={64}
             placeholder="Digite seu e-mail"
             defaultValue={email}
             onChange={(t) => setEmail(t)}
           />
           <InputData
+            height={64}
             placeholder="Digite sua senha"
             type={"password"}
             defaultValue={password}
             onChange={(t) => setPassword(t)}
           />
-          <Button title="Entrar" height={"64px"} width={"100%"} fontSize={"22px"} backgroundColor={"#6C63FF"} onClick={() => navigate("/home")} />
+          <Button
+            title="Entrar"
+            height={"64px"}
+            width={"100%"}
+            fontSize={"22px"}
+            backgroundColor={"#6C63FF"}
+            onClick={() => navigate("/home")}
+          />
           <div className="flex justify-end m-2 cursor-pointer">
             <img src={register} alt="Logo do site" />
             <p

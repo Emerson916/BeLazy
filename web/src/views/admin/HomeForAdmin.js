@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import InputData from "../../components/InputData";
 import Footer from "../../layout/Footer";
 import api from "../../services/api";
+import { Link, useNavigate } from "react-router-dom";
+import Button from "../../components/Button";
 
 const HomeForAdmin = () => {
   const [filmsData, setFilmsData] = useState({
@@ -14,10 +16,26 @@ const HomeForAdmin = () => {
     createAt: "",
     duration: 0,
     sinopse: "",
+    type_video: "",
   });
 
   const [idFilmDelete, setIdFilmDelete] = useState("");
   const [selectValue, setSelectValue] = useState("filme");
+  const [seriesData, setSeriesData] = useState();
+
+  useEffect(() => {
+    async function getSeries() {
+      try {
+        const response = await api.get("/v1/series/");
+
+        setSeriesData(response.data);
+      } catch (error) {
+        console.log("Erro da requisição get", error);
+      }
+    }
+
+    getSeries();
+  }, []);
 
   const deleteFilm = async (idFilmDelete) => {
     try {
@@ -43,6 +61,7 @@ const HomeForAdmin = () => {
           createAt: filmsData.createAt,
           duration: filmsData.duration,
           sinopse: filmsData.sinopse,
+          type_video: filmsData.type_video,
         },
         alert("Filme adicionado com sucesso")
       );
@@ -51,6 +70,8 @@ const HomeForAdmin = () => {
       console.log("Error do criando filme", error);
     }
   };
+
+  const navigate = useNavigate();
 
   return (
     <div className="h-full bg-gradient-to-b from-current to-purple-800">
@@ -92,6 +113,7 @@ const HomeForAdmin = () => {
           <div className="grid grid-cols-2 px-10">
             <div className="flex flex-col space-y-5 pr-2">
               <InputData
+                height={64}
                 placeholder={"Nome do filme"}
                 defaultValue={filmsData.title_video}
                 type={"text"}
@@ -101,6 +123,7 @@ const HomeForAdmin = () => {
               />
 
               <InputData
+                height={64}
                 placeholder={"Adicione uma URL de uma imagem ( 500 x 600 )"}
                 defaultValue={filmsData.imageCard}
                 onChange={(e) =>
@@ -108,6 +131,7 @@ const HomeForAdmin = () => {
                 }
               />
               <InputData
+                height={64}
                 placeholder={"Adicione uma URL de uma imagem ( 700 x 400 )"}
                 defaultValue={filmsData.imageBanner}
                 onChange={(e) =>
@@ -115,6 +139,7 @@ const HomeForAdmin = () => {
                 }
               />
               <InputData
+                height={64}
                 placeholder={"Avaliação do público"}
                 defaultValue={filmsData.evaluation}
                 onChange={(e) =>
@@ -122,9 +147,22 @@ const HomeForAdmin = () => {
                 }
                 type={"number"}
               />
+
+              <div>
+                <select
+                  onChange={(e) =>
+                    setFilmsData({ ...filmsData, type_video: e.target.value })
+                  }
+                  className="w-full h-12 mt-2 focus:outline-none rounded-md"
+                >
+                  <option value="">Selecione o tipo</option>
+                  <option value="filme">Filme</option>
+                </select>
+              </div>
             </div>
             <div className="flex flex-col space-y-5 pl-2">
               <InputData
+                height={64}
                 placeholder={"Data que foi adicionada no site"}
                 defaultValue={filmsData.createAt}
                 onChange={(e) =>
@@ -132,13 +170,15 @@ const HomeForAdmin = () => {
                 }
               />
               <InputData
-                placeholder={"Data que o foi lançado"}
+                height={64}
+                placeholder={"Data que o filme foi lançado"}
                 defaultValue={filmsData.releaseYear}
                 onChange={(e) =>
                   setFilmsData({ ...filmsData, releaseYear: e.target.value })
                 }
               />
               <InputData
+                height={64}
                 placeholder={"Duração do filme em minutos"}
                 defaultValue={filmsData.duration}
                 onChange={(e) =>
@@ -147,6 +187,7 @@ const HomeForAdmin = () => {
                 type={"number"}
               />
               <InputData
+                height={64}
                 placeholder={"Sinopse do filme"}
                 defaultValue={filmsData.sinopse}
                 onChange={(e) =>
@@ -166,6 +207,7 @@ const HomeForAdmin = () => {
           <div className="grid grid-cols-2 px-10">
             <div className="flex flex-col space-y-5 pr-2">
               <InputData
+                height={64}
                 placeholder={"Nome do Anime / Série"}
                 defaultValue={filmsData.title_video}
                 type={"text"}
@@ -175,6 +217,7 @@ const HomeForAdmin = () => {
               />
 
               <InputData
+                height={64}
                 placeholder={"Adicione uma URL de uma imagem ( 500 x 600 )"}
                 defaultValue={filmsData.imageCard}
                 onChange={(e) =>
@@ -182,6 +225,7 @@ const HomeForAdmin = () => {
                 }
               />
               <InputData
+                height={64}
                 placeholder={"Adicione uma URL de uma imagem ( 700 x 400 )"}
                 defaultValue={filmsData.imageBanner}
                 onChange={(e) =>
@@ -189,6 +233,7 @@ const HomeForAdmin = () => {
                 }
               />
               <InputData
+                height={64}
                 placeholder={"Avaliação do público"}
                 defaultValue={filmsData.evaluation}
                 onChange={(e) =>
@@ -196,23 +241,22 @@ const HomeForAdmin = () => {
                 }
                 type={"number"}
               />
-              <InputData
-                placeholder={"Sinopse do filme"}
-                defaultValue={filmsData.sinopse}
-                onChange={(e) =>
-                  setFilmsData({ ...filmsData, sinopse: e.target.value })
-                }
-              />
-              <InputData
-                placeholder={"Sinopse do filme"}
-                defaultValue={filmsData.sinopse}
-                onChange={(e) =>
-                  setFilmsData({ ...filmsData, sinopse: e.target.value })
-                }
-              />
+              <div>
+                <select
+                  onChange={(e) =>
+                    setFilmsData({ ...filmsData, type_video: e.target.value })
+                  }
+                  className="w-full h-12 mt-2 focus:outline-none rounded-md"
+                >
+                  <option value="">Selecione o tipo</option>
+                  <option value="serie">Série</option>
+                  <option value="anime">Anime</option>
+                </select>
+              </div>
             </div>
             <div className="flex flex-col space-y-5 pl-2">
               <InputData
+                height={64}
                 placeholder={"Data que foi adicionada no site"}
                 defaultValue={filmsData.createAt}
                 onChange={(e) =>
@@ -220,13 +264,15 @@ const HomeForAdmin = () => {
                 }
               />
               <InputData
-                placeholder={"Data que o foi lançado"}
+                height={64}
+                placeholder={`Data que o Anime/Série foi lançado`}
                 defaultValue={filmsData.releaseYear}
                 onChange={(e) =>
                   setFilmsData({ ...filmsData, releaseYear: e.target.value })
                 }
               />
               <InputData
+                height={64}
                 placeholder={"Duração do filme em minutos"}
                 defaultValue={filmsData.duration}
                 onChange={(e) =>
@@ -235,6 +281,7 @@ const HomeForAdmin = () => {
                 type={"number"}
               />
               <InputData
+                height={64}
                 placeholder={"Sinopse do Anime / Série"}
                 defaultValue={filmsData.sinopse}
                 onChange={(e) =>
@@ -243,10 +290,22 @@ const HomeForAdmin = () => {
               />
             </div>
           </div>
-          <div className="flex justify-end py-10">
-            <button className="flex items-center justify-center w-2/6 h-16 p-2 bg-purple-700 rounded-md text-white text-xl font-bold  hover:opacity-75">
-              Enviar
-            </button>
+          <div className="flex justify-end p-10">
+          
+          {/* <Link
+            key={key}
+            to={`/addingSeason/${item.id}`}
+            className="w-[220px] inline-block p-2 h-[300px] cursor-pointer hover:scale-95 ease-in-out duration-300 hover:opacity-80"
+          /> */}
+            <div className="ml-5">
+          
+              <Button
+                title={"Criar"}
+                backgroundColor={"#6c63ff"}
+                height={60}
+                width={250}
+              />
+            </div>
           </div>
         </form>
       )}

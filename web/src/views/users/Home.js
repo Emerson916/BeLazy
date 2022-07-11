@@ -33,7 +33,7 @@ const Home = () => {
               src={notFoundImage}
               alt="Not Found 404"
             />
-            <div className="w-full flex flex-col absolute bottom-6">
+            <div className="w-full h-2 flex flex-col absolute bottom-0">
               <p className="text-white text-2xl font-bold flex mx-auto">
                 Oops!!, Estamos passando por problemas tecnicos,
               </p>

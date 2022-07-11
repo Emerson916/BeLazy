@@ -2,9 +2,11 @@ import logo from "../assets/img/logo.svg";
 import fotoPerfil from "../assets/img/addPerfil.svg";
 import { useState } from "react";
 import Button from "../components/Button";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <div className="w-full h-24 bg-gray-900 flex justify-between items-center px-10">
@@ -44,7 +46,7 @@ const Header = () => {
         } border-l-2 border-b-2 bg-gradient-to-b from-[#303C76] to-purple-[#6C63FF] rounded-bl-[30px] absolute right-0 top-24 bottom-24 z-10`}
       >
         <ul className={`${menuOpen ? "flex flex-col items-center" : "hidden"}`}>
-          <li className="w-16 h-16 border-[3px] my-6 rounded-full flex justify-center items-center cursor-pointer">
+          <li className="w-16 h-16 border-[3px] my-6 rounded-full flex justify-center items-center cursor-pointer hover:opacity-50">
             <img src={fotoPerfil} alt="foto do perfil" />
           </li>
           <li className="text-white text-1xl font-bold flex truncate">
@@ -83,6 +85,7 @@ const Header = () => {
               width={"250px"}
               backgroundColor={"#303C76"}
               title={"Sair"}
+              onClick={() => navigate("/")} 
             />
           </li>
         </ul>

@@ -19,11 +19,22 @@ const Register = () => {
           <h1 className="text-white text-2xl font-bold mb-5">
             Faça seu Registro
           </h1>
-          <InputData placeholder="Digite seu nome" />
-          <InputData placeholder="Digite sua e-mail" />
-          <InputData placeholder="Digite sua senha" type={"password"} />
+          <InputData height={64} placeholder="Digite seu nome" />
+          <InputData height={64} placeholder="Digite sua e-mail" />
+          <InputData
+            height={64}
+            placeholder="Digite sua senha"
+            type={"password"}
+          />
           {/* Verificar se o registro foi feito com sucesso ai mandar para a tela de login */}
-          <Button title="Registrar" height={"64px"} width={"100%"} fontSize={"22px"} backgroundColor={"#6C63FF"} onClick={() => navigate("/")} />
+          <Button
+            title="Registrar"
+            height={"64px"}
+            width={"100%"}
+            fontSize={"22px"}
+            backgroundColor={"#6C63FF"}
+            onClick={() => navigate("/")}
+          />
           <div className="flex justify-end m-2 cursor-pointer">
             <img src={register} alt="Logo do site" />
             <p className="text-white p-2" onClick={() => navigate("/")}>

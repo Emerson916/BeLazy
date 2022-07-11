@@ -1,14 +1,25 @@
 import React from "react";
 
-const InputData = ({ placeholder, defaultValue, onChange, type }) => {
+const InputData = ({
+  placeholder,
+  defaultValue,
+  onChange,
+  type,
+  disabled,
+  required,
+  height,
+  width,
+}) => {
   return (
     <input
-      className="h-16 p-2 rounded-md border-none focus:outline-none"
+      style={{ height, width }}
+      className="p-2 rounded-md border-none focus:outline-none"
       placeholder={placeholder}
-      // pegando o valor dos state (email e password)
       defaultValue={defaultValue}
       type={type}
       onChange={onChange}
+      disabled={disabled}
+      required={required}
     />
   );
 };
