@@ -12,6 +12,7 @@ function createFilmController(app) {
       createAt,
       duration,
       sinopse,
+      type_video
     } = req.body;
 
     if (!title_video | !sinopse) {
@@ -28,7 +29,8 @@ function createFilmController(app) {
         releaseYear,
         createAt,
         duration,
-        sinopse
+        sinopse,
+        type_video
       );
 
       const message = createFilm.message;

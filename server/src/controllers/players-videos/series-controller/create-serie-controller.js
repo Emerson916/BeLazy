@@ -11,6 +11,7 @@ function createSerieController(app) {
       releaseYear,
       createAt,
       sinopse,
+      type_video,
     } = req.body;
 
     if (!title_video | !sinopse) {
@@ -26,7 +27,8 @@ function createSerieController(app) {
         favorite,
         releaseYear,
         createAt,
-        sinopse
+        sinopse,
+        type_video
       );
 
       const message = createSerie.message;

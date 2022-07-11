@@ -9,7 +9,8 @@ async function selectSerieByTitle(title_video) {
     favorite,
     releaseYear,
     createAt,
-    sinopse
+    sinopse,
+    type_video
     ) FROM Series WHERE title_video = $1`;
   const value = [title_video];
 
@@ -32,7 +33,8 @@ async function insertNewSerie(
   favorite,
   releaseYear,
   createAt,
-  sinopse
+  sinopse,
+  type_video
 ) {
   //Insert de Series
   const insertSerie = `INSERT INTO Series (
@@ -43,8 +45,10 @@ async function insertNewSerie(
     favorite,
     releaseYear,
     createAt,
-    sinopse
-    ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`;
+    sinopse,
+    type_video
+
+    ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`;
 
   //Parâmetros passados para o insert de films
   const values = [
@@ -56,6 +60,7 @@ async function insertNewSerie(
     releaseYear,
     createAt,
     sinopse,
+    type_video,
   ];
 
   try {
@@ -72,7 +77,8 @@ async function insertNewSerie(
 }
 
 async function getSerieById(id) {
-  const selectSerieById = `SELECT id, imageCard, imageBanner, title_video, evaluation, favorite, releaseYear, createAt, sinopse FROM Series WHERE id = $1`;
+  const selectSerieById = `SELECT id, imageCard, imageBanner, title_video, evaluation, favorite, releaseYear, createAt, sinopse ,type_video
+  FROM Series WHERE id = $1`;
   const value = [id];
 
   try {
@@ -86,7 +92,7 @@ async function getSerieById(id) {
 }
 
 async function getAllSerie() {
-  const selectSerie = `SELECT id, imageCard, imageBanner, title_video, evaluation, favorite, releaseYear, createAt, sinopse FROM Series`;
+  const selectSerie = `SELECT id, imageCard, imageBanner, title_video, evaluation, favorite, releaseYear, createAt, sinopse, type_video FROM Series`;
 
   try {
     const query = await postgresConnection.query(selectSerie);
@@ -133,7 +139,8 @@ async function deleteSerieById(id) {
 }
 
 async function updateSerieById(dataSerie, id) {
-  const updateById = `UPDATE Series SET (imageCard, imageBanner, title_video, evaluation, favorite, releaseYear, createAt, sinopse) = ($1, $2, $3, $4, $5, $6, $7, $8) WHERE id = $9`;
+  const updateById = `UPDATE Series SET (imageCard, imageBanner, title_video, evaluation, favorite, releaseYear, createAt, sinopse, type_video
+    ) = ($1, $2, $3, $4, $5, $6, $7, $8, $9) WHERE id = $10`;
   const values = [
     dataSerie.imageCard,
     dataSerie.imageBanner,
@@ -143,6 +150,8 @@ async function updateSerieById(dataSerie, id) {
     dataSerie.releaseYear,
     dataSerie.createAt,
     dataSerie.sinopse,
+    dataSerie.type_video,
+
     id,
   ];
 

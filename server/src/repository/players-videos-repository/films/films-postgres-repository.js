@@ -10,7 +10,8 @@ async function selectFilmByTitle(title_video) {
     releaseYear,
     createAt,
     duration,
-    sinopse
+    sinopse,
+    type_video
     ) FROM films WHERE title_video = $1`;
   const value = [title_video];
 
@@ -34,7 +35,8 @@ async function insertNewFilm(
   releaseYear,
   createAt,
   duration,
-  sinopse
+  sinopse,
+  type_video
 ) {
   //Insert de films
   const insertFilm = `INSERT INTO films (
@@ -46,8 +48,9 @@ async function insertNewFilm(
     releaseYear,
     createAt,
     duration,
-    sinopse
-    ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`;
+    sinopse,
+    type_video
+    ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)`;
 
   //Parâmetros passados para o insert de films
   const values = [
@@ -60,6 +63,7 @@ async function insertNewFilm(
     createAt,
     duration,
     sinopse,
+    type_video,
   ];
 
   try {
@@ -86,7 +90,8 @@ async function getFilmById(id) {
   releaseYear,
   createAt,
   duration,
-  sinopse FROM films WHERE id = $1`;
+  sinopse,
+  type_video FROM films WHERE id = $1`;
   const value = [id];
 
   try {
@@ -110,7 +115,8 @@ async function getAllFilms() {
   releaseYear,
   createAt,
   duration,
-  sinopse FROM films`;
+  sinopse,
+  type_video FROM films`;
 
   try {
     const query = await postgresConnection.query(selectFilms);
@@ -149,7 +155,9 @@ async function updateFilmById(dataFilm, id) {
     releaseYear,
     createAt,
     duration,
-    sinopse) = ($1, $2, $3, $4, $5, $6, $7, $8, $9) WHERE id = $10`;
+    sinopse,
+    type_video
+    ) = ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) WHERE id = $11`;
   const values = [
     dataFilm.imageCard,
     dataFilm.imageBanner,
@@ -160,6 +168,7 @@ async function updateFilmById(dataFilm, id) {
     dataFilm.createAt,
     dataFilm.duration,
     dataFilm.sinopse,
+    dataFilm.type_video,
     id,
   ];
 
@@ -182,5 +191,5 @@ module.exports = {
   getFilmById,
   getAllFilms,
   deleteFilmById,
-  updateFilmById
+  updateFilmById,
 };

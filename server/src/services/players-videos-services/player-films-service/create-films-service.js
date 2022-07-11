@@ -13,7 +13,8 @@ async function createNewFilmService(
   releaseYear,
   createAt,
   duration,
-  sinopse
+  sinopse,
+  type_video
 ) {
   const checkingIdFilm = await selectFilmByTitle(title_video);
 
@@ -29,7 +30,8 @@ async function createNewFilmService(
       releaseYear,
       createAt,
       duration,
-      sinopse
+      sinopse,
+      type_video
     );
 
     if (insertFilm.rowCount > 0) {
