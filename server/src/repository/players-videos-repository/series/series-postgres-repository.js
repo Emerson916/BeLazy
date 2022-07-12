@@ -11,7 +11,7 @@ async function selectSerieByTitle(title_video) {
     createAt,
     sinopse,
     type_video
-    ) FROM Series WHERE title_video = $1`;
+    ) FROM series WHERE title_video = $1`;
   const value = [title_video];
 
   try {
@@ -37,7 +37,7 @@ async function insertNewSerie(
   type_video
 ) {
   //Insert de Series
-  const insertSerie = `INSERT INTO Series (
+  const insertSerie = `INSERT INTO series (
     imageCard,
     imageBanner,
     title_video,
@@ -78,7 +78,7 @@ async function insertNewSerie(
 
 async function getSerieById(id) {
   const selectSerieById = `SELECT id, imageCard, imageBanner, title_video, evaluation, favorite, releaseYear, createAt, sinopse ,type_video
-  FROM Series WHERE id = $1`;
+  FROM series WHERE id = $1`;
   const value = [id];
 
   try {
@@ -92,7 +92,7 @@ async function getSerieById(id) {
 }
 
 async function getAllSerie() {
-  const selectSerie = `SELECT id, imageCard, imageBanner, title_video, evaluation, favorite, releaseYear, createAt, sinopse, type_video FROM Series`;
+  const selectSerie = `SELECT id, imageCard, imageBanner, title_video, evaluation, favorite, releaseYear, createAt, sinopse, type_video FROM series`;
 
   try {
     const query = await postgresConnection.query(selectSerie);
@@ -122,7 +122,7 @@ async function deleteSerieSeasonById_Serie(id) {
 }
 
 async function deleteSerieById(id) {
-  const deleteSerie = `DELETE FROM Series WHERE id = $1`;
+  const deleteSerie = `DELETE FROM series WHERE id = $1`;
   const value = [id];
 
   try {
@@ -139,7 +139,7 @@ async function deleteSerieById(id) {
 }
 
 async function updateSerieById(dataSerie, id) {
-  const updateById = `UPDATE Series SET (imageCard, imageBanner, title_video, evaluation, favorite, releaseYear, createAt, sinopse, type_video
+  const updateById = `UPDATE series SET (imageCard, imageBanner, title_video, evaluation, favorite, releaseYear, createAt, sinopse, type_video
     ) = ($1, $2, $3, $4, $5, $6, $7, $8, $9) WHERE id = $10`;
   const values = [
     dataSerie.imageCard,
@@ -151,7 +151,6 @@ async function updateSerieById(dataSerie, id) {
     dataSerie.createAt,
     dataSerie.sinopse,
     dataSerie.type_video,
-
     id,
   ];
 
