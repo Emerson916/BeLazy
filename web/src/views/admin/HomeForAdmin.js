@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import InputData from "../../components/InputData";
 import Footer from "../../layout/Footer";
 import api from "../../services/api";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button";
 
 const HomeForAdmin = () => {
@@ -21,7 +21,42 @@ const HomeForAdmin = () => {
 
   const [idFilmDelete, setIdFilmDelete] = useState("");
   const [selectValue, setSelectValue] = useState("filme");
-  const [seriesData, setSeriesData] = useState();
+  // const [seriesData, setSeriesData] = useState();
+
+  const [seriesData, setSeriesData] = useState({
+    imageBanner: "",
+    title_video: "",
+    evaluation: 0,
+    favorite: false,
+    releaseYear: "",
+    createAt: "",
+    sinopse: "",
+    type_video: "",
+  });
+
+  const createNewSerie = async () => {
+    try {
+      await api.post(
+        "/v1/serie",
+        {
+          imageCard: seriesData.imageCard,
+          imageBanner: seriesData.imageBanner,
+          title_video: seriesData.title_video,
+          evaluation: seriesData.evaluation,
+          favorite: seriesData.favorite,
+          releaseYear: seriesData.releaseYear,
+          createAt: seriesData.createAt,
+          sinopse: seriesData.sinopse,
+          type_video: seriesData.type_video,
+        },
+        alert("Série/Anime adicionado com sucesso")
+      );
+      navigate(`/addingSeason/${seriesData?.id}`);
+    } catch (error) {
+      alert("Não foi possível adicionar uma Série/Anime!!");
+      console.log("Error do criando Série/Anime", error);
+    }
+  };
 
   useEffect(() => {
     async function getSeries() {
@@ -203,48 +238,57 @@ const HomeForAdmin = () => {
           </div>
         </form>
       ) : (
-        <form onSubmit={createNewFilm}>
+        <form onSubmit={createNewSerie}>
           <div className="grid grid-cols-2 px-10">
             <div className="flex flex-col space-y-5 pr-2">
               <InputData
                 height={64}
                 placeholder={"Nome do Anime / Série"}
-                defaultValue={filmsData.title_video}
+                defaultValue={seriesData.title_video}
                 type={"text"}
                 onChange={(e) =>
-                  setFilmsData({ ...filmsData, title_video: e.target.value })
+                  setSeriesData({
+                    ...seriesData,
+                    title_video: e.target.value,
+                  })
                 }
               />
 
               <InputData
                 height={64}
                 placeholder={"Adicione uma URL de uma imagem ( 500 x 600 )"}
-                defaultValue={filmsData.imageCard}
+                defaultValue={seriesData.imageCard}
                 onChange={(e) =>
-                  setFilmsData({ ...filmsData, imageCard: e.target.value })
+                  setSeriesData({ ...seriesData, imageCard: e.target.value })
                 }
               />
               <InputData
                 height={64}
                 placeholder={"Adicione uma URL de uma imagem ( 700 x 400 )"}
-                defaultValue={filmsData.imageBanner}
+                defaultValue={seriesData.imageBanner}
                 onChange={(e) =>
-                  setFilmsData({ ...filmsData, imageBanner: e.target.value })
+                  setSeriesData({
+                    ...seriesData,
+                    imageBanner: e.target.value,
+                  })
                 }
               />
               <InputData
                 height={64}
                 placeholder={"Avaliação do público"}
-                defaultValue={filmsData.evaluation}
+                defaultValue={seriesData.evaluation}
                 onChange={(e) =>
-                  setFilmsData({ ...filmsData, evaluation: e.target.value })
+                  setSeriesData({ ...seriesData, evaluation: e.target.value })
                 }
                 type={"number"}
               />
               <div>
                 <select
                   onChange={(e) =>
-                    setFilmsData({ ...filmsData, type_video: e.target.value })
+                    setSeriesData({
+                      ...seriesData,
+                      type_video: e.target.value,
+                    })
                   }
                   className="w-full h-12 mt-2 focus:outline-none rounded-md"
                 >
@@ -258,47 +302,55 @@ const HomeForAdmin = () => {
               <InputData
                 height={64}
                 placeholder={"Data que foi adicionada no site"}
-                defaultValue={filmsData.createAt}
+                defaultValue={seriesData.createAt}
                 onChange={(e) =>
-                  setFilmsData({ ...filmsData, createAt: e.target.value })
+                  setSeriesData({ ...seriesData, createAt: e.target.value })
                 }
               />
               <InputData
                 height={64}
                 placeholder={`Data que o Anime/Série foi lançado`}
-                defaultValue={filmsData.releaseYear}
+                defaultValue={seriesData.releaseYear}
                 onChange={(e) =>
-                  setFilmsData({ ...filmsData, releaseYear: e.target.value })
+                  setSeriesData({
+                    ...seriesData,
+                    releaseYear: e.target.value,
+                  })
                 }
               />
               <InputData
                 height={64}
                 placeholder={"Duração do filme em minutos"}
-                defaultValue={filmsData.duration}
+                defaultValue={seriesData.duration}
                 onChange={(e) =>
-                  setFilmsData({ ...filmsData, duration: e.target.value })
+                  setSeriesData({ ...seriesData, duration: e.target.value })
                 }
                 type={"number"}
               />
               <InputData
                 height={64}
                 placeholder={"Sinopse do Anime / Série"}
-                defaultValue={filmsData.sinopse}
+                defaultValue={seriesData.sinopse}
                 onChange={(e) =>
-                  setFilmsData({ ...filmsData, sinopse: e.target.value })
+                  setSeriesData({ ...seriesData, sinopse: e.target.value })
                 }
               />
             </div>
           </div>
           <div className="flex justify-end p-10">
-          
-          {/* <Link
-            key={key}
-            to={`/addingSeason/${item.id}`}
-            className="w-[220px] inline-block p-2 h-[300px] cursor-pointer hover:scale-95 ease-in-out duration-300 hover:opacity-80"
-          /> */}
+            <Button
+              height={60}
+              width={250}
+              title={"Adicionar temporada"}
+              backgroundColor={"#6c63ff"}
+              onClick={() => {
+                navigate(`/addingSeason/${seriesData[0]?.id}`);
+              }}
+              className="w-[220px] inline-block p-2 h-[300px] cursor-pointer hover:scale-95 ease-in-out duration-300 hover:opacity-80"
+            />
+            {console.log("cade o id ", seriesData)}
+
             <div className="ml-5">
-          
               <Button
                 title={"Criar"}
                 backgroundColor={"#6c63ff"}
