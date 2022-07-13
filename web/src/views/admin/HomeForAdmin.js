@@ -19,10 +19,7 @@ const HomeForAdmin = () => {
     type_video: "",
   });
 
-  const [idFilmDelete, setIdFilmDelete] = useState("");
   const [selectValue, setSelectValue] = useState("filme");
-  // const [seriesData, setSeriesData] = useState();
-
   const [seriesData, setSeriesData] = useState({
     imageBanner: "",
     title_video: "",
@@ -72,16 +69,6 @@ const HomeForAdmin = () => {
     getSeries();
   }, []);
 
-  const deleteFilm = async (idFilmDelete) => {
-    try {
-      await api.delete(`/v1/films/${idFilmDelete}`);
-      alert("Filme deletado com sucesso!!");
-    } catch (error) {
-      console.log("Error do deletando filme", error);
-      alert("Não foi possível, deletar o filme");
-    }
-  };
-
   const createNewFilm = async () => {
     try {
       await api.post(
@@ -115,23 +102,6 @@ const HomeForAdmin = () => {
         <p className="text-white text-2xl font-bold">Emerson Admin</p>
       </div>
 
-      <div className="grid grid-cols-2  px-10">
-        <InputData
-          placeholder={"ID do filme a ser deletado"}
-          defaultValue={idFilmDelete}
-          type={"text"}
-          onChange={(t) => setIdFilmDelete(t.target.value)}
-        />
-        <button
-          onClick={() => {
-            deleteFilm(idFilmDelete);
-          }}
-          className="h-16 w-1/2 ml-10 text-[#6C63FF] rounded-md border-4 border-[#6C63FF] bg-white text-xl font-bold hover:opacity-75"
-        >
-          Deletar
-        </button>
-      </div>
-
       <div className="flex flex-col py-5  px-10">
         <p className="text-white text-xl">O que você deseja adicionar ?</p>
         <select
@@ -156,7 +126,6 @@ const HomeForAdmin = () => {
                   setFilmsData({ ...filmsData, title_video: e.target.value })
                 }
               />
-
               <InputData
                 height={64}
                 placeholder={"Adicione uma URL de uma imagem ( 500 x 600 )"}
@@ -173,6 +142,7 @@ const HomeForAdmin = () => {
                   setFilmsData({ ...filmsData, imageBanner: e.target.value })
                 }
               />
+
               <InputData
                 height={64}
                 placeholder={"Avaliação do público"}
@@ -182,7 +152,6 @@ const HomeForAdmin = () => {
                 }
                 type={"number"}
               />
-
               <div>
                 <select
                   onChange={(e) =>
@@ -232,9 +201,12 @@ const HomeForAdmin = () => {
             </div>
           </div>
           <div className="flex justify-end p-10">
-            <button className="flex items-center justify-center w-2/6 h-16 p-2 bg-[#6C63FF] rounded-md text-white text-xl font-bold  hover:opacity-75">
-              Enviar
-            </button>
+            <Button
+              height={60}
+              width={250}
+              title={"Criar"}
+              backgroundColor={"#6c63ff"}
+            />
           </div>
         </form>
       ) : (
@@ -253,7 +225,6 @@ const HomeForAdmin = () => {
                   })
                 }
               />
-
               <InputData
                 height={64}
                 placeholder={"Adicione uma URL de uma imagem ( 500 x 600 )"}
@@ -272,15 +243,6 @@ const HomeForAdmin = () => {
                     imageBanner: e.target.value,
                   })
                 }
-              />
-              <InputData
-                height={64}
-                placeholder={"Avaliação do público"}
-                defaultValue={seriesData.evaluation}
-                onChange={(e) =>
-                  setSeriesData({ ...seriesData, evaluation: e.target.value })
-                }
-                type={"number"}
               />
               <div>
                 <select
@@ -320,20 +282,20 @@ const HomeForAdmin = () => {
               />
               <InputData
                 height={64}
-                placeholder={"Duração do filme em minutos"}
-                defaultValue={seriesData.duration}
-                onChange={(e) =>
-                  setSeriesData({ ...seriesData, duration: e.target.value })
-                }
-                type={"number"}
-              />
-              <InputData
-                height={64}
                 placeholder={"Sinopse do Anime / Série"}
                 defaultValue={seriesData.sinopse}
                 onChange={(e) =>
                   setSeriesData({ ...seriesData, sinopse: e.target.value })
                 }
+              />
+              <InputData
+                height={64}
+                placeholder={"Avaliação do público"}
+                defaultValue={seriesData.evaluation}
+                onChange={(e) =>
+                  setSeriesData({ ...seriesData, evaluation: e.target.value })
+                }
+                type={"number"}
               />
             </div>
           </div>
@@ -349,15 +311,6 @@ const HomeForAdmin = () => {
               className="w-[220px] inline-block p-2 h-[300px] cursor-pointer hover:scale-95 ease-in-out duration-300 hover:opacity-80"
             />
             {console.log("cade o id ", seriesData)}
-
-            <div className="ml-5">
-              <Button
-                title={"Criar"}
-                backgroundColor={"#6c63ff"}
-                height={60}
-                width={250}
-              />
-            </div>
           </div>
         </form>
       )}
