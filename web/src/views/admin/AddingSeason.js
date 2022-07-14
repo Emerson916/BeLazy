@@ -4,13 +4,11 @@ import InputData from "../../components/InputData";
 import ListEpisodes from "../../components/ListEpisodes/ListEpisodes";
 import Footer from "../../layout/Footer";
 import api from "../../services/api";
-import { useParams } from "react-router-dom";
 
 const AddingSeason = () => {
-  const { id } = useParams();
   const [seasonData, setSeasonData] = useState({
     number_season: 0,
-    imageCard: "",
+    id_title: "",
     episodes: [{}],
   });
   const createNewSerie = async () => {
@@ -18,9 +16,8 @@ const AddingSeason = () => {
       await api.post(
         "/v1/season",
         {
-          id_series: id,
           number_season: seasonData.number_season,
-          imageCard: seasonData.imageCard,
+          id_title: seasonData.id_title,
           episodes: seasonData.episodes,
         },
         alert("Série/Anime adicionado com sucesso")
@@ -43,29 +40,24 @@ const AddingSeason = () => {
           <div className="flex flex-col space-y-5 pr-2">
             <InputData
               height={64}
-              placeholder={"N° da temporada"}
+              placeholder={"Há que série pertence a temporada ?"}
               defaultValue={setSeasonData}
-              type={"number"}
               onChange={(e) =>
-                setSeasonData({ ...seasonData, number_season: e.target.value })
+                setSeasonData({ ...seasonData, id_title: e.target.value })
               }
             />
 
             <ListEpisodes />
           </div>
-          <div className="flex flex-col">
-            <label className="text-white font-bold mx-2">
-              Adicione uma URL de uma imagem ( 500 x 600 )
-            </label>
-            <InputData
-              width={140}
-              defaultValue={setSeasonData}
-              type={"file"}
-              onChange={(e) =>
-                setSeasonData({ ...seasonData, imageCard: e.target.value })
-              }
-            />
-          </div>
+          <InputData
+            height={64}
+            placeholder={"N° da temporada"}
+            defaultValue={setSeasonData}
+            type={"number"}
+            onChange={(e) =>
+              setSeasonData({ ...seasonData, number_season: e.target.value })
+            }
+          />
           <Button
             title={"Criar"}
             backgroundColor={"#6c63ff"}

@@ -53,7 +53,6 @@ const Login = () => {
           </div>
         </div>
       </div>
-
       <div className="flex items-center">
         <img src={imageScreenLogin} alt="Imagem ao lado dos campos de login" />
       </div>
