@@ -1,8 +1,8 @@
 const postgresConnection = require("../../config/postgresConnection");
 
-async function selectSeasonByNumberSeasonAndId_series(id_series, number_season) {
-  const selectSeason = `SELECT id_series, number_season FROM season WHERE id_series = $1 AND number_season = $2`;
-  const value = [id_series, number_season];
+async function selectSeasonByNumberSeasonAndId_title(id_title, number_season) {
+  const selectSeason = `SELECT id_title, number_season FROM season WHERE id_title = $1 AND number_season = $2`;
+  const value = [id_title, number_season];
 
   try {
     const query = await postgresConnection.query(selectSeason, value);
@@ -14,9 +14,9 @@ async function selectSeasonByNumberSeasonAndId_series(id_series, number_season) 
   }
 }
 
-async function insertNewSeason(id_series, number_season, imageCard, episodes) {
-  const insertSeason = `INSERT INTO season (id_series, number_season, imageCard, episodes) VALUES ($1, $2, $3, $4)`;
-  const values = [id_series, number_season, imageCard, episodes];
+async function insertNewSeason(id_title, number_season, episodes) {
+  const insertSeason = `INSERT INTO season (id_title, number_season, episodes) VALUES ($1, $2, $3)`;
+  const values = [id_title, number_season, episodes];
 
   try {
     const query = await postgresConnection.query(insertSeason, values);
@@ -25,13 +25,13 @@ async function insertNewSeason(id_series, number_season, imageCard, episodes) {
     console.log("################################");
     return query.rowCount;
   } catch (error) {
-    console.log("CONSOLE LOG DO ERRO INSERT ======> ", error);
+    console.log("CONSOLE LOG DO ERRO INSERT DA SEASON ======> ", error);
   } finally {
     postgresConnection.release;
   }
 }
 
 module.exports = {
-  selectSeasonByNumberSeasonAndId_series,
+  selectSeasonByNumberSeasonAndId_title,
   insertNewSeason,
 };
