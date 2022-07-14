@@ -1,17 +1,17 @@
 const buildErrorObject = require("../../config/factory-function");
 const {
   insertNewSeason,
-  selectSeasonByNumberSeasonAndId_series,
+  selectSeasonByNumberSeasonAndId_title,
 } = require("../../repository/season-repository/season-repository");
 
-async function createNewSeasonService(id_series, number_season, imageCard, episodes) {
-  const checkingSeason = await selectSeasonByNumberSeasonAndId_series(id_series, number_season);
+async function createNewSeasonService(id_title, number_season, episodes) {
+  const checkingSeason = await selectSeasonByNumberSeasonAndId_title(id_title, number_season);
 
   if (checkingSeason) {
-    console.log("Essa temporada já foi adicionada para essa series");
-    return buildErrorObject("Essa temporada já foi adicionada para essa series");
+    console.log("Essa temporada já foi adicionada para essa serie");
+    return buildErrorObject("Essa temporada já foi adicionada para essa serie");
   } else {
-    const insert = await insertNewSeason(id_series, number_season, imageCard, episodes);
+    const insert = await insertNewSeason(id_title, number_season, episodes);
 
     if (insert > 0) {
       console.log(`${number_season}° temporada adicionada com sucesso!`);
