@@ -1,8 +1,8 @@
-const createNewSeasonService = require("../../services/season-service/season-service");
+const createNewSeasonService = require("../../services/season-service/create-season-service");
 
 function createSeasonController(app) {
   app.post("/v1/season", async (req, resp) => {
-    const {id_series, number_season, imageCard, episodes } = req.body;
+    const { id_title, number_season, episodes } = req.body;
 
     if (!number_season) {
       resp.status(400).send({
@@ -10,9 +10,8 @@ function createSeasonController(app) {
       });
     } else {
       const createSeason = await createNewSeasonService(
-        id_series,
+        id_title,
         number_season,
-        imageCard,
         episodes
       );
 
