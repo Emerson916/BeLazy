@@ -8,12 +8,15 @@ import notFoundImage from "../../assets/img/404Error.svg";
 
 const Home = () => {
   const [filmsData, setFilmsData] = useState();
+  const [seriesData, setSeriesData] = useState();
   useEffect(() => {
     async function getFilms() {
       try {
-        const response = await api.get("/v1/films");
+        const films = await api.get("/v1/films");
+        const series = await api.get("/v1/series");
 
-        setFilmsData(response.data);
+        setFilmsData(films.data);
+        setSeriesData(series.data);
       } catch (error) {
         console.log("Erro da requisição get", error);
       }
@@ -49,7 +52,7 @@ const Home = () => {
           <Header />
           <ImageCarousel data={filmsData} />
           <CardsVideos data={filmsData} title={"Novos lançamentos"} />
-          <CardsVideos data={filmsData} title={"Feito para você"} />
+          <CardsVideos data={seriesData} title={"Feito para você"} />
           <Footer />
         </div>
       )}

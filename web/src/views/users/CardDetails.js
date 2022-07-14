@@ -15,15 +15,18 @@ import error from "../../assets/img/error.svg"
 
 const CardDetails = () => {
   const [filmsData, setFilmsData] = useState();
+  const [seriesData, setSeriesData] = useState();
   const [carouselData, setCarouselData] = useState();
   const { id } = useParams();
 
   useEffect(() => {
     async function getFilm() {
       try {
-        const response = await api.get(`/v1/films/` + id);
+        const films = await api.get(`/v1/films/` + id);
+        const series = await api.get(`/v1/serie/` + id);
 
-        setFilmsData(response.data[0]);
+        setFilmsData(films.data[0]);
+        setSeriesData(series.data[0]);
       } catch (error) {
         console.log("Erro da requisição get", error);
       }
@@ -51,7 +54,7 @@ const CardDetails = () => {
       <Header />
       <div className="h-full bg-gradient-to-b from-current to-purple-800">
         <img
-          src={filmsData?.imagebanner || imageNotFound}
+          src={filmsData?.imagebanner || seriesData?.imagebanner || imageNotFound}
           alt="Imagem do filme"
           className="h-[500px] w-full"
         />
@@ -59,13 +62,13 @@ const CardDetails = () => {
         <div className="flex flex-row justify-between m-5 pt-10">
           <div>
             <h1 className="text-white text-3xl font-bold mx-9">
-              {filmsData?.title_video || "Titulo Indisponível"}
+              {filmsData?.title_video || seriesData?.title_video || "Titulo Indisponível"}
             </h1>
             <p className="text-white border text-1xl mx-9 px-2 border-l-2 border-b-2 bg-gradient-to-b from-[#303C76] to-purple-[#6C63FF] rounded-br-[30px]">
-              {filmsData?.type_video || ""}
+              {filmsData?.type_video || seriesData?.type_video || ""}
             </p>
             <div className="flex m-5 mx-9">
-              <StarsEvaluation evaluation={filmsData?.evaluation || 0} />
+              <StarsEvaluation evaluation={filmsData?.evaluation || seriesData?.evaluation || 0} />
             </div>
           </div>
 
@@ -100,7 +103,7 @@ const CardDetails = () => {
         <div>
           <h2 className="text-white text-2xl font-bold flex mx-14">Sinopse</h2>
           <p className="text-white text-1xl font-bold flex mx-14 my-10">
-            {filmsData?.sinopse || "Sinopse Indisponível"}
+            {filmsData?.sinopse || seriesData?.sinopse ||"Sinopse Indisponível"}
           </p>
         </div>
         <CardsVideos title={"Para você"} data={carouselData}/>
