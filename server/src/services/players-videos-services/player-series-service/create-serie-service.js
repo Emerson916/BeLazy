@@ -13,7 +13,8 @@ async function createNewSerieService(
   releaseYear,
   createAt,
   sinopse,
-  type_video
+  type_video,
+  season
 ) {
   const checkingExistsSerie = await selectSerieByTitle(title_video);
 
@@ -29,7 +30,8 @@ async function createNewSerieService(
       releaseYear,
       createAt,
       sinopse,
-      type_video
+      type_video,
+      season
     );
 
     if (insertSerie.rowCount > 0) {

@@ -26,9 +26,7 @@ const getOneSeriesController = require("./controllers/players-videos/series-cont
 const getAllSeriesController = require("./controllers/players-videos/series-controller/get-all-series-controller");
 const deleteSeriesController = require("./controllers/players-videos/series-controller/delete-serie-controller");
 const updateSeriesController = require("./controllers/players-videos/series-controller/update-serie-controller");
-
-//IMPORTS DAS ROTAS DE TEMPORADAS
-const createSeasonController = require("./controllers/season-controller/create-season-controller");
+const authenticate = require("./controllers/auth");
 
 const PORT = parseInt(process.env.PORT ?? process.env.port ?? "3000");
 
@@ -36,6 +34,9 @@ app.use(cors());
 
 app.use(bodyParser.json());
 app.use(log());
+
+//ROTA DE AUTENTICAÇÂO
+authenticate(app)
 
 //ROTAS DE USUÁRIO
 createUserController(app);
@@ -58,8 +59,6 @@ getAllSeriesController(app);
 deleteSeriesController(app);
 updateSeriesController(app);
 
-//ROTAS DE SEASON
-createSeasonController(app);
 
 app.listen(PORT, () => {
   console.log("Aplicação rodando na porta", PORT);

@@ -14,6 +14,20 @@ async function selectUserByEmail(email) {
   }
 }
 
+async function selectUserExisting(email, password) {
+  const selectUser = `SELECT email, password FROM users WHERE email = $1 AND password = $2`;
+  const value = [email, password];
+
+  try {
+    const query = await postgresConnection.query(selectUser, value);
+    return query.rows[0];
+  } catch (error) {
+    console.log("CONSOLE LOG DO ERRO SELECT ======> ", error);
+  } finally {
+    postgresConnection.release;
+  }
+}
+
 async function insertNewUser(email, hashPassword, username) {
   const insertUser = `INSERT INTO users (email, password, name) VALUES ($1, $2, $3)`;
   const values = [email, hashPassword, username];
@@ -99,4 +113,5 @@ module.exports = {
   deleteUserById,
   getUserById,
   updateUserById,
+  selectUserExisting
 };
