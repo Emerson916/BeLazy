@@ -5,6 +5,8 @@ import api from "../../services/api";
 import { useNavigate } from "react-router-dom";
 
 const FormSeries = () => {
+  const navigate = useNavigate();
+
   const [seriesData, setSeriesData] = useState({
     imageBanner: "",
     title_video: "",
@@ -14,9 +16,8 @@ const FormSeries = () => {
     createAt: "",
     sinopse: "",
     type_video: "",
+    season: [],
   });
-
-  const navigate = useNavigate();
 
   const createNewSerie = async () => {
     try {
@@ -32,6 +33,7 @@ const FormSeries = () => {
           createAt: seriesData.createAt,
           sinopse: seriesData.sinopse,
           type_video: seriesData.type_video,
+          season: seriesData.season,
         },
 
         navigate("/addingSeason/")
@@ -87,8 +89,8 @@ const FormSeries = () => {
               className="w-full h-12 mt-2 focus:outline-none rounded-md"
             >
               <option value="">Selecione o tipo</option>
-              <option value="serie">Série</option>
-              <option value="anime">Anime</option>
+              <option value="Série">Série</option>
+              <option value="Anime">Anime</option>
             </select>
           </div>
         </div>
