@@ -10,7 +10,7 @@ async function createNewUser(email, password, username) {
 
   if (checkingEmail) {
     console.log("Usuário já existe");
-    return buildErrorObject("Usuário já existe")
+    return buildErrorObject("Usuário já existe");
   } else {
     const hashPassword = sha1(password);
     const insert = await insertNewUser(email, hashPassword, username);
