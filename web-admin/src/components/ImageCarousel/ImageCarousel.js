@@ -7,7 +7,7 @@ import StarsEvaluation from "../StarsEvaluation";
 const ImageCarousel = ({ data }) => {
   const [currentSlider, setCurrentSlider] = useState(0);
 
-  useEffect(() => {
+  useEffect((data) => {
     let width = window.innerWidth;
     const qntImagens = data?.map((item) => item.imagebanner);
 
