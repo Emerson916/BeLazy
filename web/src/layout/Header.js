@@ -1,5 +1,5 @@
 import logo from "../assets/img/logo.svg";
-import MenuNavBar from "./MenuNavBar";
+import MenuNavBar from "./Sidebar";
 import { useState } from "react";
 
 const Header = () => {
