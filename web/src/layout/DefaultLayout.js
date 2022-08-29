@@ -1,8 +1,8 @@
 import Header from "./Header";
-import Content from "../layout/Content";
+import Content from "./Content";
 // import { useHistory } from "react-router-dom";
 // import { isAuth } from "../services/auth";
-import Sidebar from "./Sidebar";
+// import Sidebar from "./Sidebar";
 
 const DefaultLayout = () => {
   // const history = useHistory();
@@ -17,7 +17,7 @@ const DefaultLayout = () => {
   return (
     <div>
       <Header />
-      <Sidebar />
+      {/* <Sidebar /> */}
       <Content />
     </div>
   );

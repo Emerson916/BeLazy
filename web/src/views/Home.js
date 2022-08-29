@@ -1,7 +1,6 @@
 import CardsVideos from "../components/CardCarousel/CardsVideos";
 import ImageCarousel from "../components/ImageCarousel/ImageCarousel";
 import Footer from "../layout/Footer";
-import Header from "../layout/Header";
 import { useEffect, useState } from "react";
 import api from "../services/api";
 import notFoundImage from "../assets/img/404Error.svg";
@@ -29,7 +28,6 @@ const Home = () => {
     <>
       {filmsData?.length <= 0 || filmsData === undefined ? (
         <>
-          <Header />
           <div className="h-screen bg-gradient-to-b from-current to-purple-800">
             <img
               className="flex w-full h-[700px] py-24 relative"
@@ -49,7 +47,6 @@ const Home = () => {
         </>
       ) : (
         <div className="h-full bg-gradient-to-b from-current to-purple-800">
-          <Header />
           <ImageCarousel data={filmsData} />
           <CardsVideos data={filmsData} title={"Novos lançamentos"} />
           <CardsVideos data={seriesData} title={"Feito para você"} />

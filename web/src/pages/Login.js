@@ -40,7 +40,7 @@ const Login = () => {
             width={"100%"}
             fontSize={"22px"}
             backgroundColor={"#6C63FF"}
-            onClick={() => navigate("/home")}
+            onClick={() => navigate("/app/home")}
           />
           <div className="flex justify-end m-2 cursor-pointer">
             <img src={register} alt="Logo do site" />
