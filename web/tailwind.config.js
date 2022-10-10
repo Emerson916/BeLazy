@@ -5,9 +5,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        colors:{
+          "primary-color": "#7808a1",
+        },
         purple: {
           800: "#303C76",
           500: "#6C63FF",
+          200: "#7808a1",
         },
         gray: {
           700: "#343746",

@@ -19,7 +19,6 @@ const DefaultLayout = () => {
       <Header />
       <Sidebar />
       <Content />
-      <Header />
     </div>
   );
 };

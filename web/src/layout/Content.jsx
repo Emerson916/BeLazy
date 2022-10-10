@@ -23,7 +23,6 @@ const Content = () => {
           )
         );
       })}
-      {console.log("ROTAS", routes)}
       {/* <Redirect from="/" to="/app/home" /> */}
     </Routes>
     </Suspense>

@@ -1,89 +1,67 @@
 import Button from "../components/Button";
-import { useNavigate } from "react-router-dom";
-import fotoPerfil from "../assets/img/addPerfil.svg";
+// import fotoPerfil from "../assets/img/addPerfil.svg";
+import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import { MdOutlineKeyboardArrowUp } from "react-icons/md";
+import perfil from "../assets/img/perfil.svg";
 
-const MenuNavBar = ({menuOpenFunction, menuOpen}) => {
-//   const [menuOpen, setMenuOpen] = useState(false);
-  const navigate = useNavigate();
+const Sidebar = ({ menuOpenFunction, menuOpen }) => {
+  // const [menuOpen, setMenuOpen] = useState(false);
   return (
     <>
       <div
-        className=" h-10 w-10"
+        className="flex items-center justify-center cursor-pointer"
         onClick={() => {
-          menuOpenFunction()
+          menuOpenFunction();
         }}
       >
-        <ul className="flex flex-col space-y-2 rotate-180 cursor-pointer">
-          <li
-            className={`${
-              menuOpen ? "w-3" : ""
-            }  border-2 border-[#6C63FF] h-1`}
-          />
-          <li
-            className={`${
-              menuOpen ? "w-6" : "w-7"
-            }  border-2 border-[#6C63FF] h-1`}
-          />
-          <li
-            className={`${
-              menuOpen ? "" : "w-3"
-            }  border-2 border-[#6C63FF] h-1`}
-          />
-        </ul>
+        <div className="h-10 w-10 bg-colors-primary-color rounded-md "></div>
+        {menuOpen ? (
+          <MdOutlineKeyboardArrowDown className="text-white" />
+        ) : (
+          <MdOutlineKeyboardArrowUp className="text-white" />
+        )}
       </div>
 
       <div
         className={`${
-          menuOpen ? "w-72 " : "w-0 border-none duration-700"
-        } border-l-2 border-b-2 bg-gradient-to-b from-[#303C76] to-purple-[#6C63FF] rounded-bl-[30px] absolute right-0 top-24 bottom-24 z-10`}
+          menuOpen ? "h-96 " : "h-0 border-none duration-700"
+        } w-72 bg-[#343746] absolute right-10 top-28 bottom-24 z-10 rounded-md`}
       >
-        <ul className={`${menuOpen ? "flex flex-col items-center" : "hidden"}`}>
-          <li className="w-16 h-16 border-[3px] my-6 rounded-full flex justify-center items-center cursor-pointer hover:opacity-50">
-            <img src={fotoPerfil} alt="foto do perfil" />
-          </li>
-          <li className="text-white text-1xl font-bold flex truncate">
-            Emerson User
-          </li>
-          <li className="text-white text-1xl font-bold flex truncate">
-            beLazy@gmail.com
-          </li>
-          <li className="my-5 mt-20">
-            <Button
-              height={"35px"}
-              width={"250px"}
-              backgroundColor={"#6C63FF"}
-              title={"Editar Perfil"}
-            />
-          </li>
-          <li>
-            <Button
-              height={"35px"}
-              width={"250px"}
-              backgroundColor={"#6C63FF"}
-              title={"Configurações"}
-            />
-          </li>
-          <li className="my-5">
-            <Button
-              height={"35px"}
-              width={"250px"}
-              backgroundColor={"#6C63FF"}
-              title={"Virar Premium"}
-            />
-          </li>
-          <li className="mt-5">
-            <Button
-              height={"35px"}
-              width={"250px"}
-              backgroundColor={"#303C76"}
-              title={"Sair"}
-              onClick={() => navigate("/")}
-            />
-          </li>
+        <ul className={`${menuOpen ? "flex flex-col" : "hidden"}`}>
+          <p className="text-white text-base font-bold mx-5">Troca de conta</p>
+
+          <div className="flex items-center m-5">
+            <div className="flex items-center justify-center bg-colors-primary-color h-10 w-10 rounded-md">
+              <img src={perfil} alt="Foto de perfil do usuário" />
+            </div>
+            <p className="text-white text-base font-bold mx-5">Emerson Silva</p>
+          </div>
+
+          <div className="flex flex-col justify-end">
+            <p className="text-white text-base font-bold mx-5">Configurações</p>
+            <div className="h-full border-t-2 border-white">
+              <div className="flex flex-col h-full ">
+                <ul className="hover:bg-gray-500 cursor-pointer">
+                  <p className="text-white text-base mx-5 m-2">Sua conta</p>
+                </ul>
+                <ul className="hover:bg-gray-500 cursor-pointer">
+                  <p className="text-white text-base mx-5 m-2">Suporte</p>
+                </ul>
+              </div>
+              <div className="flex flex-col items-center mt-10">
+                <Button
+                  title={"sair"}
+                  width={200}
+                  height={35}
+                  backgroundColor={"#303C76"}
+                />
+              </div>
+            </div>
+          </div>
         </ul>
       </div>
     </>
   );
 };
 
-export default MenuNavBar;
+export default Sidebar;

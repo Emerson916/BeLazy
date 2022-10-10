@@ -1,5 +1,3 @@
-import Footer from "../layout/Footer";
-import Header from "../layout/Header";
 import Button from "../components/Button";
 import imageNotFound from "../assets/img/notFoundImage.svg";
 import StarsEvaluation from "../components/StarsEvaluation";
@@ -50,7 +48,6 @@ const CardDetails = () => {
 
   return (
     <>
-      <Header />
       <div className="h-full bg-gradient-to-b from-current to-purple-800">
         <img
           src={
@@ -157,7 +154,6 @@ const CardDetails = () => {
         </div>
 
         <CardsVideos title={"Para você"} data={carouselData} />
-        <Footer />
       </div>
     </>
   );

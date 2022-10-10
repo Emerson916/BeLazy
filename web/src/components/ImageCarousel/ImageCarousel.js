@@ -42,7 +42,7 @@ const ImageCarousel = ({ data }) => {
       {data?.map((item, key) => (
         <Link
           key={key}
-          to={`/cardDetails/${item.id}`}
+          to={`/app/details/${item.id}`}
           className="w-full inline-block h-[600px] scale-95 ease-in-out relative"
         >
           <img

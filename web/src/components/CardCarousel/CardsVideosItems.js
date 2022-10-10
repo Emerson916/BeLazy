@@ -32,7 +32,7 @@ const CardsVideosItems = ({ data }) => {
         {data?.map((item, key) => (
           <Link
             key={key}
-            to={`/cardDetails/${item.id}`}
+            to={`/app/details/${item.id}`}
             className="w-[220px] inline-block p-2 h-[300px] cursor-pointer hover:scale-95 ease-in-out duration-300 hover:opacity-80"
           >
             <img
