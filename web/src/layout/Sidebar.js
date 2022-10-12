@@ -24,20 +24,32 @@ const Sidebar = ({ menuOpenFunction, menuOpen }) => {
 
       <div
         className={`${
-          menuOpen ? "h-96 " : "h-0 border-none duration-700"
+          menuOpen ? "h-96" : "h-0 border-none duration-700"
         } w-72 bg-[#343746] absolute right-10 top-28 bottom-24 z-10 rounded-md`}
       >
-        <ul className={`${menuOpen ? "flex flex-col" : "hidden"}`}>
-          <p className="text-white text-base font-bold mx-5">Troca de conta</p>
+        <ul className={`${menuOpen ? "flex flex-col h-full" : "hidden"}`}>
+          <p className=" text-white text-base font-bold mx-5">Trocar de conta</p>
 
-          <div className="flex items-center m-5">
-            <div className="flex items-center justify-center bg-colors-primary-color h-10 w-10 rounded-md">
-              <img src={perfil} alt="Foto de perfil do usuário" />
+          <div className="flex flex-col">
+            <div className="flex px-5 py-2 my-2 hover:bg-gray-500 cursor-pointer">
+              <div className="flex items-center justify-center bg-colors-primary-color h-10 w-10 rounded-md">
+                <img src={perfil} alt="Foto de perfil do usuário" />
+              </div>
+              <p className="text-white text-base font-bold mx-5">
+                Emerson Silva
+              </p>
             </div>
-            <p className="text-white text-base font-bold mx-5">Emerson Silva</p>
+            <div className="flex px-5 py-2 my-2 hover:bg-gray-500 cursor-pointer">
+              <div className="flex items-center justify-center bg-colors-primary-color h-10 w-10 rounded-md">
+                <img src={perfil} alt="Foto de perfil do usuário" />
+              </div>
+              <p className="text-white text-base font-bold mx-5">
+                Emerson Silva
+              </p>
+            </div>
           </div>
 
-          <div className="flex flex-col justify-end">
+          <div className="flex flex-col">
             <p className="text-white text-base font-bold mx-5">Configurações</p>
             <div className="h-full border-t-2 border-white">
               <div className="flex flex-col h-full ">
@@ -47,14 +59,14 @@ const Sidebar = ({ menuOpenFunction, menuOpen }) => {
                 <ul className="hover:bg-gray-500 cursor-pointer">
                   <p className="text-white text-base mx-5 m-2">Suporte</p>
                 </ul>
-              </div>
-              <div className="flex flex-col items-center mt-10">
-                <Button
-                  title={"sair"}
-                  width={200}
-                  height={35}
-                  backgroundColor={"#303C76"}
-                />
+                <div className="flex flex-col items-center mt-10">
+                  <Button
+                    title={"sair"}
+                    width={200}
+                    height={35}
+                    backgroundColor={"#303C76"}
+                  />
+                </div>
               </div>
             </div>
           </div>
