@@ -7,6 +7,8 @@ module.exports = {
       colors: {
         colors:{
           "primary-color": "#7808a1",
+          "secondary-color": "#6C63FF",
+          "third-color": "#303C76",
         },
         purple: {
           800: "#303C76",

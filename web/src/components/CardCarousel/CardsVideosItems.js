@@ -33,7 +33,7 @@ const CardsVideosItems = ({ data }) => {
           <Link
             key={key}
             to={`/app/details/${item.id}`}
-            className="w-[220px] inline-block p-2 h-[300px] cursor-pointer hover:scale-95 ease-in-out duration-300 hover:opacity-80"
+            className="w-[220px] inline-block h-[300px] cursor-pointer ease-in-out hover:duration-300 hover:scale-95 hover:opacity-80 hover:border-2 hover:border-white"
           >
             <img
               src={item.imagecard}

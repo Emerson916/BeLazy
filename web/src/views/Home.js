@@ -17,7 +17,7 @@ const Home = () => {
         setFilmsData(films.data);
         setSeriesData(series.data);
       } catch (error) {
-        console.log("Erro da requisição get", error);
+        return false
       }
     }
 
